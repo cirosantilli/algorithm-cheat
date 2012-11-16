@@ -1,9 +1,5 @@
 #motivation
 
-- web/db/text editor
-- simulation: model + algorithm (differential els) predict the future
-- optimization
-
 #operational system choice (linux propaganda)
 
 - how to install
@@ -44,7 +40,7 @@
 - symlinks/hardlinks
 - magic folders ala Windows library/documents
 - /bin, /lib, /src, /include, and the rest of the Linux Filesystem Hierarchy Standard
-   http://www.tuxfiles.org/linuxhelp/linuxdir.html 
+   <http://www.tuxfiles.org/linuxhelp/linuxdir.html>
 - ~ and .bak
 
 #important programs for life
@@ -55,14 +51,21 @@
 * git/mercurial/svn
 
 * ack (find/grep replacement)
+* make (makefile)
+    <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
 ##terminal/bash
 
-* pros and cons
-    pro: reproduce
+* terminal:
+
+    pro: reproduce commands easily
+
     con: cannot do graphs
+
 * bash:
+
     pro: super easy file/pipe/process handling
+
     con: INSANE, INNEFICIENT
 
     one liners only. replacements:
@@ -86,18 +89,26 @@
 - representing integers: signed, 1-complement, 2-complement
 - representing floats
 * memory: registers vs caches vs RAM vs ROM (BIOS) vs HD
-   firefox http://arstechnica.com/gadgets/2002/07/caching/2/
+   <http://arstechnica.com/gadgets/2002/07/caching/2/>
    deep explanaition
 * hard disk vs RAM vs cache vs registers
 * organization of program on memory: address, operational system division
 * RAM memory organization
 * HD program organiztion: ELF files, including libraries
-  * http://www.thegeekstuff.com/2011/10/gcc-linking/
+   * <http://www.thegeekstuff.com/2011/10/gcc-linking/>
+* driver programming
+    http://www.linuxjournal.com/article/7353
+    #5/5
+    #control a lamp. contains c code.
+    http://www.freesoftwaremagazine.com/articles/drivers_linux
+
+* multithreading
+* GPU programming
 
 * busses
-    http://computer.howstuffworks.com/pci1.htm
+    <http://computer.howstuffworks.com/pci1.htm>
 
-* assembler
+# assembler
   * which instruction set: intel x86 vs the rest
   * assembler language: gas (gnu standard gcc) vs nasm vs etc
   * protected vs real mode
@@ -118,16 +129,16 @@
     4. Learning to program in assembly helps one understand better how
     compilers and high level languages like C work.
 
-#sources
+## general sources
 
-  http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux
-  en.wikibooks.org/wiki/X86_Assembly
+  <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
+  <en.wikibooks.org/wiki/X86_Assembly>
 
-  http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm
+  <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
   alternatives to x86
 
   carter
-  http://www.drpaulcarter.com/pcasm/
+  <http://www.drpaulcarter.com/pcasm/>
   4/5
   no os specific interrupts system calls, elf files, linking
 
@@ -135,15 +146,6 @@
   5/5
   linux system calls
   short and to the point
-
-* driver programming
-    http://www.linuxjournal.com/article/7353
-    #5/5
-    #control a lamp. contains c code.
-    http://www.freesoftwaremagazine.com/articles/drivers_linux
-
-* multithreading
-* GPU programming
 
 #math
 
@@ -159,12 +161,11 @@
 - turing machine.
 - p vs. np.
 
-##numeric
 
 ## data structures
 
 * list
-** sorting
+    * sorting
 * map
 * hashmap
 
@@ -195,8 +196,8 @@
 
 ##finite elements
 
-** fluids
-** solids
+* fluids
+* solids
 
 ## integer programming
 
@@ -211,6 +212,12 @@
 - regex
 - language normal form
 
+
+- web/db/text editor
+- simulation: model + algorithm (differential els) predict the future
+- optimization
+
+
 ##hacker culture
 
-“Do you pine for the nice days of Minix-1.1, when men were men and wrote their own device drivers?” Linus Torvalds
+"Do you pine for the nice days of Minix-1.1, when men were men and wrote their own device drivers?" Linus Torvalds
