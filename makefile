@@ -8,10 +8,12 @@ OUTEXT=.html
 SRCS = $(wildcard *$(INEXT))
 OUT = $(patsubst %$(INEXT),$(OUTDIR)/%$(OUTEXT),$(SRCS))
 
-firefox: all
-	firefox $(OUT)
+.PHONY: firefox all clean
 
 all: $(OUT)
+
+firefox: all
+	firefox $(OUT)
 
 $(OUTDIR)/%.html: %.md
 	@mkdir -p $(OUTDIR)

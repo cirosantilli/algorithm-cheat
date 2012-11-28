@@ -1,4 +1,24 @@
-# about
+# flair
+
+- will my airplane fly?
+    <http://www.youtube.com/watch?v=-lDbseYB7Sc>
+
+- will my car protect its passengers?
+    <http://www.youtube.com/watch?v=NrvuFiDqn5A>
+
+- will my motor spin?
+    <http://www.youtube.com/watch?v=QZOZw7bV534>
+
+- how will I move all those heavy pieces?
+    <http://www.youtube.com/watch?v=-_SxW_7v9is>
+
+- what should I take on my trip?
+    <http://en.wikipedia.org/wiki/Knapsack_problem>
+
+- what is the shortest path to deliver the goods?
+    <http://valis.cs.uiuc.edu/~sariel/research/CG/applets/tsp/TspAlg.html>
+
+# programming and ideas
 
     ideas (that can be programmed)
     +
@@ -7,16 +27,28 @@
     *power*
 
 - without ideas, programming is useless!
-- without programming, ideas are useless!
+- without programming, some ideas are useless!
 
-if this is meaningless, come back while you learn some programming language
+# what computers do
 
-# multimedia
+- manipulate information
+
+    - moving information around
+    - reaching new information from old
+
+    - fast
+    - cheap
+    - without errors
+
+- information can be transformed into voltage
+voltage in movement,temperature and light!
+
+# manipulate information for humans
 
 - learn
 - have fun
 
-programs can:
+programs can help:
 
 - view
 - edit
@@ -31,11 +63,7 @@ stuff like:
 - videos
 - games
 
-to transmit:
-
-- web
-
-# change the future to what you want it to be
+# change the future
 
 1. predict the future
 
