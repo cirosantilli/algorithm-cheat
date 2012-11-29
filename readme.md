@@ -1,5 +1,5 @@
 tutorial on how to become a good programmer for complete begginers.
 
-based mostly in linux/, c and python for platform dependent parts.
+os/languages used to illustrate concepts: linux, c and python
 
 completion level: low
