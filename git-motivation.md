@@ -1,5 +1,7 @@
-this is all valid for any [vcm](http://en.wikipedia.org/wiki/Revision_control)
-with a web interface, such as [git](http://git-scm.com/) + [github](https://github.com/)
+this workflow is valid for any [vcm](http://en.wikipedia.org/wiki/Revision_control)
+with a web interface
+
+here i'm showing [git](http://git-scm.com/) + [github](https://github.com/)
 
 # version control
 
@@ -101,7 +103,7 @@ meaning:
 
         there will be 3 lines total in what we see
 
-why it is useful:
+# why this is useful
 
 1) if someone wants to improve your work
 
