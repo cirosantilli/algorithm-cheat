@@ -23,11 +23,11 @@
 
 #what makes a good programmer
 
-* know the best way to do tasks in language
-* algorithms
-* computer inner workings: (how language becomes assembler, how drives are accessed, etc.)
-* design patterns
-* large scale modeling
+- know the best way to do tasks in language
+- algorithms
+- computer inner workings: (how language becomes assembler, how drives are accessed, etc.)
+- design patterns
+- large scale modeling
 
 #directory structure
 
@@ -44,81 +44,81 @@
 
 #important programs for life
 
-* vim
-* latex
-* krusader
-* git/mercurial/svn
-
-* ack (find/grep replacement)
-* make (makefile)
+- vim
+- latex
+- krusader
+- version control management git/mercurial/svn
+    - <a href="./git-motivation.html">git motivation</a>
+- ack (find/grep replacement)
+- make (makefile)
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
 ##terminal/bash
 
-* terminal:
+- terminal:
 
     pro: reproduce commands easily
 
     con: cannot do graphs
 
-* bash:
+- bash:
 
     pro: super easy file/pipe/process handling
 
     con: INSANE, INNEFICIENT
 
     one liners only. replacements:
-    * perl is dead
-    * python! yes, also useful for other things, so worth learning
+    - perl is dead
+    - python! yes, also useful for other things, so worth learning
 
-* --help (how to read, [], ..., ), man, version
-* languages bash, vs cmd, other more obscure ones
-* directory structure, homedir, fake vs real dirs
-* options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
-* stdin/stderr/stdout
-** three holes
-** pipes > to file, | grep, 1>&2
-* exit status
-* pipe (help grep example)
-* interactive vs. non-interactive
+- --help (how to read, [], ..., ), man, version
+- languages bash, vs cmd, other more obscure ones
+- directory structure, homedir, fake vs real dirs
+- options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
+- stdin/stderr/stdout
+*- three holes
+*- pipes > to file, | grep, 1>&2
+- exit status
+- pipe (help grep example)
+- interactive vs. non-interactive
 
 #machine/low-level
 
 - representing letters: ascii unicode utf*
 - representing integers: signed, 1-complement, 2-complement
 - representing floats
-* memory: registers vs caches vs RAM vs ROM (BIOS) vs HD
+- memory: registers vs caches vs RAM vs ROM (BIOS) vs HD
    <http://arstechnica.com/gadgets/2002/07/caching/2/>
    deep explanaition
-* hard disk vs RAM vs cache vs registers
-* organization of program on memory: address, operational system division
-* RAM memory organization
-* HD program organiztion: ELF files, including libraries
-   * <http://www.thegeekstuff.com/2011/10/gcc-linking/>
-* driver programming
+- hard disk vs RAM vs cache vs registers
+- organization of program on memory: address, operational system division
+- RAM memory organization
+- HD program organiztion: ELF files, including libraries
+   - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
+- driver programming
     http://www.linuxjournal.com/article/7353
     #5/5
     #control a lamp. contains c code.
     http://www.freesoftwaremagazine.com/articles/drivers_linux
 
-* multithreading
-* GPU programming
+- multithreading
+- GPU programming
 
-* busses
+- busses
     <http://computer.howstuffworks.com/pci1.htm>
 
 # assembler
-  * which instruction set: intel x86 vs the rest
-  * assembler language: gas (gnu standard gcc) vs nasm vs etc
-  * protected vs real mode
-  * interfacing with c
-  * what operations a processor can do
-  * L1, L2 caches
-  * system calls, kernel
-  * interrupts
-  * segments/flat memory model TODO ?
+  - which instruction set: intel x86 vs the rest
+  - assembler language: gas (gnu standard gcc) vs nasm vs etc
+  - protected vs real mode
+  - interfacing with c
+  - what operations a processor can do
+  - L1, L2 caches
+  - system calls, kernel
+  - interrupts
+  - segments/flat memory model TODO ?
 
-  * motivation
+  - motivation
     1. Sometimes code written in assembly can be faster and smaller than
     compiler generated code.
     2. Assembly allows access to direct hardware features of the system that
@@ -148,8 +148,8 @@
 
 #math
 
-* binary, hexa
-* normal syntax form
+- binary, hexa
+- normal syntax form
 
 #algorithms
 
@@ -163,20 +163,20 @@
 
 ## data structures
 
-* list
-    * sorting
-* map
-* hashmap
+- list
+    - sorting
+- map
+- hashmap
 
 ## classic
 
-* exponential
-* factorial
-* fibonacci
-* min/max
-* sorting
-* mcd, mcm
-* prime sieve
+- exponential
+- factorial
+- fibonacci
+- min/max
+- sorting
+- mcd, mcm
+- prime sieve
 
 ## numeric
 
@@ -195,8 +195,8 @@
 
 ##finite elements
 
-* fluids
-* solids
+- fluids
+- solids
 
 ## integer programming
 
