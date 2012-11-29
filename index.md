@@ -18,16 +18,15 @@
 
 ## data languages
 
-- jason
+- json
 - xml
 
 #what makes a good programmer
 
-* know a (many) language
-* libraries of a language (hard)
+* know the best way to do tasks in language
 * algorithms
 * computer inner workings: (how language becomes assembler, how drives are accessed, etc.)
-* small design patterns
+* design patterns
 * large scale modeling
 
 #directory structure

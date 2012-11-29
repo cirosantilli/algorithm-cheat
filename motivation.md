@@ -33,7 +33,7 @@
 
 - manipulate information
 
-    - moving information around
+    - copying and moving information around
     - reaching new information from old
 
     - fast
