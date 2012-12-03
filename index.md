@@ -5,16 +5,24 @@
 - how to install
 - distros
 
-#programming language choice
+#programming language
 
 - most popular? hard to say
 - niches php, javascript == web, fortran == numerical
 - all languages the same (theorethical)
 - categories:
-  - compiled vs interpreted (virtual machine) non compiled languages
-      - speed vs multiplataform, quick test, prototyping
-  - objects
+    - compiled vs interpreted (virtual machine) non compiled languages
+        - speed vs multiplataform, quick test, prototyping
+    - objects oriented
 - lang easy, lib hard
+    - learn *every* important library of a language
+
+my choices:
+
+- c
+- c++
+- python
+- java
 
 ## data languages
 
@@ -29,73 +37,130 @@
 - design patterns
 - large scale modeling
 
-#directory structure
+#filesystem
 
 - home dir
 - case
-- typical names: bin, doc, 
+- naming conventions
+    - bin
+    - ~ and .bak
+    - doc
+    - dot hidden
+    - lib
+    - src
+    - include
+    - share
+    - local
+    - and the rest of the Linux Filesystem Hierarchy Standard
+        <http://www.tuxfiles.org/linuxhelp/linuxdir.html>
 - do not start with hyphen
-- dot hidden
 - symlinks/hardlinks
 - magic folders ala Windows library/documents
-- /bin, /lib, /src, /include, and the rest of the Linux Filesystem Hierarchy Standard
-   <http://www.tuxfiles.org/linuxhelp/linuxdir.html>
-- ~ and .bak
 
 #important programs for life
 
 - vim
-- latex
+
+    best editor ever
+
+- markup
+    
+    you need to communicate with:
+
+    - others
+    - yourself
+
+    learn:
+
+    - latex
+    - html
+    - markdown
+    - reStructuredText
+
 - krusader
-- version control management git/mercurial/svn
-    - <http://try.github.com/>
-    - [git-motivation.html]()
+
+    you need to manage your files
+
+- source version control (svc)
+
+    you need to contribute with others
+
+    my picks:
+
+    - git
+        - <http://try.github.com/>
+        - [git-motivation.html]()
+
+    - svn
+
+    related:
+
+    - use a bugracker
+
 - ack (find/grep replacement)
+
+    find in files
+
 - make (makefile)
+
+    automate compilations
+
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
-##terminal/bash
+##terminal
+
+- language:
+    - linux: bash
+    - windows: cmd
 
 - terminal:
-
-    pro: reproduce commands easily
-
-    con: cannot do graphs
+    - pro: reproduce commands easily
+    - con: cannot do graphs
 
 - bash:
+    - pro: super easy file/pipe/process handling
+    - con: INSANE, INNEFICIENT
 
-    pro: super easy file/pipe/process handling
-
-    con: INSANE, INNEFICIENT
-
-    one liners only. replacements:
+    use for one liners only. replacements:
     - perl is dead
     - python! yes, also useful for other things, so worth learning
 
 - --help (how to read, [], ..., ), man, version
-- languages bash, vs cmd, other more obscure ones
 - directory structure, homedir, fake vs real dirs
 - options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
 - stdin/stderr/stdout
-*- three holes
-*- pipes > to file, | grep, 1>&2
+    - three holes
+    - pipes > to file, | grep, 1>&2
 - exit status
 - pipe (help grep example)
 - interactive vs. non-interactive
 
 #machine/low-level
 
-- representing letters: ascii unicode utf*
-- representing integers: signed, 1-complement, 2-complement
-- representing floats
+- representing letters:
+    - ascii
+    - unicode
+    - utf8
+
+- representing integers:
+    - binary, hexa
+    - signed
+        - one's complement
+        - 2-complement
+
+- representing real numbers
+
 - memory: registers vs caches vs RAM vs ROM (BIOS) vs HD
-   <http://arstechnica.com/gadgets/2002/07/caching/2/>
-   deep explanaition
+
+    <http://arstechnica.com/gadgets/2002/07/caching/2/>
+
+    deep explanaition
+
 - hard disk vs RAM vs cache vs registers
 - organization of program on memory: address, operational system division
 - RAM memory organization
 - HD program organiztion: ELF files, including libraries
-   - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
+    - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
 - driver programming
     http://www.linuxjournal.com/article/7353
     #5/5
@@ -131,64 +196,94 @@
 
 ## general sources
 
-  <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
-  <en.wikibooks.org/wiki/X86_Assembly>
+- <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
 
-  <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
-  alternatives to x86
+- <en.wikibooks.org/wiki/X86_Assembly>
 
-  carter
-  <http://www.drpaulcarter.com/pcasm/>
-  4/5
-  no os specific interrupts system calls, elf files, linking
+- <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
+alternatives to x86
 
-  http://docs.cs.up.ac.za/programming/asm/derick_tut/
-  5/5
-  linux system calls
-  short and to the point
+- carter <http://www.drpaulcarter.com/pcasm/>
+    - no os specific interrupts system calls, elf files, linking
 
-#math
+- <http://docs.cs.up.ac.za/programming/asm/derick_tut/>
+    - 5/5
+    - linux system calls
+    - short and to the point
 
-- binary, hexa
-- normal syntax form
+#computer science
 
-#algorithmic complexity
+- algorithmic complexity
 
-<http://en.wikipedia.org/wiki/Analysis_of_algorithms>
+    <http://en.wikipedia.org/wiki/Analysis_of_algorithms>
 
-- time and space
-- recursive vs non-recursive
-- turing machine.
-- p vs. np.
+    you need to decide what algorithm is better than what
+
+    topics:
+    - time and space
+    - recursive vs non-recursive
+    - turing machine
+    - p vs. np
+
+    resources:
+
+- data structures
+    - list
+        - sorting
+    - hashmap
+
+- languages
+    - backus naur form: <http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form>
 
 #applications
 
-- calculus
-- linear algebra
-- probability
-- discrete
+come from
 
-## data structures
+- maths
 
-- list
-    - sorting
-- hashmap
+    - calculus
+    - linear algebra
+    - probability
+    - discrete
 
-## classic
+- physics
+
+    - mechanics
+    - thermo
+    - eletromag
+    - quantum
+
+and the rest:
+
+- based on maths and physics
+
+    - chemistry
+    - biology
+
+- not based maths and physics
+
+    - economy
+
+then:
+
+- implement their applications yourself
+- find an existing implementation and learn to use it
+
+##classic
 
 - exponential
 - factorial
 - fibonacci
 - min/max
-- sorting
 - mcd, mcm
 - prime sieve
+- sorting
 
 ## numeric
 
 - f(x) = 0
--- divide by two
--- newtons method
+    - divide by two
+    - newtons method
 - split, newton
 - eq difs: ordinary/partial
 - integration
@@ -210,9 +305,9 @@
 
 - make cheatsheets!!!!
 - how to type: resource arm
-  - user four fingers
-  - closest one first
-  - look at the screen
+    - user four fingers
+    - closest one first
+    - look at the screen
 - use keyboard shortcuts
 - regexp
 - language normal form
