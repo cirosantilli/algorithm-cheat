@@ -1,11 +1,31 @@
 #about
 
-this workflow is basically valid for any [vcm](http://en.wikipedia.org/wiki/Revision_control)
+this workflow is basically valid for any [vcm]
 with a web interface
 
-here i'm showing linux (ubuntu) + [git](http://git-scm.com/) + [github]
+#motivation
+
+in short, git allows you to do the following *easily*:
+
+- [make *versions* of your work](#versions)
+    - others can refer to a specific version: in a new version, what they refer to may be gone
+    - backup: if you make a serious mistake you can come back to an old correct version
+- [*upload* your work to a server](#upload)
+    - backup your work
+    - publish it
+- [view *differences* between versions](#differences)
+    - to find out where things went wrong if they were correct before
+    - view what modifications have been made by others to your work
+- work with *real* software projects
+    - learn by doing a real project
+    - make a difference to the world
+
+in what follows, I will try to convince you that this is all easy and useful
+by showing you how to do it.
 
 #setup
+
+here i'm showing linux (ubuntu) + [git](http://git-scm.com/) + [github]
 
 install and configure git on ubuntu:
 
@@ -17,7 +37,7 @@ create a test folder and file:
 
     mkdir test
     cd test
-    touch test.md
+    echo -n "before\nafter" > test.md
 
 create a new repository with:
 
@@ -25,19 +45,19 @@ create a new repository with:
 
 this creates a ``.git`` dir to contain all git information.
 
-see which files git sees with:
+# versions
+
+before making a new version, you must tell git which files it will consider
+
+see which files git considers currently with:
 
     git status
 
-look at the ``Untracked files`` part. it contains ``test.md``
+``test.md`` should be under the ``Untracked files:`` section
 
-it should contain:
+``untracked`` means git is not seeing ``file.md``
 
-    test.md
-
-*untracked* means git is not seeing ``file.md``
-
-this means you can't do anything with it.
+this means git won't do anything with it at all.
 
 track ``test.md`` with git with:
 
@@ -49,25 +69,37 @@ check this out with:
 
     git status
 
-now ``test.md`` should not be untracked anymore
+now ``added: test.md`` should be under the ``Changes to be committed:`` section
 
-# manage versions
+``Changes to be committed:`` tells you what will happen next time you try to create a version
 
-make changes:
+create a version with:
 
-    echo -n "before\nafter" > test.md
-
-make a version with:
-
-    git commit -am 'all working'
+    git commit -m 'all working'
 
 make more changes
 
     echo -n "before\nerror\nafter" > test.md
 
-create another version with:
+see what will happen on next commit:
 
-    git commit -am 'an error'
+    git status
+
+now ``modified: files.md`` should be under the ``Changes not staged for commit:`` section
+
+this means that git already considers ``files.md`` since we already added it before,
+but that next time we try to make a new version this file won't be considered.
+
+if you want the new version to consider this, you have two choices:
+
+1) add it again with ``git add`` and then commit
+2) commit with the ``-a`` option:
+
+        git commit -am 'an error'
+
+    this will consider changes for all files that have already been added before
+
+    this is often what we want
 
 see existing versions with:
 
@@ -135,7 +167,7 @@ to a new file, and the link is broken!
 
 solution: always link to a specific version
         
-# upload to an external server
+# upload
 
 go to [github]
 
@@ -176,11 +208,11 @@ go back to github and browse your uploaded files
 
     so other can see the latest version immediatelly
 
-# view differences between versions
+# differences
+
+see differences between two versions with:
 
     git diff eebb22 06637b
-
-see differences between current version and last one
 
 sample output:
 
@@ -198,6 +230,10 @@ meaning:
 - after, "error" was added after "before", becoming line 4
 
     there will be 3 lines total in what we see
+
+    '+' indicates that a line was added.
+
+    not surprisingly, if we remove something, a '-' will show instead
 
 ## motivation
 
@@ -271,6 +307,8 @@ there are many features left:
 - HEAD, HEAD^, HEAD~3
 - tags
 - branches
+- merge
 
 
 [github]: https://github.com/
+[vcm]: http://en.wikipedia.org/wiki/Revision_control

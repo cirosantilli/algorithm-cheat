@@ -15,7 +15,7 @@
 - what should I take on my trip?
     <http://en.wikipedia.org/wiki/Knapsack_problem>
 
-- what is the shortest path to deliver the goods?
+- what is the shortest path to deliver those goods?
     <http://valis.cs.uiuc.edu/~sariel/research/CG/applets/tsp/TspAlg.html>
 
 # programming and ideas
@@ -41,6 +41,7 @@
     - without errors
 
 - information can be transformed into voltage
+
 voltage in movement,temperature and light!
 
 # manipulate information for humans

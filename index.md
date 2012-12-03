@@ -8,7 +8,7 @@
 #programming language choice
 
 - most popular? hard to say
-- niches php, javascript == web
+- niches php, javascript == web, fortran == numerical
 - all languages the same (theorethical)
 - categories:
   - compiled vs interpreted (virtual machine) non compiled languages
@@ -48,7 +48,8 @@
 - latex
 - krusader
 - version control management git/mercurial/svn
-    - <a href="./git-motivation.html">git motivation</a>
+    - <http://try.github.com/>
+    - [git-motivation.html]()
 - ack (find/grep replacement)
 - make (makefile)
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
@@ -151,21 +152,26 @@
 - binary, hexa
 - normal syntax form
 
-#algorithms
+#algorithmic complexity
 
-##algorithmic complexity
+<http://en.wikipedia.org/wiki/Analysis_of_algorithms>
 
-- what is better than what: time and space
+- time and space
 - recursive vs non-recursive
 - turing machine.
 - p vs. np.
 
+#applications
+
+- calculus
+- linear algebra
+- probability
+- discrete
 
 ## data structures
 
 - list
     - sorting
-- map
 - hashmap
 
 ## classic
@@ -191,7 +197,7 @@
 - foundations, incompleteness, forcing
 - FFT
 
-##control
+##control theory
 
 ##finite elements
 
@@ -202,20 +208,14 @@
 
 #misc
 
-- make cheatsheets
+- make cheatsheets!!!!
 - how to type: resource arm
   - user four fingers
   - closest one first
   - look at the screen
 - use keyboard shortcuts
-- regex
+- regexp
 - language normal form
-
-
-- web/db/text editor
-- simulation: model + algorithm (differential els) predict the future
-- optimization
-
 
 ##hacker culture
 
