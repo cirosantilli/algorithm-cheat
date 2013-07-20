@@ -1,11 +1,11 @@
-# motivation
+#motivation
 
-# operational system choice (linux propaganda)
+#operational system choice (linux propaganda)
 
 - how to install
 - distros
 
-# programming language
+#programming language
 
 - most popular? hard to say
 - niches php, javascript == web, fortran == numerical
@@ -39,12 +39,12 @@ my choices:
 - python
 - java
 
-## data languages
+##data languages
 
 - json
 - xml
 
-## web development
+##web development
 
 - html
 - http
@@ -71,7 +71,7 @@ my choices:
     - deal with permissions you lack on server
     - ssh
 
-# what makes a good programmer
+#what makes a good programmer
 
 - know the best way to do tasks in language
 - algorithms
@@ -185,14 +185,18 @@ my choices:
     - class diagram
 
         - name
+
         - members
-            - relations (member that is a list of other objects)
-                - bi
-                - uni
-                - association class
-                - basic aggregation (car wheel)
-                - compositio (company department)
-                - reflexive
+
+            relations (member that is a list of other objects):
+
+            - bi
+            - uni
+            - association class
+            - basic aggregation (car wheel)
+            - compositio (company department)
+            - reflexive
+
         - methods
         - inheritance
         - interfaces
@@ -204,9 +208,10 @@ my choices:
         - same as class, but with instances instead
 
     http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/
+
         uml intro
 
-# stragegy
+#stragegy
 
 artistic level
 
@@ -220,7 +225,7 @@ artistic level
 
     ex microsoft employee, lots of exp
 
-# filesystem
+#filesystem
 
 - home dir
 - case
@@ -240,7 +245,7 @@ artistic level
 - symlinks/hardlinks
 - magic folders ala Windows library/documents
 
-# important programs for life
+#important programs for life
 
 - vim
 
@@ -290,124 +295,131 @@ artistic level
 
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
-## terminal
+##terminal
 
 - language:
+
     - linux: bash
     - windows: cmd
 
 - terminal:
+
     - pro: reproduce commands easily
     - con: cannot do graphs
 
 - bash:
+
     - pro: super easy file/pipe/process handling
     - con: INSANE, INNEFICIENT
 
     use for one liners only. replacements:
+
     - perl is dead
     - python! yes, also useful for other things, so worth learning
 
 - --help (how to read, [], ..., ), man, version
+
 - directory structure, homedir, fake vs real dirs
+
 - options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
+
 - stdin/stderr/stdout
+
     - three holes
     - pipes > to file, | grep, 1>&2
+
 - exit status
+
 - pipe (help grep example)
+
 - interactive vs. non-interactive
 
-# machine/low-level
-{
+#machine low-level
 
-    <http://www.bottomupcs.com/>
+<http://www.bottomupcs.com/>
 
-    #assembler
-    {
-        - what operations a processor can do, isa
-    }
+##assembler
 
-    #representing letters
-    {
-        #ascii
-        #unicode
-        #utf8
-    }
+- what operations a processor can do, isa
 
-    #representing integers
-    {
-        #binary, hexa
-        #signed
-            #one's complement
-            #2-complement
-    }
+##representing letters
 
-    - representing real numbers
+- ascii
+- unicode
+- utf8
 
-    - memory: registers vs caches vs RAM vs ROM (BIOS) vs VRAM vs HD
+##representing integers
 
-        <http://arstechnica.com/gadgets/2002/07/caching/2/>
+- binary, hexa
+- signed
 
-        deep explanaition
+    - one's complement
+    - 2-complement
 
-    - program memory layout/segments: address, operational system division
+- representing real numbers
 
-        - <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
+- memory: registers vs caches vs RAM vs ROM (BIOS) vs VRAM vs HD
 
-            tutorial to gdb
+    <http://arstechnica.com/gadgets/2002/07/caching/2/>
 
-    - RAM memory organization
+    deep explanaition
 
-    - HD program organiztion: ELF files, including libraries
-        - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
+- program memory layout/segments: address, operational system division
 
-    - driver programming
-        <http://www.linuxjournal.com/article/7353>
-        #5/5
-        #control a lamp. contains c code.
-        <http://www.freesoftwaremagazine.com/articles/drivers_linux>
+    - <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
 
-    - multithreading concurrency ipc
+        tutorial to gdb
 
-        - thread vs process
+- RAM memory organization
 
-            a process can contain many threads
+- HD program organiztion: ELF files, including libraries
+    - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
 
-            threads share a memory space, process don't
+- driver programming
+    <http://www.linuxjournal.com/article/7353>
+    #5/5
+    #control a lamp. contains c code.
+    <http://www.freesoftwaremagazine.com/articles/drivers_linux>
 
-        - ipc
+- multithreading concurrency ipc
 
-            - pipes : same machine
-            - sockets : different machines
-                - internet
-                - pci
-                - usb
+    - thread vs process
 
-    - GPU programming
+        a process can contain many threads
 
-    - busses
-        <http://computer.howstuffworks.com/pci1.htm>
+        threads share a memory space, process don't
 
-    # general sources
+    - ipc
 
-    - <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
+        - pipes : same machine
+        - sockets : different machines
+            - internet
+            - pci
+            - usb
 
-    - <en.wikibooks.org/wiki/X86_Assembly>
+- GPU programming
 
-    - <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
-    alternatives to x86
+- busses
+    <http://computer.howstuffworks.com/pci1.htm>
 
-    - carter <http://www.drpaulcarter.com/pcasm/>
-        - no os specific interrupts system calls, elf files, linking
+##general sources
 
-    - <http://docs.cs.up.ac.za/programming/asm/derick_tut/>
-        - 5/5
-        - linux system calls
-        - short and to the point
-}
+- <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
 
-# computer science
+- <en.wikibooks.org/wiki/X86_Assembly>
+
+- <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
+alternatives to x86
+
+- carter <http://www.drpaulcarter.com/pcasm/>
+    - no os specific interrupts system calls, elf files, linking
+
+- <http://docs.cs.up.ac.za/programming/asm/derick_tut/>
+    - 5/5
+    - linux system calls
+    - short and to the point
+
+#computer science
 
 - algorithmic complexity
 
@@ -442,7 +454,7 @@ artistic level
 
     - backus naur form: http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
 
-# optimizing code
+#optimizing code
 
 more important than those are to first:
 
@@ -462,9 +474,9 @@ a few important ones are:
 
 -register renaming: http://en.wikipedia.org/wiki/Register_renaming
 
-# applications
+#applications
 
-## about
+##about
 
 come from
 
@@ -498,7 +510,7 @@ then:
 - implement their applications yourself
 - find an existing implementation and learn to use it
 
-## multiplication
+##multiplication
 
 - unknown sup of lower bounds
 
@@ -525,7 +537,7 @@ then:
 
     FFT based!
 
-## matrix multiplication
+##matrix multiplication
 
 - unknown sup of lower bounds
 
@@ -539,7 +551,7 @@ then:
 
     <http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication>
 
-## unranged
+##unranged
 
 - exponential
 - factorial
@@ -560,16 +572,16 @@ then:
 - foundations, incompleteness, forcing
 - FFT
 
-## control theory
+##control theory
 
-## finite elements
+##finite elements
 
 - fluids
 - solids
 
-## integer programming
+##integer programming
 
-# misc
+#misc
 
 - make cheatsheets!!!!
 
@@ -580,7 +592,7 @@ then:
 
 - use keyboard shortcuts
 
-## funny
+##funny
 
 "Do you pine for the nice days of Minix-1.1, when men were men and wrote their own device drivers?" Linus Torvalds
 

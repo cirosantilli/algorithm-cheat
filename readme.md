@@ -1,4 +1,3 @@
-tutorial on how to become a good programmer for complete begginers.
+Info on theorethical and applied computer science.
 
-this contains only os/language independant information,
-specific information will only be used to illustrate concepts.
+Contains mostly OS / language agnostic information.
