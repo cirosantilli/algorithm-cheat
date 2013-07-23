@@ -408,7 +408,7 @@ The rule is simple:
     - Yes:  $j++$
     - No: exchange $A[i]$ and $A[j]$, $j++$, $i++$
 
-So: $8 > 4$? Yes. $j++$:
+$8 > 4$? Yes. $j++$:
 
           | 8 2 7 1 3 5 6 | 4
           | ^ ^           | ^
@@ -448,7 +448,7 @@ $1 > 4$? No. Exchange $A[i]$ and $A[j]$:
           |           |
     small | large     | pivot
 
-So: $3 > 4$? No. Exchange $A[i]$ and $A[j]$:
+$3 > 4$? No. Exchange $A[i]$ and $A[j]$:
 
       2 1 | 3 8 7 5 6 | 4
           | ^   ^     | ^
@@ -497,6 +497,8 @@ What to do next? Recurse down twice:
 
 - from $0$ to $i - 1$
 - from $i + 1$ to $N$
+
+<!-- --!>
 
     2 1 3 | 4 | 7 5 6 8
     ^   ^ |   | ^     ^
