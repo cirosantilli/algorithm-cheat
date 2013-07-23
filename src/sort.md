@@ -8,6 +8,28 @@ To understand them, see how they work step by step on examples.
 
     Compare them all
 
+#the best algorithm
+
+See this: <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
+
+It can be proven that the best a general algorithm can do is $O(n log(n))$ worst case time.
+
+There are many algorithms that sort in-place, thus achieving $O(1)$ memory worst case.
+
+There are algorithms that achieve both optimal time and space at the same time such as heapsort.
+
+Another parameter to take into account is stability. Heapsort which achieves both $n log(n)$ worst case time
+and $O(1)$ space is not stable.
+
+TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and* is stable?
+
+In practice, forgetting assymptotic worst cases merge sort ($n lon(n)$ time worst case $n$ space)
+and quicksort ($n log(n)$ time average) have good performance and both have stable imlementations.
+
+If extra information is known about the input, it is possible to reduce time worst case o $O(n)$.
+For example, if the values are all integers between $0$ and $k$, and $k$ is $O(n)$, then
+counting sort has $O(n)$ worst case.
+
 #buble
 
 Very slow.
@@ -103,6 +125,8 @@ Therefore the w4 2 1 3orst case complexity must be $n^2$.
 
 #insert
 
+TODO
+
 #merge
 
 Worst: $n log(n)$ time $n$ space
@@ -128,23 +152,23 @@ The first step is to merge:
 
 - two sorted lists: one containing only `2` and the other only `4`
 
-        4 | 2 | 1 | 3
+        4 | 2 | 1 3
         ^   ^
 
     This gives:
 
-        2 | 4 | 1 | 3
+        2 | 4 | 1 3
         ^   ^
 
 - two sorted lists: one containing only `1` and the other only `3`
 
-        2 | 4 | 1 | 3
-                ^   ^
+        2 4 | 1 | 3
+              ^   ^
 
     Since they are already sorted, this gives:
 
-        2 | 4 | 1 | 3
-                ^   ^
+        2 4 | 1 | 3
+              ^   ^
 
 Keep in mind that an array with a single element is always sorted.
 
@@ -172,114 +196,117 @@ Let's merge the two following ordered arrays: `2 4` and `1 3`, both os size `n =
 
 They are both on a single input array side by side:
 
-    input: 2 4 1 3
+    input: 2 4 | 1 3
+
+The `|` is just to ease the visualization: it does not exist on the array.
 
 That will be our input.
 
 First make a copy of the input (`O(n)` memory):
 
-    input:  2 4 1 3
+    input:  2 4 | 1 3
 
-    output: 2 4 1 3
+    output: 2 4 | 1 3
 
 Now point to their elements with indexes `k`, `i` and `j` as:
 
-    input:  2 4 1 3
-            ^   ^
-            i   j
-
-    output: 2 4 1 3
-            ^
-            k
-
-`i` points to the first of the first list, and `j` to the fist of the second list.
-
-`j` points to the first of the output.
-
-Compare values of `A_i` and `A_j`.
-
-Put the smallest one into `A_k`:
-
-    input:  1 4 1 3
-            ^
-            k
-
-    output: 2 4 1 3
-            ^   ^
-            i   j
-
-So the smallest was 1 (the owther was 2).
-
-Move k, and the smallest of i and j forward:
-
-    input:  2 4 1 3
+    input:  2 4 | 1 3
             ^     ^
             i     j
 
-    output: 1 4 1 3
+    output: 2 4 | 1 3
+            ^
+            k
+
+$i$ points to the first of the first list, and $j$ to the fist of the second list.
+
+$j$ points to the first of the output.
+
+Compare values of $A[i]$ and $A[j]$.
+
+Put the smallest one into $A[k]$:
+
+    input:  2 4 | 1 3
+            ^     ^
+            i     j
+
+    output: 1 4 | 1 3
+            ^
+            k
+
+
+So the smallest was 1 (the owther was 2).
+
+Move $k$, and the smallest of $i$ and $j$ forward:
+
+    input:  2 4 | 1 3
+            ^       ^
+            i       j
+
+    output: 1 4 | 1 3
               ^
               k
 
-k moved from 1 to 4, j moved from 1 to 3 because it was the smallest and not i.
+$k$ moved from 1 to 4, $j$ moved from 1 to 3 because it was the smallest and not $i$.
 
 This is the end of the step.
 
 In total we did:
 
-- one comparison (`A[i]` and `A[j]`)
-- one value copy
-- two increments (i and j)
+- one comparison: $A[i]$ and $A[j]$
+- one value copy: $A[i]$ or $A[j]$ to $A[k]$
+- two increments: $i$ and $j$
 
 Repeat step:
 
-    input:  2 4 1 3
-              ^   ^
-              i   j
-
-    output: 1 2 1 3
-                ^
-                k
-
-Repeat step:
-
-
-    input:  2 4 1 3
+    input:  2 4 | 1 3
               ^     ^
               i     j
 
-    output:  1 2 3 3
+    output: 1 2 | 1 3
                   ^
                   k
 
+Repeat step:
 
-Ops, j fell out.
+
+    input:  2 4 | 1 3
+              ^       ^
+              i       j
+
+    output: 1 2 | 3 3
+                    ^
+                    k
+
+
+Oops, $j$ fell out.
 
 Last rule: if one of them falls out, it equals infinity.
 
 We can now just copy the remaining elements of the other side into the output
 with an efficient `memcpy` (in this case a single element `4`):
 
-    input:  1 2 3 4
-                    ^
-                    k
+    input:  1 2 | 3 4
+                      ^
+                      k
 
-    output: 2 4 1 3
-              ^     ^
-              i     j
+    output: 2 4 | 1 3
+                ^     ^
+                i     j
 
 Opps, k fell out. This means that the merge has ended.
 
-We took each step exactly `2n` times, where `n` is the length of each half,
+We took each step exactly $2n$ times, where $n$ is the length of each half,
 because:
 
-- `k` increases once per step
-- the step ends when `k` falls out of the output.
+- $k$ increases once per step
+- the step ends when $k$ falls out of the output.
 
-Therefore each merge step of two arrays of size `n` takes `O(n)` steps.
+Therefore each merge step of two arrays of size $n$ takes $O(n)$ steps.
 
 ##complexity recursive analysis
 
-Let `S(n)` be the number of steps for size `n`.
+Let $S(n)$ be the number of steps for size $n$.
 
 We have:
 
@@ -327,11 +354,11 @@ which makes a total of:
 m times.
 
 But since $2^m >= N$, we have in the worst case: $D*N*log(N)$, with $D = C/2$,
-where C was the cost of:
+where we recall that C was the cost of:
 
-- one comparison (`A[i]` and `A[j]`)
+- one comparisond
 - one value copy
-- two increments (i and j)
+- two increments
 
 The memory worst case was all on the last merge, which required merging $N/2$ arrays,
 so we actually made a copy of th entire original array.
@@ -346,12 +373,209 @@ Even if it is quadratic worst time,
 it is still quite used in practice because of $log(n)$ average and low memory usage,
 and because it has good cache reutilization.
 
-[Visualization](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+##visualization of one step
 
-##visualization
+Quick but imprecise view: [gif gisualization](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif).
 
-    7 2 3 6 1 8 3
+Input array:
 
-    7 2 3 6 1 8 3
+    8 2 7 1 3 5 6 4
+
+Pointer setup:
+
+    8 2 7 1 3 5 6 4
+    ^             ^
+    i             r
+    j
+
+Visualization: we will separate things into two groups: smaller or equal to $A[r]$, and larger than $A[r]$:
+
+          | 8 2 7 1 3 5 6 | 4
+          | ^             | ^
+          | i             | r
+          | j             |
+    small | large         | pivot
+
+
+- $i$ is the first of the large side.
+- $j$ is the current one we are checking now.
+- $r$ is a recursive input of this step. It will move only between two steps. It starts at the rightmost element.
+
+The rule is simple:
+
+- $A[j] > A[r]$?
+
+    - Yes:  $j++$
+    - No: exchange $A[i]$ and $A[j]$, $j++$, $i++$
+
+So: $8 > 4$? Yes. $j++$:
+
+          | 8 2 7 1 3 5 6 | 4
+          | ^ ^           | ^
+          | i j           | r
+          |               |
+    small | large         | pivot
+
+$2 > 4$? No. Exchange $A[i]$ and $A[j]$:
+
+          | 2 8 7 1 3 5 6 | 4
+          | ^ ^           | ^
+          | i j           | r
+          |               |
+    small | large         | pivot
+
+$i++$ and $j++$:
+
+        2 | 8 7 1 3 5 6 | 4
+          | ^ ^         | ^
+          | i j         | r
+          |             |
+    small | large       | pivot
+
+$7 > 4$? Yes. $j++$:
+
+        2 | 8 7 1 3 5 6 | 4
+          | ^   ^       | ^
+          | i   j       | r
+          |             |
+    small | large       | pivot
+
+$1 > 4$? No. Exchange $A[i]$ and $A[j]$:
+
+      2 1 | 7 8 3 5 6 | 4
+          | ^   ^     | ^
+          | i   j     | r
+          |           |
+    small | large     | pivot
+
+So: $3 > 4$? No. Exchange $A[i]$ and $A[j]$:
+
+      2 1 | 3 8 7 5 6 | 4
+          | ^   ^     | ^
+          | i   j     | r
+          |           |
+    small | large     | pivot
+
+$i++$ and $j++$:
+
+    2 1 3 | 8 7 5 6 | 4
+          | ^   ^   | ^
+          | i   j   | r
+          |         |
+    small | large   | pivot
+
+And so on:
+
+    2 1 3 | 8 7 5 6 | 4
+          | ^     ^ | ^
+          | i     j | r
+          |         |
+    small | large   | pivot
+
+And:
+
+    2 1 3 | 8 7 5 6 | 4
+          | ^       | ^
+          | i       | r
+          |         | j
+    small | large   | pivot
+
+Oops: $j$ reached $r$. We are done, just exchange $A[r]$ and $A[i]$:
+
+    2 1 3 4 | 7 5 6 8
+          ^ |
+          i |
+            |
+      small | large
+
+Note how we effectivelly split things into two sides: one larger than $4$, the other smaller.
+
+Intuitively, why does it work? At each step, if we find a small number we throw it to the left,
+and the small side increases, eating that number up.
+
+What to do next? Recurse down twice:
+
+- from $0$ to $i - 1$
+- from $i + 1$ to $N$
+
+    2 1 3 | 4 | 7 5 6 8
+    ^   ^ |   | ^     ^
+    i   r |   | i     r
+    j     |   | j
+
+Showing only the left side:
+
+    2 1 3
+    ^   ^
+    i   r
+    j
+
+$2 < 3$:
+
+    2 1 3
+      ^ ^
+      j r
+      i
+
+$1 < 3$:
+
+    2 1 3
+        ^
+        r
+        i
+        j
+
+Exchange $A[r]$ and $A[i]$ ($3$ by itself, doing nothing):
+
+    2 1 3
+        ^
+        r
+        i
+        j
+
+Recurse again:
+
+    2 1 | 3
+    ^ ^ | ^
+    i r | i
+    j   | j
+        | r
+
+Left side:
+
+    2 1
+    ^ ^
+    i r
+    j
+
+$2 < 1$:
+
+    1 2
+      ^
+      r
+      i
+      j
+
+Done. Recurse again:
+
+    1 | 2
+    ^ | ^
+    r | r
+    i | i
+    j | j
+
+Left side:
+
+    1
+    ^
+    r
+    i
+    j
+
+Oops, $i = j = r$ and there is a single element. This is the base case. Do nothing.
 
 #heap
+
+TODO
+
+#count

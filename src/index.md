@@ -1,5 +1,3 @@
-#motivation
-
 #operational system choice (linux propaganda)
 
 - how to install
