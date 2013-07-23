@@ -109,7 +109,7 @@ We reached the end, restart:
     1 2 3 4
         ^ ^
 
-We did nothing on this lastr run (since we returned to the first case, so we are done.
+We made no exchanges on the latest pass, so we are done. As we can see, the list is sorted.
 
 ##correctness
 
@@ -138,7 +138,7 @@ Principle:
 - merging two ordered lists os size `n` can be done in `O(n)` time `O(n)` memory.
 - start with lists of size 1 (always ordered), of items side by side, then 2, then 4, etc. `log(n)` times.
 
-##recursion step
+##global view
 
 The input comes into an array:
 
@@ -200,13 +200,11 @@ They are both on a single input array side by side:
 
 The `|` is just to ease the visualization: it does not exist on the array.
 
-That will be our input.
-
 First make a copy of the input (`O(n)` memory):
 
     input:  2 4 | 1 3
 
-    output: 2 4 | 1 3
+    output: 2 4   1 3
 
 Now point to their elements with indexes `k`, `i` and `j` as:
 
@@ -214,7 +212,7 @@ Now point to their elements with indexes `k`, `i` and `j` as:
             ^     ^
             i     j
 
-    output: 2 4 | 1 3
+    output: 2 4   1 3
             ^
             k
 
@@ -230,7 +228,7 @@ Put the smallest one into $A[k]$:
             ^     ^
             i     j
 
-    output: 1 4 | 1 3
+    output: 1 4   1 3
             ^
             k
 
@@ -243,7 +241,7 @@ Move $k$, and the smallest of $i$ and $j$ forward:
             ^       ^
             i       j
 
-    output: 1 4 | 1 3
+    output: 1 4   1 3
               ^
               k
 
@@ -263,7 +261,7 @@ Repeat step:
               ^     ^
               i     j
 
-    output: 1 2 | 1 3
+    output: 1 2   1 3
                   ^
                   k
 
@@ -274,7 +272,7 @@ Repeat step:
               ^       ^
               i       j
 
-    output: 1 2 | 3 3
+    output: 1 2   3 3
                     ^
                     k
 
@@ -286,15 +284,17 @@ Last rule: if one of them falls out, it equals infinity.
 We can now just copy the remaining elements of the other side into the output
 with an efficient `memcpy` (in this case a single element `4`):
 
-    input:  1 2 | 3 4
-                      ^
-                      k
-
-    output: 2 4 | 1 3
+    input:  2 4 | 1 3
                 ^     ^
                 i     j
 
-Opps, k fell out. This means that the merge has ended.
+    output: 1 2   3 4
+                      ^
+                      k
+
+Opps, $k$ fell out. This means that the merge has ended.
+
+As we can see, the output contains the elements of both inputs and is ordered.
 
 We took each step exactly $2n$ times, where $n$ is the length of each half,
 because:
@@ -373,7 +373,7 @@ Even if it is quadratic worst time,
 it is still quite used in practice because of $log(n)$ average and low memory usage,
 and because it has good cache reutilization.
 
-##visualization of one step
+##visualization
 
 Quick but imprecise view: [gif gisualization](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif).
 
@@ -388,7 +388,11 @@ Pointer setup:
     i             r
     j
 
-Visualization: we will separate things into two groups: smaller or equal to $A[r]$, and larger than $A[r]$:
+Visualization: we will separate things into groups:
+
+- smaller or equal to $A[r]$
+- larger than $A[r]$
+- the pivot $A[r]$
 
           | 8 2 7 1 3 5 6 | 4
           | ^             | ^
@@ -480,7 +484,7 @@ And:
           |         | j
     small | large   | pivot
 
-Oops: $j$ reached $r$. We are done, just exchange $A[r]$ and $A[i]$:
+Oops: $j$ reached $r$. This means we are done, just exchange $A[r]$ and $A[i]$:
 
     2 1 3 4 | 7 5 6 8
           ^ |
@@ -488,7 +492,7 @@ Oops: $j$ reached $r$. We are done, just exchange $A[r]$ and $A[i]$:
             |
       small | large
 
-Note how we effectivelly split things into two sides: one larger than $4$, the other smaller.
+Note how we effectivelly split things into two sides: one larger than $4$, the other smaller or equal to it.
 
 Intuitively, why does it work? At each step, if we find a small number we throw it to the left,
 and the small side increases, eating that number up.
