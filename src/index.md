@@ -419,38 +419,52 @@ alternatives to x86
 
 #computer science
 
-- algorithmic complexity
+##algorithms
 
-    http://en.wikipedia.org/wiki/Analysis_of_algorithms
+You need to decide what algorithm is better than what:
+<http://en.wikipedia.org/wiki/Analysis_of_algorithms>
 
-    you need to decide what algorithm is better than what
+Topics:
 
-    topics:
+- time and space
 
-    - time and space
+    - assymptotic vs non assymptotic
 
-        - assymptotic vs non assymptotic
+        often one algo is assymptotically better,
+        but for small numbers it is worse
 
-            often one algo is assymptotically better,
-            but for small numbers it is worse
+        in this case, before applying one must decide which algorithm
+        to use
 
-            in this case, before applying one must decide which algorithm
-            to use
+- recursive vs non-recursive
 
-    - recursive vs non-recursive
+- turing machine
 
-    - turing machine
+- p vs. np
 
-    - p vs. np
+###algorithms sources
 
-- data structures
-    - list
-        - sorting
-    - hashmap
+Free:
 
-- languages
+- <http://webdocs.cs.ualberta.ca/~holte/T26/top.realTop.html>
 
-    - backus naur form: http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
+    lecture notes
+
+##data structures
+
+Often when dealing with algorithms, you have to thing what is the best data structure to
+use to make the algorithm run faster.
+
+Each data structure supports a different set of operations, and each opertion has a different cost.
+
+- linked list
+- hashmap
+- graph
+    - trees
+
+#languages
+
+- backus naur form: http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
 
 #optimizing code
 
