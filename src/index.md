@@ -1,9 +1,40 @@
-#operational system choice (linux propaganda)
+This contains a list of things you should know to be a good programmer.
 
-- how to install
-- distros
+#tips
 
-#programming language
+- operating system choice
+
+    Use linux becaues it is free and open source.
+
+- make cheatsheets! Everything you learn, write it down!
+
+    If there is a good link or book, save the link or the book page!
+
+    If possible make assertions like C, Java or python `assert` statements,
+    so you can be sure that what you think is right is right.
+
+    Publish your cheats so that others can use them too.
+
+- how to type:
+
+    - user four fingers
+    - use closes finger
+    - look at the screen
+    - use keyboard shortcuts and good programs that have them (ex: vim)
+
+    Saves time and preserves your arm.
+
+- download and read the docs as soon as you can.
+
+    First start with tutorials which are easier
+    to understand and find the most interesting things in.
+
+    As soon as you can handle the docs, download and read the official docs,
+    since those are more precise and up to date than tutorials.
+
+#language
+
+##programming
 
 - most popular? hard to say
 - niches php, javascript == web, fortran == numerical
@@ -22,9 +53,10 @@
 
     - objects oriented vs non object oriented
 
-    - statically vs dinamically typed: <http://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/>
+    - type systems
 
-    - weakly vs strongly typed: <http://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/>
+        - statically vs dynamically typed
+        - weakly vs strongly typed
 
 - lang easy, lib hard
 
@@ -41,6 +73,12 @@ my choices:
 
 - json
 - xml
+
+##markup
+
+- html
+- latex
+- markdown
 
 ##web development
 
@@ -69,203 +107,52 @@ my choices:
     - deal with permissions you lack on server
     - ssh
 
-#what makes a good programmer
-
-- know the best way to do tasks in language
-- algorithms
-- computer inner workings: (how language becomes assembler, how drives are accessed, etc.)
-- design patterns
-
-    <https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns>
-    <http://calumgrant.net/patterns/index.html>
-    <http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms>
-        huge list, c++
-    <http://sourcemaking.com/:
-        site on both uml and design patterns
-
-    - creation
-
-        - abstract factory : select from an entire family of abstract classes (one per OS for example)
-
-        - factory
-
-            <http://sourcemaking.com/design_patterns/factory_method/cpp/1>
-
-            make specific derived classes based on runtime information
-
-            ``static Base make_object(enum type)`` method that returns an instance of a given type
-
-            application : factor out the selection from enum into lib
-
-        - prototype
-
-            abstract ``virtual Class* clone(){ return new Class(*this); }`` method
-
-            TODO why use this?
-
-        - singleton : self evident. Application: hold configuration.
-
-        - object pool
-
-            <http://sourcemaking.com/design_patterns/object_pool>
-
-            insted of dynamically destroying/creating objects, ``acquire`` and ``release`` them for later use
-
-            performance only
-
-    - structural
-
-        - adapter
-
-            <http://sourcemaking.com/design_patterns/adapter>
-
-            convert one class interface into another.
-
-            new class contains old.
-
-        - bridge TODO ?
-
-        - composite
-
-            <http://en.wikipedia.org/wiki/Composite_pattern>
-
-            treat leaves and inner nodes uniformly
-
-            call on inner node propagates call down to all leaves
-
-        - decorator
-
-            lots of classes have a given ``do_it`` method
-
-            pattern makes a linked list of those classes, calling do it on all of them
-            when the first is called
-
-            the linked list can receive any combination of nodes, and a call to
-            the first calls all the elements
-
-        - facade
-
-            <http://sourcemaking.com/design_patterns/facade>
-
-            simple single interface for lots of classes
-
-        - flyweight
-
-            <http://sourcemaking.com/design_patterns/flyweight/cpp/1>
-
-            separated shared state from individual state
-
-            memory performance only
-
-        - private class data
-
-            <http://sourcemaking.com/design_patterns/private_class_data>
-
-            prevent attribute modification from ``class Main``
-            by putting them into ``class Data`` with getters
-
-        - proxy
-
-            <http://sourcemaking.com/design_patterns/proxy/cpp/1>
-
-            a proxy interface is used instead of the real interface
-
-            the proxy interface bahaves differently from the real interface
-            by doing additional actions
-
-    - behaviour
-
-        - strategy : abstract method to vary algorithm
-        - template : same as strategy, but change only part of an algorithm
-
-- uml
-
-    - class diagram
-
-        - name
-
-        - members
-
-            relations (member that is a list of other objects):
-
-            - bi
-            - uni
-            - association class
-            - basic aggregation (car wheel)
-            - compositio (company department)
-            - reflexive
-
-        - methods
-        - inheritance
-        - interfaces
-        - visibility
-        - packages
-
-    - object diagram
-
-        - same as class, but with instances instead
-
-    http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/
-
-        uml intro
-
-#stragegy
-
-artistic level
-
-- coworkers
-- clients
-- market
-
-- <http://www.joelonsoftware.com/>
-
-    quite a few strategy articles
-
-    ex microsoft employee, lots of exp
-
 #filesystem
 
+One of the first things you should understand better as a programmer is your filesystem.
+
 - home dir
-- case
+
+- upper vs lower case
+
 - naming conventions
+
     - bin
+
     - ~ and .bak
+
     - doc
+
     - dot hidden
+
     - lib
+
     - src
+
     - include
+
     - share
+
     - local
+
     - and the rest of the Linux Filesystem Hierarchy Standard
         <http://www.tuxfiles.org/linuxhelp/linuxdir.html>
+
 - do not start with hyphen
+
 - symlinks/hardlinks
+
 - magic folders ala Windows library/documents
 
 #important programs for life
 
 - vim
 
-    best editor ever
-
-- markup
-
-    you need to communicate with:
-
-    - others
-    - yourself
-
-    learn:
-
-    - latex
-    - html
-    - markdown
-    - reStructuredText
+    text editor
 
 - krusader
 
-    you need to manage your files
+    file manager
 
 - source version control (svc)
 
@@ -293,7 +180,7 @@ artistic level
 
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
-##terminal
+##shell
 
 - language:
 
@@ -304,6 +191,8 @@ artistic level
 
     - pro: reproduce commands easily
     - con: cannot do graphs
+
+    The terminal allows you to interact with the shell interpreter.
 
 - bash:
 
@@ -332,21 +221,25 @@ artistic level
 
 - interactive vs. non-interactive
 
-#machine low-level
+#algorithm
+
+See: <https://github.com/cirosantilli/> TODO
+
+#assembler
+
+Understanc exactly what operations a processor can do.
 
 <http://www.bottomupcs.com/>
 
-##assembler
+#data representation
 
-- what operations a processor can do, isa
-
-##representing letters
+##character representation
 
 - ascii
 - unicode
 - utf8
 
-##representing integers
+##integer representation
 
 - binary, hexa
 - signed
@@ -354,7 +247,40 @@ artistic level
     - one's complement
     - 2-complement
 
-- representing real numbers
+##float representation
+
+TODO
+
+#operating systems
+
+You must learn how your operating system works.
+
+The only operating system you can really understand is Linux since it is open source,
+so understand Linux.
+
+Topics which you should look into:
+
+##program memory space
+
+address, operational system division
+
+- <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
+
+    tutorial to gdb
+
+##driver programming
+
+- <http://www.linuxjournal.com/article/7353>
+    #5/5
+    #control a lamp. contains c code.
+
+- <http://www.freesoftwaremagazine.com/articles/drivers_linux>
+
+##executable files
+
+ELF files, including libraries
+
+#hardware
 
 - memory: registers vs caches vs RAM vs ROM (BIOS) vs VRAM vs HD
 
@@ -362,24 +288,10 @@ artistic level
 
     deep explanaition
 
-- program memory layout/segments: address, operational system division
+- busses
+    <http://computer.howstuffworks.com/pci1.htm>
 
-    - <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
-
-        tutorial to gdb
-
-- RAM memory organization
-
-- HD program organiztion: ELF files, including libraries
-    - <http://www.thegeekstuff.com/2011/10/gcc-linking/>
-
-- driver programming
-    <http://www.linuxjournal.com/article/7353>
-    #5/5
-    #control a lamp. contains c code.
-    <http://www.freesoftwaremagazine.com/articles/drivers_linux>
-
-- multithreading concurrency ipc
+#multithreading concurrency ipc
 
     - thread vs process
 
@@ -395,74 +307,9 @@ artistic level
             - pci
             - usb
 
-- GPU programming
+#formal languages
 
-- busses
-    <http://computer.howstuffworks.com/pci1.htm>
-
-##general sources
-
-- <http://stackoverflow.com/questions/836946/basic-yet-thorough-assembly-tutorial-linux>
-
-- <en.wikibooks.org/wiki/X86_Assembly>
-
-- <http://www.serverwatch.com/hreviews/article.php/3581551/Hardware-Today-x86-Alternatives-Few-but-Strong.htm>
-alternatives to x86
-
-- carter <http://www.drpaulcarter.com/pcasm/>
-    - no os specific interrupts system calls, elf files, linking
-
-- <http://docs.cs.up.ac.za/programming/asm/derick_tut/>
-    - 5/5
-    - linux system calls
-    - short and to the point
-
-#computer science
-
-##algorithms
-
-You need to decide what algorithm is better than what:
-<http://en.wikipedia.org/wiki/Analysis_of_algorithms>
-
-Topics:
-
-- time and space
-
-    - assymptotic vs non assymptotic
-
-        often one algo is assymptotically better,
-        but for small numbers it is worse
-
-        in this case, before applying one must decide which algorithm
-        to use
-
-- recursive vs non-recursive
-
-- turing machine
-
-- p vs. np
-
-###algorithms sources
-
-Free:
-
-- <http://webdocs.cs.ualberta.ca/~holte/T26/top.realTop.html>
-
-    lecture notes
-
-##data structures
-
-Often when dealing with algorithms, you have to thing what is the best data structure to
-use to make the algorithm run faster.
-
-Each data structure supports a different set of operations, and each opertion has a different cost.
-
-- linked list
-- hashmap
-- graph
-    - trees
-
-#languages
+Important if you ever want to create a computer language.
 
 - backus naur form: http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
 
@@ -486,130 +333,110 @@ a few important ones are:
 
 -register renaming: http://en.wikipedia.org/wiki/Register_renaming
 
-#applications
+#automatic optimization
 
-##about
+- branch prediction
 
-come from
+    <http://en.wikipedia.org/wiki/Branch_predictor>
 
-- maths
+    An example of perceptible branch prediction:
 
-    - calculus
-    - linear algebra
-    - probability
-    - discrete
+    <http://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-an-unsorted-array>
 
-- physics
+#design patterns
 
-    - mechanics
-    - thermo
-    - eletromag
-    - quantum
+See [this](design-patterns).
 
-and the rest:
+#GPU programming
 
-- based on maths and physics
+TODO
 
-    - chemistry
-    - biology
+#stragegy
 
-- not based maths and physics
+artistic level
 
-    - economy
+- coworkers
+- clients
+- market
 
-then:
+- <http://www.joelonsoftware.com/>
 
-- implement their applications yourself
-- find an existing implementation and learn to use it
+    quite a few strategy articles
 
-##multiplication
+    ex microsoft employee, lots of exp
 
-- unknown sup of lower bounds
+#phylosophy
 
-- naive $n^2$
+##what computers do
 
-- karatsuba
+Manipulate information:
 
-    <http://en.wikipedia.org/wiki/Karatsuba_algorithm>
+- copy and move information around
+- reaching new information from old
 
-    multiplication in $O(n^{\log_{2}3})$
+In a way that is *very*:
 
-- tom-cook
+- fast
+- cheap
+- without errors
 
-    generalization of karatsuba
+##programming and ideas
 
-    <http://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication>
+    ideas (that can be programmed)
+    +
+    programming
+    ------------------------------
+    *power*
 
-    algorithm family, hard to analyse, Toom-3 does $O(n^{\log_{3}5})$, about
-    $O(n^{1.465})$
+- without ideas, programming is useless!
+- without programming, some ideas are useless!
 
-- schonhage–strassen
 
-    $O(log n log log n)$
-
-    FFT based!
-
-##matrix multiplication
-
-- unknown sup of lower bounds
-
-- naive $n^3$
-
-- strassen $n^{\log_2{7}}$
-
-    <http://en.wikipedia.org/wiki/Strassen_algorithm>
-
-- and going down...
-
-    <http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication>
-
-##unranged
-
-- exponential
-- factorial
-
-- fibonacci
-- min/max
-- mcd, mcm
-- prime sieve
-- sorting
-- f(x) = 0
-    - divide by two
-    - newtons method
-- split, newton
-- eq difs: ordinary/partial
-- integration
-- taylor series
-- matrices
-- foundations, incompleteness, forcing
-- FFT
-
-##control theory
-
-##finite elements
-
-- fluids
-- solids
-
-##integer programming
-
-#misc
-
-- make cheatsheets!!!!
-
-- how to type: resource arm
-    - user four fingers
-    - closest one first
-    - look at the screen
-
-- use keyboard shortcuts
-
-##funny
+#funny
 
 "Do you pine for the nice days of Minix-1.1, when men were men and wrote their own device drivers?" Linus Torvalds
 
 [spaguetti code](http://en.wikipedia.org/wiki/Spaghetti_code)
 
-[esoteric language]()
+[esoteric language](http://en.wikipedia.org/wiki/Esoteric_programming_language)
 
 [REPL]: http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop
+
+[bmp c++ program](http://stackoverflow.com/a/5509538/895245)
+
+#sources
+
+##free
+
+- [stack overflow](http://stackoverflow.com/)
+
+    Great QA site with gamification. Huge programming community.
+
+    Also check related sites maintained by the same enterprise: [stack exchange](http://stackexchange.com/).
+
+    Reasonable way to show your knowledge to enterpreises.
+
+- [top coder algorithm contests](http://community.topcoder.com/tc?module=ProblemArchive&sr=1&er=50&sc=&sd=&class=&cat=&div1l=&div2l=&mind1s=&mind2s=&maxd1s=&maxd2s=&wr=)
+
+    Hosts timed programming contests online.
+
+    Lost of programming problems available with solutions proposed by contestants.
+
+    Good way to show your knowledge to enterpreises.
+    Very popular as of 2013, lots of employers looking there.
+
+    Also worth checking their tutorials: <http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index>
+
+    Must use a annoying Java program to run in the contests, and hard to find the problems in the site in the first place.
+
+- [spoj contests](http://www.spoj.com/problems/classical/)
+
+    Much like top coder.
+
+    Problems can be solved any time.
+
+    Solutions can be submitted any time for online tests.
+
+    Does time and memory tests, and ranks algorithms accordingly.
+
+    It is not possible to view submitted solutions.

@@ -2,41 +2,51 @@ Sorting algorithms.
 
 To understand them, see how they work step by step on examples.
 
+#beauty
+
+The coolest thing about sorting is looking for the best algorithm there is!
+
 #sources
 
 - <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
 
     Compare them all
 
-#the best algorithm
+#algorithm comparison
 
 See this: <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
 
 It can be proven that the best a general algorithm can do is $O(n log(n))$ worst case time.
 
-There are many algorithms that sort in-place, thus achieving $O(1)$ memory worst case.
-
-There are algorithms that achieve both optimal time and space at the same time such as heapsort.
-
-Another parameter to take into account is stability. Heapsort which achieves both $n log(n)$ worst case time
-and $O(1)$ space is not stable.
-
-TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and* is stable?
-
-In practice, forgetting assymptotic worst cases merge sort ($n lon(n)$ time worst case $n$ space)
-and quicksort ($n log(n)$ time average) have good performance and both have stable imlementations.
-
 If extra information is known about the input, it is possible to reduce time worst case o $O(n)$.
 For example, if the values are all integers between $0$ and $k$, and $k$ is $O(n)$, then
 counting sort has $O(n)$ worst case.
+
+There are many algorithms that sort in-place, thus achieving $O(1)$ extra memory
+(excludig the input itself) worst case. This is the case for quicksort and heapsort,
+but not for merge sort.
+
+There are algorithms that achieve both optimal time and space at the same time such as heapsort,
+
+Another parameter to take into account is stability.
+Heapsort which achieves both $n log(n)$ worst case time and $O(1)$ space is not stable.
+
+TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and* is stable?
+
+In practice, considering cache performance and average cases, the following altorithms are very
+common and can all give good results:
+
+- quicksort (even if it is $O(n^2)$ worst case time)
+- mergesort
+- heapsort
 
 #buble
 
 Very slow.
 
-Very simple.
+Very simple. Shortest code.
 
-Worst: $n^2$ time (extermelly rare) $1$ space (in place)
+Worst: $n^2$ time (extermely rare) $1$ space (in place)
 
 Average: $n^2$.
 
@@ -365,9 +375,12 @@ so we actually made a copy of th entire original array.
 
 #quick
 
-Worst: $n^2$ time (extermelly rare) TODO space (in place)
+$n^2$ time worst case. Extermelly rare for random inputs, but happens exactly on the potentially common cases
+of sorted / reverse sorted inputs!
 
-Average: $log(n)$ time.
+Average time: $log(n)$ time.
+
+Space: $O(n)$ (in place).
 
 Even if it is quadratic worst time,
 it is still quite used in practice because of $log(n)$ average and low memory usage,
@@ -495,7 +508,7 @@ Oops: $j$ reached $r$. This means we are done, just exchange $A[r]$ and $A[i]$:
 Note how we effectivelly split things into two sides: one larger than $4$, the other smaller or equal to it.
 
 Intuitively, why does it work? At each step, if we find a small number we throw it to the left,
-and the small side increases, eating that number up.
+and the small side increases, ``eating'' that number up.
 
 What to do next? Recurse down twice:
 
@@ -579,6 +592,69 @@ Left side:
     j
 
 Oops, $i = j = r$ and there is a single element. This is the base case. Do nothing.
+
+##worst case
+
+The worst case happens when the input is either sorted or reverse sorted.
+
+Although very rare for random inputs, almost sorted inputs may be common for certain applications.
+
+Let's see how a sorted input yields worst time.
+
+Initial input:
+
+    1 2 3 | 4
+    ^     | ^
+    i     | r
+    j     |  
+
+$1 < 4$:
+
+    1 2 3 | 4
+      ^   | ^
+      i   | r
+      j   |  
+
+$2 < 4$:
+
+    1 2 3 | 4
+        ^ | ^
+        i | r
+        j |  
+
+$3 < 4$:
+
+    1 2 3 | 4
+          | ^
+          | r
+          | i
+          | j
+
+Exchange, $4$ and $4$ and recurse.
+
+Right side contains only $4$ so it is already sorted.
+
+Left side gives:
+
+    1 2 | 3
+    ^   | ^
+    i   | r
+    j   |
+
+Ok, this shoult be enough to see what will happen.
+
+We will do:
+
+- $n$       moves on the first  run
+- $n - 1$   moves on the second run
+- ...
+- $1$       move  on the last   run
+
+Which gives:
+
+$$ n + (n - 1) + ... + 1 = n * (n + 1) / 2 $$
+
+moves, and therefore $O(n^2)$.
 
 #heap
 

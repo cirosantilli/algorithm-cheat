@@ -1,3 +1,19 @@
+#E and V
+
+E = set of edges
+
+V = set of vertices
+
+`|E|`: number of edges
+
+`|V|`: number of vertices
+
+Important relation:
+
+- `|E| <= |V|^2`. If equality happens, the graph is said to be dense.
+
+- `\forall y, |{ xy | x \in V }| <= |V|-1` for a fixed i and x free to vary.
+
 #tree
 
 Trees are special cases of directed connected graphs that have the properties:
@@ -56,12 +72,26 @@ Live java applet demo: <http://www.ece.uc.edu/~franco/C321/html/RedBlack/>. Requ
 
 TODO visualize insert
 
-#DFS and BFD
+#DFS
+
+DFS can be done either recursively or not with a stack.
+
+The only key difference is that the recursive version uses the system's call stack,
+while the non-recursive version uses an explicit stack
+
+#BFS
+
+BFS cannot be done recursively naturaly, since the non-recursive impementation uses a queue,
+and not a stack like DFS.
+
+<http://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively>
+
+#DFS vs BFD
 
 Both are methods to search vertexes on unordered graphs.
 
 On a general graph, you must keep track of which nodes you have already looked into not to go on loops,
-so you need to add a bit to each vertex.
+so you need to add a search bit to each vertex.
 
 On trees (specific type of graph) this is not needed since trees have no loops by definition.
 
@@ -93,20 +123,22 @@ Advangates of BFS:
 Shortest path between two given nodes.
 
 Only works if all weights are positive.
+If negative weights are possible, consider using the
+[bellman ford algorithm](http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm).
 
 ##dijikstra complexity
 
-Time worst case on a dense graph: $O(|V|^2)$.
+Time worst case: $O(|E| + |V| log |V|)$, so $O(|V|^2)$ on a dense graph.
 
 In the worst case we have a dense graph and we must visit all the nodes giving:
 
 - `FOR_VERTEX`: for each vertex ($|V|$):
 
-    - MARK_VISITED: mark vertex as visited.
+    - `MARK_VISITED`: mark vertex as visited.
 
-    - `FOR_NEIGHBOUR`: for each neighbour ($|V|$ for a dense graph):
+    - `FOR_NEIGHBOUR`: for each neighbour: $|O(\sqrt(|E|))|$, $|V|$ for a dense graph.
 
-        - UPDATE_WEIGHTS: update the weights of that neighbour
+        - UPDATE_WEIGHT: update the weights of that neighbour
 
     - FIND_MIN: find the minimum adjacent element to determine the next vertex
 
@@ -119,9 +151,9 @@ Lets consider two data structure possibilities for storing node distances and if
 
 Vertexes and their distances are stored in an array ordered by their index.
 
-- `MARK_VISITED` is done in $O(1)$: just set the corresponding array element visited field to true.
-- `UPDATE_WEIGHTS` can be done in time $O(1)$ if the vertexes are on an unordered array.
-- `FIND_MIN` takes $O(V)$
+- `MARK_VISITED`    is done in $O(1)$: just set the corresponding array element visited field to true.
+- `UPDATE_WEIGHT`   can be done in time $O(1)$ if the vertexes are on an unordered array.
+- `FIND_MIN`        takes $O(V)$ since the elements are not ordered by distance
 
 Total time:
 
@@ -135,31 +167,63 @@ operations.
 
 ###min heap
 
+We order the vertexes on a min heap that takes the distance into account.
+
+The complexity will depend on the type of min heap used.
+We consider there the two most commmon and efficient min heaps for practical data sizes:
+
+- binary heap
+- fibonacii heap
+
 TODO get this right
 
-- `MARK_VISITED` means that we have to remove the root element from the min heap which takes $lg$ for any type of heap known.
-- `UPDATE_WEIGHTS` takes $O(log(V))$ since we have to reorder the ordered list after each insertion.
-- `FIND_MIN` takes $O(1)$
+- `MARK_VISITED`    means that we have to remove the root element from the min heap:
 
-Therefore we have:
+    Binary heap:    `log`
+    Fibonacci heap: `n` worst case, `log` amortized
+
+- `UPDATE_WEIGHT`  this critical operation depends on the type of min heap used.
+
+    Binary heap:    `log`
+    Fibonacci heap: `log` worst case, `1`
+
+- `FIND_MIN`        always $O(1)$ since we are using heaps
+
+Therefore for the binary heap:
+
+$$
+    FOR_VERTEX * ( MARK_VISITED + ( ( FOR_NEIGHBOUR * UPDATE_WEIGHTS ) + FIND_MIN ) =
+    V *          ( log(V)       + ( ( V             * log V          ) + 1        ) =
+    V^2 log(V)
+$$
+
+and for fibonacci amortized time:
 
 $$
     FOR_VERTEX * ( MARK_VISITED + ( ( FOR_NEIGHBOUR * UPDATE_WEIGHTS ) + FIND_MIN ) =
     V *          ( log(V)       + ( ( V             * 1              ) + 1        ) =
+    V^2
 $$
 
-TODO use alignat here
+##choice of data structure
 
----
+The final choice of the data structure will depend on the expected density of the graph:
 
-We should therefore use the unordered data structure if the graph is dense.
+- if the graph is expected to be dense, use an unordered array, as it has the best wort time for that case,
+    while a Fibonacci heap offeres only 
 
-However, if the graph is known to be sparse enough, ($degree(v) < V/log(V)$),
-then the ordered approch starts being better.
+- if the graph is known to be sparse, $degree(v) <<< V/log(V)$,
+    then the ordered approch starts being better.
+
+- If amortized time can be taken into account and it is not clear if the graph is dense or not,
+    the Fibonnaci Heap implementation  is the best option, as it:
+
+    - works as well as the unordered array implementation
+    - for dense graphs, and better if the graph is not dense (often the case).
 
 #A star
 
-aka A*
+aka `A*`
 
 Does the same as Dijikstra, but supposes that extra knowledge is known about the graph.
 
@@ -179,3 +243,10 @@ Let $h(x)$ be the estimative.
 - $h(x) = 0$: same as Dijikstra
 
 - $h(x)$ is the exact distance to destination: only the correct path is explored.
+
+#bellman ford
+
+Does the same as dijikstra, but
+
+- larger time complexity: $n^2 log n$
+- also works for graphs with negative weights
