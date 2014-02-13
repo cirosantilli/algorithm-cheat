@@ -4,7 +4,7 @@ This contains a list of things you should know to be a good programmer.
 
 - operating system choice
 
-    Use linux becaues it is free and open source.
+    Use Linux because it is free and open source.
 
 - make cheatsheets! Everything you learn, write it down!
 
@@ -65,23 +65,23 @@ This contains a list of things you should know to be a good programmer.
 
     - learn *several* important libraries of a language
 
-my choices:
+My choices:
 
-- c
-- c++
-- python
-- java
+- C
+- C++
+- Python
+- Java
 
 ##data languages
 
-- xml
-- json
+- XML
+- Json
 
 ##markup languages
 
-- html
-- latex
-- markdown
+- HTML
+- Latex
+- Markdown
 
 ##web development
 
