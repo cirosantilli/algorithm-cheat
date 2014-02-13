@@ -210,7 +210,7 @@ $$
 The final choice of the data structure will depend on the expected density of the graph:
 
 - if the graph is expected to be dense, use an unordered array, as it has the best wort time for that case,
-    while a Fibonacci heap offeres only 
+    while a Fibonacci heap offeres only
 
 - if the graph is known to be sparse, $degree(v) <<< V/log(V)$,
     then the ordered approch starts being better.

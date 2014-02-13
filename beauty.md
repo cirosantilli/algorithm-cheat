@@ -130,6 +130,12 @@ It is cool to understand how the following calculations can be implemented:
 
         Complexity of finding a coloring: $O(n^2)$.
 
+    - self balancing search trees. RB-tree, AVL tree, B-tree
+
+        Allow searches, insertions and other operations in $O(log(n))$.
+
+        A sorted array only allows $O(log(n))$ search, but not insertion.
+
 - dynamic programming
 
     - [maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
@@ -191,6 +197,19 @@ It is cool to understand how the following calculations can be implemented:
 - [karp's 21 NP complete problems](http://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems)
 
     Very famous list of NP complete problems you should know about.
+
+- [string searching algorithms](https://en.wikipedia.org/wiki/String_searching_algorithm)
+
+    Obvious practical applications.
+
+    Let:
+
+    - $p$ be the pattern length
+    - $t$ be the text    length
+
+    Naive algorithm does $O(pt)$ worst case.
+
+    [Boyer–Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) does $O(t)$ worst case.
 
 ##integer multiplication
 

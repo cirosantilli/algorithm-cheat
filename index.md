@@ -37,8 +37,11 @@ This contains a list of things you should know to be a good programmer.
 ##programming
 
 - most popular? hard to say
-- niches php, javascript == web, fortran == numerical
-- all languages the same (theorethical)
+
+- niches PHP, Javascript == web, Fortran == numerical
+
+- all programming languages the same (theorethical)
+
 - categories:
 
     - compiled vs interpreted (virtual machine) non compiled languages
@@ -71,10 +74,10 @@ my choices:
 
 ##data languages
 
-- json
 - xml
+- json
 
-##markup
+##markup languages
 
 - html
 - latex
@@ -143,6 +146,13 @@ One of the first things you should understand better as a programmer is your fil
 - symlinks/hardlinks
 
 - magic folders ala Windows library/documents
+
+- inner workings: how is data actually stored/retreived on disk?
+
+#database
+
+- MySQL
+- SQLite
 
 #important programs for life
 
@@ -223,7 +233,7 @@ One of the first things you should understand better as a programmer is your fil
 
 #algorithm
 
-See: <https://github.com/cirosantilli/> TODO
+See [this](algorithm.md).
 
 #assembler
 
@@ -390,19 +400,6 @@ In a way that is *very*:
 
 - without ideas, programming is useless!
 - without programming, some ideas are useless!
-
-
-#funny
-
-"Do you pine for the nice days of Minix-1.1, when men were men and wrote their own device drivers?" Linus Torvalds
-
-[spaguetti code](http://en.wikipedia.org/wiki/Spaghetti_code)
-
-[esoteric language](http://en.wikipedia.org/wiki/Esoteric_programming_language)
-
-[REPL]: http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop
-
-[bmp c++ program](http://stackoverflow.com/a/5509538/895245)
 
 #sources
 

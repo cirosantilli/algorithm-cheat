@@ -1,4 +1,4 @@
-Info on theorethical and applied computer science.
+Info on theoretical and applied computer science.
 
 Compiled outputs at: <http://cirosantilli.uphero.com/comp-sci/>
 

@@ -1,6 +1,7 @@
 #statically vs dynamically
 
-Stataically: each name has a type. It is not possible for a name to refer to an object of two different types on the same program.
+Statically: each name has a type. It is not possible for a name to refer to
+an object of two different types on the same program.
 
 Python is dynamically typed:
 
@@ -38,12 +39,12 @@ In order to do the above in Python, it would be necessary to make an explicit co
     1 + int("1")
 
 Some types however are considered to be of "related types" such as integers and floats,
-and in those cases languages that implicily convert between them are still considered strongly typed.
+and in those cases languages that implicitly convert between them are still considered strongly typed.
 For example C is considered strongly typed, even if:
 
     int i = 1 + 1.0;
 
-does an implicit comversion between the `float` `1.0` and the `int` `1`.
+does an implicit conversion between the `float` `1.0` and the `int` `1`.
 
 #manifest vs implicit
 
