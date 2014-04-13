@@ -14,19 +14,18 @@ Important relation:
 
 - `\forall y, |{ xy | x \in V }| <= |V|-1` for a fixed i and x free to vary.
 
-#tree
+#Tree
 
 Trees are special cases of directed connected graphs that have the properties:
 
 - no loops
 - root: there is a distinguished node from which every other node is reachable
 
-This immediately implies that E = V - 1, and simplifies search procedures since you don't
-need to check if you have already visited some nodes.
+This immediately implies that E = V - 1, and simplifies search procedures since you don't need to check if you have already visited some nodes.
 
-#binary search tree
+##BST
 
-aka BST.
+##Binary search tree
 
 Each node has 2 children.
 
@@ -36,9 +35,9 @@ There are balanced search trees such as [RB-tree](red-black-tree) which actually
 
 The only complicated operation is delete, visualize it here: <http://www.algolist.net/Data_structures/Binary_search_tree/Removal>
 
-#red black tree
+##RB-tree.
 
-aka RB-tree.
+##Red black tree
 
 Balanced binary search tree.
 
@@ -57,18 +56,15 @@ It must have the following properties:
 
 - Every simple path from a given node to any of its descendant leaves contains the same number of black nodes.
 
-A leaf is not a node and a node is not a leaf in this context.
-Nodes contain the actual numbers that are being indexed, leafs don't contain any information,
-except indicating that there are no more nodes below.
+A leaf is not a node and a node is not a leaf in this context. Nodes contain the actual numbers that are being indexed, leafs don't contain any information, except indicating that there are no more nodes below.
 
 Leafs in this context are also called sentinels.
 
-Operations are $log(n)$ because the properties imply that the tree is balanced in the sense that
-the deepest leaf from a node can only be twice as deep as the shallowest one.
+Operations are $log(n)$ because the properties imply that the tree is balanced in the sense that the deepest leaf from a node can only be twice as deep as the shallowest one.
 
 The key to using the tree is keeping it balanced after insertion or deletion.
 
-Live java applet demo: <http://www.ece.uc.edu/~franco/C321/html/RedBlack/>. Requires a bit too many clicks, but really cool.
+Live Java applet demo: <http://www.ece.uc.edu/~franco/C321/html/RedBlack/>. Requires a bit too many clicks, but really cool.
 
 TODO visualize insert
 
@@ -76,13 +72,11 @@ TODO visualize insert
 
 DFS can be done either recursively or not with a stack.
 
-The only key difference is that the recursive version uses the system's call stack,
-while the non-recursive version uses an explicit stack
+The only key difference is that the recursive version uses the system's call stack, while the non-recursive version uses an explicit stack
 
 #BFS
 
-BFS cannot be done recursively naturaly, since the non-recursive impementation uses a queue,
-and not a stack like DFS.
+BFS cannot be done recursively naturaly, since the non-recursive impementation uses a queue, and not a stack like DFS.
 
 <http://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively>
 
@@ -90,43 +84,33 @@ and not a stack like DFS.
 
 Both are methods to search vertexes on unordered graphs.
 
-On a general graph, you must keep track of which nodes you have already looked into not to go on loops,
-so you need to add a search bit to each vertex.
+On a general graph, you must keep track of which nodes you have already looked into not to go on loops, so you need to add a search bit to each vertex.
 
 On trees (specific type of graph) this is not needed since trees have no loops by definition.
 
-Advangates of DFS:
+Advantages of DFS:
 
-- if the searched solutions are guaranteed to be at the greatest depths (ex leaves of a tree)
-    then DFS will certainly be faster.
+- if the searched solutions are guaranteed to be at the greatest depths (ex leaves of a tree) then DFS will certainly be faster.
 
-- if the graph is somehow balanced (nodes of maximum depth are at similar depths),
-    then DFS will certainly use less memory than BFS, since BFS must store a FIFO of each level
-    ($2^depth$ vertexes on a balanced binary tree) while BFS stores at most the maximum depth
-    sequence of parents ($depth$ elements).
+- if the graph is somehow balanced (nodes of maximum depth are at similar depths), then DFS will certainly use less memory than BFS, since BFS must store a FIFO of each level ($2^depth$ vertexes on a balanced binary tree) while BFS stores at most the maximum depth sequence of parents ($depth$ elements).
 
-Advangates of BFS:
+Advantages of BFS:
 
-- it is the obvious choice when looking for minimum distances,
-    since you want to keep as close as possible to the start and not go too deep.
+- it is the obvious choice when looking for minimum distances, since you want to keep as close as possible to the start and not go too deep.
 
-- if the depth can be too long, or even infinite, it is simpler to look breadth first,
-    and limit the descent, or the process could take forever or too long.
+- if the depth can be too long, or even infinite, it is simpler to look breadth first, and limit the descent, or the process could take forever or too long.
 
-    It also makes more sense to use heuristics with BFS, looking around the current position,
-    and then deciding where to descend further.
+    It also makes more sense to use heuristics with BFS, looking around the current position, and then deciding where to descend further.
 
-#dijikstra
+#Dijkstra
 
 <http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm>
 
-Shortest path between two given nodes.
+Find the shortest path between two given nodes.
 
-Only works if all weights are positive.
-If negative weights are possible, consider using the
-[bellman ford algorithm](http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm).
+Only works if all weights are positive. If negative weights are possible, consider using the [bellman ford algorithm](http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm).
 
-##dijikstra complexity
+##Dijkstra complexity
 
 Time worst case: $O(|E| + |V| log |V|)$, so $O(|V|^2)$ on a dense graph.
 
@@ -147,7 +131,7 @@ Lets consider two data structure possibilities for storing node distances and if
 - unordered array
 - min heap
 
-###unordered array
+###Unordered array
 
 Vertexes and their distances are stored in an array ordered by their index.
 
@@ -165,27 +149,26 @@ $$
 
 operations.
 
-###min heap
+###Min heap
 
 We order the vertexes on a min heap that takes the distance into account.
 
-The complexity will depend on the type of min heap used.
-We consider there the two most commmon and efficient min heaps for practical data sizes:
+The complexity will depend on the type of min heap used. We consider there the two most commmon and efficient min heaps for practical data sizes:
 
 - binary heap
-- fibonacii heap
+- Fibonacci heap
 
 TODO get this right
 
 - `MARK_VISITED`    means that we have to remove the root element from the min heap:
 
-    Binary heap:    `log`
-    Fibonacci heap: `n` worst case, `log` amortized
+    - Binary heap:    `log`
+    - Fibonacci heap: `n` worst case, `log` amortized
 
 - `UPDATE_WEIGHT`  this critical operation depends on the type of min heap used.
 
-    Binary heap:    `log`
-    Fibonacci heap: `log` worst case, `1`
+    - Binary heap:    `log`
+    - Fibonacci heap: `log` worst case, `1`
 
 - `FIND_MIN`        always $O(1)$ since we are using heaps
 
@@ -205,18 +188,15 @@ $$
     V^2
 $$
 
-##choice of data structure
+##Choice of data structure
 
 The final choice of the data structure will depend on the expected density of the graph:
 
-- if the graph is expected to be dense, use an unordered array, as it has the best wort time for that case,
-    while a Fibonacci heap offeres only
+- if the graph is expected to be dense, use an unordered array, as it has the best wort time for that case, while a Fibonacci heap offers only
 
-- if the graph is known to be sparse, $degree(v) <<< V/log(V)$,
-    then the ordered approch starts being better.
+- if the graph is known to be sparse, $degree(v) <<< V/log(V)$, then the ordered approch starts being better.
 
-- If amortized time can be taken into account and it is not clear if the graph is dense or not,
-    the Fibonnaci Heap implementation  is the best option, as it:
+- If amortized time can be taken into account and it is not clear if the graph is dense or not, the Fibonnaci Heap implementation  is the best option, as it:
 
     - works as well as the unordered array implementation
     - for dense graphs, and better if the graph is not dense (often the case).
@@ -225,10 +205,9 @@ The final choice of the data structure will depend on the expected density of th
 
 aka `A*`
 
-Does the same as Dijikstra, but supposes that extra knowledge is known about the graph.
+Does the same as Dijkstra, but supposes that extra knowledge is known about the graph.
 
-That extra knowledge is an estimative $h$ of distance between the current node and the target
-such as the straight line or manhattan distance.
+That extra knowledge is an estimative $h$ of distance between the current node and the target such as the straight line or manhattan distance.
 
 The algorithm then first explores nodes with lowest: $current distance + h(next node)$
 
@@ -238,15 +217,15 @@ Good tutorial:
 
 Let $h(x)$ be the estimative.
 
-- $h(x)$ is alwasys smaller than the actual distance to goal: convergence guaranteed.
+- $h(x)$ is always smaller than the actual distance to goal: convergence guaranteed.
 
-- $h(x) = 0$: same as Dijikstra
+- $h(x) = 0$: same as Dijkstra
 
 - $h(x)$ is the exact distance to destination: only the correct path is explored.
 
-#bellman ford
+#Bellman-ford
 
-Does the same as dijikstra, but
+Does the same as Dijkstra, but
 
 - larger time complexity: $n^2 log n$
 - also works for graphs with negative weights

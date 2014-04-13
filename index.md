@@ -1,46 +1,70 @@
-This contains a list of things you should know to be a good programmer.
+This contains general tips to become a good programmer.
 
-#tips
+#Tips
 
-- operating system choice
+##Operating system choice
 
-    Use Linux because it is free and open source.
+Use Linux because it is free and open source and better than windows for programming.
 
-- make cheatsheets! Everything you learn, write it down!
+##Make cheatsheets
 
-    If there is a good link or book, save the link or the book page!
+Everything you learn, write it down! You will forget it later.
 
-    If possible make assertions like C, Java or python `assert` statements,
-    so you can be sure that what you think is right is right.
+If there is a good link or book, save the link or the book page!
 
-    Publish your cheats so that others can use them too.
+If possible make assertions like C, Java or python `assert` statements, so you can be sure that what you think is right is right.
 
-- how to type:
+Publish your cheats so that others can use them too.
 
-    - user four fingers
-    - use closes finger
-    - look at the screen
-    - use keyboard shortcuts and good programs that have them (ex: vim)
+##Build your CV
 
-    Saves time and preserves your arm.
+Keep a list of:
 
-- download and read the docs as soon as you can.
+- open source contributions with importance of each contribution. Example: <http://www.cirosantilli.com/contrib>
+- a self evaluation of what you know about programming. Example: <http://www.cirosantilli.com/self-evaluation>
 
-    First start with tutorials which are easier
-    to understand and find the most interesting things in.
+##How to type
 
-    As soon as you can handle the docs, download and read the official docs,
-    since those are more precise and up to date than tutorials.
+- user four fingers
+- use closes finger
+- look at the screen
+- use keyboard shortcuts and good programs that have them (ex: vim)
 
-#language
+Saves time and preserves your arm.
 
-##programming
+##standards matter
 
-- most popular? hard to say
+The first thing you should ask yourself when learning a new language or other interfaces is: what are the standards?
 
-- niches PHP, Javascript == web, Fortran == numerical
+Is there a dominating standard?
 
-- all programming languages the same (theorethical)
+What is the state of implementations? Are they consistent with one another? Are they updated. Example:
+
+- standard: W3C HTML or CSS
+- semi compatible implementations: browsers: Firefox, Chrome, IE
+
+What are the most important extensions to the standard? How portable are they? Example:
+
+- standard: ANSI C vs POSIX vs GNU Extensions
+
+##Download and read the docs
+
+First start with tutorials which are easier to understand and find the most interesting things in.
+
+As soon as you can handle the docs, download and read the official docs, since those are more precise and up to date than tutorials.
+
+#Language
+
+##Programming
+
+- most popular? Hard to say
+
+- niches matter. Some languages dominate certain application spaces.
+
+    - PHP, Ruby, Javascript == web
+    - Fortran == numerical
+
+- all programming languages the same (theoretical)
 
 - categories:
 
@@ -63,46 +87,48 @@ This contains a list of things you should know to be a good programmer.
 
 - lang easy, lib hard
 
-    - learn *several* important libraries of a language
+    Languages are easy to learn because they are all very similar.
 
-My choices:
+    Library interfaces however are not, because they involve completely different concepts between one another.
+
+    Therefore: if a project does what you want in a language you don't know
+
+    - learn that language!
+    - **don't** recode the project!
+
+My languages of choice:
 
 - C
 - C++
-- Python
 - Java
+- Python
 
-##data languages
+##Data languages
 
 - XML
 - Json
 
-##markup languages
+##Markup languages
 
 - HTML
-- Latex
+- LaTeX
 - Markdown
 
-##web development
+##Web development
 
-- html
-- http
-- cgi
+- HTML
+- HTTP
+- CGI
 - apache configuration
-- css
-- js
-- mysql
-- framework
-    - all the best addons of a framework
-- source control
+- CSS
+- JS
+- MySQL
 
-    even more fundamental for web apps
-
-- php
-- the other interpreted cgi languages:
-    - python
-    - ruby
-    - perl
+- PHP
+- the other interpreted CGI languages:
+    - Python
+    - Ruby
+    - Perl
 
 - real deployment
 
@@ -110,7 +136,13 @@ My choices:
     - deal with permissions you lack on server
     - ssh
 
-#filesystem
+##Multiple browsers
+
+Have at least two browsers, one main where you are logged in all your websites, and one secondary, which you will use to see how other users see your profiles.
+
+Same goes for web development: have multiple browsers to quickly switch users. Also good practice as it lets you see often how the website renders under different browsers.
+
+#Filesystem
 
 One of the first things you should understand better as a programmer is your filesystem.
 
@@ -149,40 +181,31 @@ One of the first things you should understand better as a programmer is your fil
 
 - inner workings: how is data actually stored/retreived on disk?
 
-#database
+#Database
 
 - MySQL
 - SQLite
 
-#important programs for life
+#Important programs for life
 
-- vim
+- dropdown terminal emulator: Guake.
 
-    text editor
+- Vim
 
-- krusader
+    Text editor.
 
-    file manager
+- Krusader
 
-- source version control (svc)
+    File manager.
+
+- Source version control.
 
     you need to contribute with others
 
-    my picks:
+    Most commonly used:
 
-    - git
-        - <http://try.github.com/>
-        - [git-motivation.html]()
-
-    - svn
-
-    related:
-
-    - use a bugracker
-
-- ack (find/grep replacement)
-
-    find in files
+    - Git. Entirely dominates web development.
+    - SVN
 
 - make (makefile)
 
@@ -190,11 +213,19 @@ One of the first things you should understand better as a programmer is your fil
 
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
+- bugrackers, like GitHub built-in one. **Always** use one for your project!
+
+- virtual machines. VirtualBox + Vagrant are game changing.
+
+- ack (find/grep replacement)
+
+    Find in files.
+
 ##shell
 
 - language:
 
-    - linux: bash
+    - Linux: bash
     - windows: cmd
 
 - terminal:
@@ -207,12 +238,12 @@ One of the first things you should understand better as a programmer is your fil
 - bash:
 
     - pro: super easy file/pipe/process handling
-    - con: INSANE, INNEFICIENT
+    - con: insane, slow
 
-    use for one liners only. replacements:
+    Use for one liners only. replacements:
 
-    - perl is dead
-    - python! yes, also useful for other things, so worth learning
+    - Perl is dead, but golfs really well.
+    - Python! Also useful for other things, so worth learning
 
 - --help (how to read, [], ..., ), man, version
 
@@ -301,7 +332,7 @@ ELF files, including libraries
 - busses
     <http://computer.howstuffworks.com/pci1.htm>
 
-#multithreading concurrency ipc
+#multithreading concurrency IPC
 
     - thread vs process
 
