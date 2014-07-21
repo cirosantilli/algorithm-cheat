@@ -1,19 +1,22 @@
-# gpl
+# Licenses
+
+## MIT
 
 - you can use, study, share (copy), and modify the software
 
-- you *cannot* use it in non gpl projects (copyleft),
-	meaning that you cannot make a closed source project that uses it.
+- every substantial reproduction of the software must maintain the copyright note
 
-# mit liscence
+Basically like GPL except you *can* use in commercial projects,
+so you can basically do anything you want, except remove the license from sub products
 
-- like gpl
+## GPL
 
-- except you *can* use in commercial projects,
-	so you can basically do anyting you want,
-	except remove the license from subproducts
+Like MIT< but you *cannot* use it in non GPL PROJECTS (COPYLEFT),
+meaning that you cannot make a closed source project that uses it.
 
-# dual
+This makes the project useless for closed source projects to build upon.
 
-some licenses are called dual X/Y (ex: dual BSD/GPL), meaning that you can
+## Dual
+
+Some licenses are called dual X/Y (ex: dual BSD/GPL), meaning that you can
 take either one of them.
