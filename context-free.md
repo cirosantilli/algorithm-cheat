@@ -1,73 +1,76 @@
-#application
+# Context-free grammar
 
-sufficient for most programming languages, while regexes are not
+## Application
 
-but simpler than a context sensitive grammar
+Sufficient for most programming languages, while regexes are not.
 
-usually, programming languages are faster to parse subsets of CFG
-most notably deterministic context free grammars
-(which parse in O(n)) instead of O(n^3) )
+But simpler than a context sensitive grammar.
 
-#automaton
+Usually, programming languages are faster to parse subsets of CFG
+most notably deterministic context free grammars,
+which parse in $O(n)$) instead of $O(n^3)$.
 
-pushdown automata (*non deterministic*)
+## Automaton
 
-#recognition complexity
+Pushdown automata (*Non deterministic*).
 
-CYK: O(n^3), practically good, but better assymptotic known
+## Recognition complexity
 
-parsing CGFs and mutliplying 0/1 matrix algorithms are almost time equivalent
+CYK algorithm: $O(n^3)$, practically good, but better asymptotic already known.
 
-therefore the optimal time is linked to matrix multiplication,
+Parsing CGFs and multiplying 0/1 matrix algorithms are almost time equivalent.
+
+Therefore the optimal time is linked to matrix multiplication,
 which is still an open problem, but conjectured to have largest
-lower bound 2, even if the best algorithms known ar at around O(n^2.37)
+lower bound 2, even if the best algorithms known are at around $O(n^2.37)$
 with huge constant terms
 
-#normal form
+## Normal form
 
 TODO
 
-#undecidable problems
+## Undecidable problems
 
-there are lots of interesting ones:
+There are lots of interesting ones:
 
-##universality
+### Universality
 
-Given a CFG, does it generate the language of all strings over the alphabet of terminal symbols used in its rules
+Given a CFG, does it generate the language of all strings over the alphabet
+of terminal symbols used in its rules.
 
-##language equality
+### Language equality
 
 Given two CFG, do they accept the same language?
 
-decidable O(n) for regular exapressions!
+Decidable O(n) for regular expressions!
 
-##language inclusion
+### Language inclusion
 
 Given two CFG, is one language included in the other?
 
-##chomsky hierarchy
+### Chomsky hierarchy
 
 Given a CSG, is it a CFG?
 Given a CFG, is it a regex?
 
-##ambiguity
+### Ambiguity
 
 Given a CDG, is it ambiguous?
 
-#amibtuity
+## Ambiguity
 
-certain languages can only be recognized by ambiguous grammars
+Certain languages can only be recognized by ambiguous grammars.
 
-#extended context-free grammar
+## Extended context-free grammar
 
-grammar in which each right hand side can be a regex
+Grammar in which each right hand side can be a regex.
 
-same languages as context-free grammars
+Same languages as context-free grammars.
 
-exactly what the lex/yacc pair does
+Exactly what the lex/yacc pair does.
 
-it does that for one reason: separating complexities
+It does that for one reason: separating complexities.
 
-#deterministic context-free grammar
+## Deterministic context-free grammar
 
-same as non deterministic, but with deterministic automaton
+Same as non deterministic, but with deterministic automaton.

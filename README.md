@@ -1,29 +1,34 @@
-Computer science topics.
+# Computer Science
 
-#Tips
+Practical and theoretical topics.
 
-##Operating system choice
+## Tips
+
+### Operating system choice
 
 Use Linux because it is free and open source and better than windows for programming.
 
-##Make cheatsheets
+### Make cheatsheets
 
 Everything you learn, write it down! You will forget it later.
 
-If there is a good link or book, save the link or the book page!
+If there is a good link or book, save the link or the book page.
 
-If possible make assertions like C, Java or python `assert` statements, so you can be sure that what you think is right is right.
+If possible make assertions like C, Java or Python `assert` statements,
+so you can be sure that what you think is right is right.
 
 Publish your cheats so that others can use them too.
 
-##Build your CV
+Always use correct grammar, and make things as understandable as possible.
+
+### Build your CV
 
 Keep a list of:
 
 - open source contributions with importance of each contribution. Example: <http://www.cirosantilli.com/contrib>
 - a self evaluation of what you know about programming. Example: <http://www.cirosantilli.com/self-evaluation>
 
-##How to type
+### How to type
 
 - user four fingers
 - use closes finger
@@ -32,13 +37,15 @@ Keep a list of:
 
 Saves time and preserves your arm.
 
-##Standards matter
+### Standards matter
 
-The first thing you should ask yourself when learning a new language or other interfaces is: what are the standards?
+The first thing you should ask yourself when learning a new language
+or other interfaces is: what are the standards?
 
 Is there a dominating standard?
 
-What is the state of implementations? Are they consistent with one another? Are they updated. Example:
+What is the state of implementations? Are they consistent with one another?
+Are they updated. Example:
 
 - standard: W3C HTML or CSS
 - semi compatible implementations: browsers: Firefox, Chrome, IE
@@ -47,15 +54,17 @@ What are the most important extensions to the standard? How portable are they? E
 
 - standard: ANSI C vs POSIX vs GNU Extensions
 
-##Download and read the docs
+### Download and read the docs
 
-First start with tutorials which are easier to understand and find the most interesting things in.
+First start with tutorials which are easier to understand
+and find the most interesting things in.
 
-As soon as you can handle the docs, download and read the official docs, since those are more precise and up to date than tutorials.
+As soon as you can handle the docs, download and read the official docs,
+since those are more precise and up to date than tutorials.
 
-#Language
+## Language
 
-##Programming
+### Programming
 
 -   Most popular? Hard to say
 
@@ -68,19 +77,19 @@ As soon as you can handle the docs, download and read the official docs, since t
 
 -   Categories:
 
-    - compiled vs interpreted (virtual machine) non compiled languages
+    -   Compiled vs interpreted (virtual machine) non compiled languages.
 
-        speed vs multiplataform, quick test, prototyping
+        Speed vs multiplataform, quick test, prototyping.
 
-        there is no hard distiction: any compiled language could also be interpreted and vice versa
+        There is no hard distiction: any compiled language could also be interpreted and vice versa.
 
-        it is mainly a question of design: some langs are designed to be interpreted
+        It is mainly a question of design: some langs are designed to be interpreted.
 
-        hakell for example can be compiled but also comes with a standard [REPL] interface
+        Haskell for example can be compiled but also comes with a standard [REPL] interface.
 
-    - objects oriented vs non object oriented
+    -   Objects oriented vs non object oriented.
 
-    - type systems
+    -   Type systems:
 
         - statically vs dynamically typed
         - weakly vs strongly typed
@@ -103,29 +112,37 @@ My languages of choice:
 - Java
 - Python
 
-##Data languages
+### Data languages
 
 - XML
-- Json
+- JSON
 
-##Markup languages
+### Markup languages
 
 - HTML
 - LaTeX
 - Markdown
 
-##Web development
+### Web development
 
 -   HTML
+
 -   HTTP
+
 -   CGI
--   apache configuration
+
+-   Apache configuration
+
 -   CSS
+
 -   JS
+
 -   MySQL
 
 -   PHP
+
 -   the other interpreted CGI languages:
+
     - Python
     - Ruby
     - Perl
@@ -136,7 +153,7 @@ My languages of choice:
     - deal with permissions you lack on server
     - ssh
 
-##Multiple browsers
+### Multiple browsers
 
 Have at least two browsers, one main where you are logged in all your websites,
 and one secondary, which you will use to see how other users see your profiles.
@@ -148,7 +165,7 @@ For websites that allow you limited unsigned entry, have a third browser to test
 
 E.g. on Ubuntu 12.04 I run Firefox (primary), Chromium (secondary) and Chrome (unsigned).
 
-#Filesystem
+## Filesystem
 
 One of the first things you should understand better as a programmer is your filesystem.
 
@@ -187,61 +204,61 @@ One of the first things you should understand better as a programmer is your fil
 
 -   inner workings: how is data actually stored/retreived on disk?
 
-#Database
+## Database
 
 - MySQL
 - SQLite
 
-#Important programs for life
+## Important programs for life
 
-- dropdown terminal emulator: Guake.
+-   dropdown terminal emulator: Guake.
 
-- Vim
+-   Vim
 
     Text editor.
 
-- Krusader
+-   Krusader
 
     File manager.
 
-- Source version control.
+-   Source version control.
 
-    you need to contribute with others
+    You need to contribute with others.
 
     Most commonly used:
 
     - Git. Entirely dominates web development.
     - SVN
 
-- make (Makefile)
+-   make (Makefile)
 
-    automate compilations
+    Automate compilations.
 
     <http://www.jfranken.de/homepages/johannes/vortraege/make_inhalt.en.html>
 
-- bugrackers, like GitHub built-in one. **Always** use one for your project!
+-   Bug trackers, like GitHub built-in one. **Always** use one for your project!
 
-- virtual machines. VirtualBox + Vagrant are game changing.
+-   Virtual machines. VirtualBox + Vagrant are game changing.
 
-- Ack (find/grep replacement)
+-   Ack (find/grep replacement)
 
     Find in files.
 
-##shell
+### shell
 
-- language:
+-   Language:
 
     - Linux: bash
     - windows: cmd
 
-- terminal:
+-   Terminal:
 
     - pro: reproduce commands easily
     - con: cannot do graphs
 
     The terminal allows you to interact with the shell interpreter.
 
-- bash:
+-   Bash:
 
     - pro: super easy file/pipe/process handling
     - con: insane, slow
@@ -251,42 +268,42 @@ One of the first things you should understand better as a programmer is your fil
     - Perl is dead, but golfs really well.
     - Python! Also useful for other things, so worth learning
 
-- --help (how to read, [], ..., ), man, version
+-   --help (how to read, [], ..., ), man, version
 
-- directory structure, homedir, fake vs real dirs
+-   directory structure, homedir, fake vs real dirs
 
-- options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
+-   options, ls, cd, mkdir, cp, rm, rmdir, control z, bg, find, grep
 
-- stdin/stderr/stdout
+-   stdin/stderr/stdout
 
     - three holes
     - pipes > to file, | grep, 1>&2
 
-- exit status
+-   exit status
 
-- pipe (help grep example)
+-   pipe (help grep example)
 
-- interactive vs. non-interactive
+-   interactive vs. non-interactive
 
-#algorithm
+## algorithm
 
 See [this](algorithm.md).
 
-#assembler
+## assembler
 
 Understand exactly what operations a processor can do.
 
 <http://www.bottomupcs.com/>
 
-#data representation
+## data representation
 
-##character representation
+### character representation
 
 - ascii
 - unicode
 - utf8
 
-##integer representation
+### integer representation
 
 - binary, hexa
 - signed
@@ -294,11 +311,11 @@ Understand exactly what operations a processor can do.
     - one's complement
     - 2-complement
 
-##float representation
+### float representation
 
 TODO
 
-#operating systems
+## operating systems
 
 You must learn how your operating system works.
 
@@ -307,38 +324,35 @@ so understand Linux.
 
 Topics which you should look into:
 
-##program memory space
+### program memory space
 
 address, operational system division
 
-- <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
+-   <www.dirac.org/linux/gdb/02a-Memory_Layout_And_The_Stack.php>
 
-    tutorial to gdb
+    Tutorial to gdb
 
-##driver programming
+### driver programming
 
-- <http://www.linuxjournal.com/article/7353>
-    #5/5
-    #control a lamp. contains c code.
+- <http://www.linuxjournal.com/article/7353> Control a lamp. Contains C code.
 
 - <http://www.freesoftwaremagazine.com/articles/drivers_linux>
 
-##executable files
+### executable files
 
 ELF files, including libraries
 
-#hardware
+## hardware
 
-- memory: registers vs caches vs RAM vs ROM (BIOS) vs VRAM vs HD
+-   Memory: registers vs caches vs RAM vs ROM (BIOS) vs VRAM vs HD.
 
     <http://arstechnica.com/gadgets/2002/07/caching/2/>
 
-    deep explanaition
+    Deep explanation.
 
-- busses
-    <http://computer.howstuffworks.com/pci1.htm>
+-   Busses: <http://computer.howstuffworks.com/pci1.htm>
 
-#multithreading concurrency IPC
+## Multithreading concurrency IPC
 
     - thread vs process
 
@@ -354,13 +368,13 @@ ELF files, including libraries
             - pci
             - usb
 
-#Formal languages
+## Formal languages
 
 Important if you ever want to create a computer language.
 
 - Backus-Naur form: <http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form>
 
-#Optimizing code
+## Optimizing code
 
 More important than those are to first:
 
@@ -380,9 +394,9 @@ A few important ones are:
 
 - register renaming: <http://en.wikipedia.org/wiki/Register_renaming>
 
-#automatic optimization
+## Automatic optimization
 
-- branch prediction
+-   branch prediction
 
     <http://en.wikipedia.org/wiki/Branch_predictor>
 
@@ -390,31 +404,33 @@ A few important ones are:
 
     <http://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-an-unsorted-array>
 
-#design patterns
+## Design patterns
 
 See [this](design-patterns).
 
-#GPU programming
+## GPU programming
 
 TODO
 
-#stragegy
+## Strategy
 
-artistic level
+Artistic level:
 
-- coworkers
-- clients
-- market
+-   coworkers
 
-- <http://www.joelonsoftware.com/>
+-   clients
 
-    quite a few strategy articles
+-   market
 
-    ex microsoft employee, lots of exp
+-   <http://www.joelonsoftware.com/>
 
-#Philosophy
+    Quite a few strategy articles.
 
-##What computers do
+    E.g.: Microsoft employee, lots of exp.
+
+## Philosophy
+
+### What computers do
 
 Manipulate information:
 
@@ -427,7 +443,7 @@ In a way that is *very*:
 - cheap
 - without errors
 
-##Programming and ideas
+### Programming and ideas
 
     ideas (that can be programmed)
     +
@@ -438,45 +454,47 @@ In a way that is *very*:
 - without ideas, programming is useless!
 - without programming, some ideas are useless!
 
-##Imperfection
+### Imperfection
 
-It is the work of a programmer to search perfection, while accepting that imperfection is inevitable.
+It is the work of a programmer to search perfection,
+while accepting that imperfection is inevitable.
 
 When in doubt, look, decide, and follow your decision all the time,
 knowing that all other choices are also imperfect.
 
-#semver
+## SemVer
 
-#Semantic versioning
+## Semantic versioning
 
 Popular standard for program versioning <http://semver.org/> by Tom Preston-Werner.
 
-#Sources
+## Sources
 
-##Free
+### Free
 
-- [stack overflow](http://stackoverflow.com/)
+-   [Stack Overflow](http://stackoverflow.com/)
 
     Great QA site with gamification. Huge programming community.
 
     Also check related sites maintained by the same enterprise: [stack exchange](http://stackexchange.com/).
 
-    Reasonable way to show your knowledge to enterpreises.
+    Reasonable way to show your knowledge to enterprises.
 
-- [top coder algorithm contests](http://community.topcoder.com/tc?module=ProblemArchive&sr=1&er=50&sc=&sd=&class=&cat=&div1l=&div2l=&mind1s=&mind2s=&maxd1s=&maxd2s=&wr=)
+-   [TopCoder algorithm contests](http://community.topcoder.com/tc?module=ProblemArchive&sr=1&er=50&sc=&sd=&class=&cat=&div1l=&div2l=&mind1s=&mind2s=&maxd1s=&maxd2s=&wr=)
 
     Hosts timed programming contests online.
 
     Lost of programming problems available with solutions proposed by contestants.
 
-    Good way to show your knowledge to enterpreises.
+    Good way to show your knowledge to enterprises.
     Very popular as of 2013, lots of employers looking there.
 
     Also worth checking their tutorials: <http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index>
 
-    Must use a annoying Java program to run in the contests, and hard to find the problems in the site in the first place.
+    Must use a annoying Java program to run in the contests,
+    and hard to find the problems in the site in the first place.
 
-- [spoj contests](http://www.spoj.com/problems/classical/)
+-   [SPOJ contests](http://www.spoj.com/problems/classical/)
 
     Much like top coder.
 

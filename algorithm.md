@@ -1,6 +1,12 @@
-#Sources
+# Algorithms
 
-##Free sources
+Concepts that are useful to understanding algorithms in general.
+
+Specific algorithms are not be given here.
+
+## Sources
+
+### Free sources
 
 Lecture notes:
 
@@ -9,7 +15,7 @@ Lecture notes:
 
 - hard algorithmic problems mostly without solution IIT course: <http://www.cse.iitb.ac.in/~aad/cs218/tutorial-1.txt>
 
-##Non free sources
+### Non free sources
 
 - [Skiena - Algorithm Design Manual 2ed][skiena]
 
@@ -19,7 +25,7 @@ Lecture notes:
 
 [cormen]: http://www.amazon.com/books/dp/0262033844
 
-#Data structures
+## Data structures
 
 It is hard to separate data structures from algorithm analysis because:
 
@@ -30,15 +36,15 @@ Each data structure supports a different set of operations, and each operation h
 
 Some of the major classes of structures are:
 
-- linked list
+-   linked list
 
-- hash map
+-   hash map
 
-- graph
+-   graph
 
-    - trees
+    - trees. Important subset of graphs.
 
-#Algorithm analysis
+## Algorithm analysis
 
 You need to decide what algorithm is better than what: <http://en.wikipedia.org/wiki/Analysis_of_algorithms>
 
@@ -61,21 +67,21 @@ Before doing anything, we must decide what computational model we will be using 
 
 Also, our measures will often be asymptotic (input $n$ tends to infinity), so we must introduce some notation that will simplify writing messy limits all over: that is the role of [big O](#big-o) notation.
 
-##Computation model
+### Computation model
 
 The fist thing to do is to decide on a computer model to work with.
 
-###Turing machine
+#### Turing machine
 
 Classical model.
 
-###RAM model
+#### RAM model
 
 Random data access. Same computability class as Turing machine, but models currently existing memories better.
 
 TODO vs Turing machine?
 
-###Input length vs value
+#### Input length vs value
 
 Keep in mind that big O analysis uses a Turing machine, so what matters is the *length* of the input, *not* its value.
 
@@ -91,7 +97,7 @@ The practical importance of this depends on the nature of the input:
 
 - if however $n$ is a number that comes out in some natural model in which $n$ itself cannot be too large because it cannot simply double too quickly (say, the number of people on the planet), then the exponential bound is not very meaningful.
 
-###strongly NP
+#### Strongly NP
 
 A problem is strongly NP if it is NP even if the input values are considered instead of the input lengths.
 
@@ -99,7 +105,7 @@ Therefore, the naive primeness test is not strongly NP complete, since if values
 
 Known strongly NP problems can be found here: <http://en.wikipedia.org/wiki/Category:Strongly_NP-complete_problems>
 
-##Big O
+### Big O
 
 Also known specially in physics as Landau notations.
 
@@ -117,13 +123,13 @@ Each is evaluated at the limit as x tends to some point, and this point is alway
 
     This can be interpreted as $f$ is the same as $g$.
 
-##Recursive vs non recursive
+### Recursive vs non recursive
 
 For many algorithms, there are two methods to calculate the big O complexity: using a recursion relation or not.
 
 It is often the case that using a recursion relation will be simpler, if not the only way, to compute the solution.
 
-###recursive calculation
+#### Recursive calculation
 
 Comes down to a formula something like:
 
@@ -145,11 +151,11 @@ Then in terms of $f$:
 
 3. If $f(n) = Omega(n^{log_{b}(a + e)})$ for some constant $e > 0$, and if af $(n/b) <= cf (n)$ for some $c < 1$, then $T(n) = Omega(f(n))$
 
-##analysis types
+### Analysis types
 
 This section exemplifies the different types of analysis that can be done on al algorithm.
 
-##worst case
+### Worst case
 
 Most commonly used measure.
 
@@ -159,27 +165,27 @@ If this measure is good, then the algorithm is always good.
 
 This does however leave out something: it is possible that worst cases are very rare considering all possible problems, and that the algorithm still performs well in practice. This is why two other types of analysis were created: [average](#average) and [amortized](#amortized) analysis.
 
-##best case
+### Best case
 
 Like worst case, but for best case instead.
 
 Not very often used.
 
-##average case
+### Average case
 
 Like in worst case, we put a bound on the assymptotic average case.
 
 Sources:
 
-- <https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/averagecase/pages/index.html>
+-   <https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/averagecase/pages/index.html>
 
-    good simple example
+    Good simple example.
 
-##Amortized
+### Amortized
 
 Sources: [cormen] chapter "Amortized Analysis"
 
-##Undecidability
+### Undecidability
 
 <http://en.wikipedia.org/wiki/Undecidable_problem>
 
@@ -195,7 +201,7 @@ Those problems are called undecidable, and trying to solve them general is hopel
 - P vs NP
 - P vs NP
 
-##P vs NP
+### P vs NP
 
 The speed with which certain problems can be solved in terms of time and space
 can be divided into two categories:
@@ -208,11 +214,11 @@ The division is interesting because non-polyimial problems are *MUCH* harder to 
 Just consider the fact that on an exponential problem with $2^x$ complexit, increasing the problem size `x`
 by one *doubles* the time it takes to solve the problem.
 
-###P
+#### P
 
 Problem can be solved by a Turing machine in polynomial time.
 
-###NP
+#### NP
 
 Contains P
 
@@ -226,7 +232,7 @@ Example of NP problem: boolean satisfiability problem.
 
 Non-example of NP problem: TSP. Even if we are given a solution, we cannot be sure that it is the optimum! This is often the case for optimization algorithms.
 
-###NP-complete
+#### NP-complete
 
 Contained, but not equal to NP.
 
@@ -234,7 +240,7 @@ It can be proven that all NP problems can be reduced to certain NP problems (NP-
 
 Not all NP problems however are NP-complete.
 
-###Meaning of P vs NP
+#### Meaning of P vs NP
 
 If a single NP-complete problem is proven to be in P, then all NP problems are also polynomial, and so P = NP.
 
@@ -251,7 +257,7 @@ Important practical problems that are known to be NP-complete:
 - knapsack problem (discrete linear programming)
 - traveling salesman problem (discrete linear programming)
 
-###NP-hard
+#### NP-hard
 
 Problems such that there is an NP-complete problem that reduces to it in Polynomial time.
 
@@ -265,7 +271,7 @@ Implications of P = NP to NP-hard problems:
 
 - if P == NP, then the NP-hard problems which are also NP-complete can be solved in polynomial time, but we know nothing about the NP-hard problems which are not NP-complete.
 
-####Decision vs optimization
+##### Decision vs optimization
 
 It is very common to have optimization problems which are NP-hard, and for which the decision problem is NP-complete.
 
@@ -279,7 +285,7 @@ all of which are known to be NP-complete.
 
 The optimization version of those problems is therefore immediately NP-hard, since if we knew that the optimum path has cost 5, we immediately know that there is at least one path with cost at most 9 or 10 (the path with cost 5), but no path with cost 4 (otherwise that would be the optimum).
 
-#Divide and conquer
+## Divide and conquer
 
 General algorithm design technique.
 
@@ -287,7 +293,7 @@ Applicable when the solution for size $n$ can be computed efficienty as the solu
 
 Example: merge sort.
 
-#Dynamic programming
+## Dynamic programming
 
 Sources: [skiena] chapter "Dynamic Programming"
 
@@ -298,7 +304,7 @@ Store solutions to subproblems that can be reused.
 Can reduce time complexity dratically (from exponential to linear for example in the Fibonnacci sequence),
 at the cost of potentially increasing memory complexity.
 
-#Greedy algorithm
+## Greedy algorithm
 
 General type of algorithm that takes the local optimum first.
 
@@ -306,6 +312,6 @@ Disadvantage: may not converge to the optimal solutions when there are multiple 
 
 Advantages: very fast, and may give reasonable solutions in certain cases.
 
-#Branch and bound
+## Branch and bound
 
 TODO

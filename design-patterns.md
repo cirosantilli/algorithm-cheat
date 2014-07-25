@@ -1,11 +1,13 @@
-This talks about object oriented design patterns.
+# Object oriented design patterns
 
-<https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns>
-<http://calumgrant.net/patterns/index.html>
-<http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms>
+-   <https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns>
+
+-   <http://calumgrant.net/patterns/index.html>
+
+-   <http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms>
     huge list, c++
-<http://sourcemaking.com/:
-    site on both uml and design patterns
+
+-   <http://sourcemaking.com/>: site on both UML and design patterns
 
 - creation
 
@@ -102,7 +104,7 @@ This talks about object oriented design patterns.
     - strategy : abstract method to vary algorithm
     - template : same as strategy, but change only part of an algorithm
 
-- uml
+- UML
 
 - class diagram
 
@@ -129,7 +131,6 @@ This talks about object oriented design patterns.
 
     - same as class, but with instances instead
 
-http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/
+<http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/>
 
     uml intro
-

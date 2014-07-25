@@ -1,20 +1,22 @@
-#E and V
+# Graph algorithms
+
+## E and V
 
 E = set of edges
 
 V = set of vertices
 
-`|E|`: number of edges
+$|E|$: number of edges
 
-`|V|`: number of vertices
+$|V|$: number of vertices
 
 Important relation:
 
-- `|E| <= |V|^2`. If equality happens, the graph is said to be dense.
+- $|E| <= |V|^2$. If equality happens, the graph is said to be dense.
 
-- `\forall y, |{ xy | x \in V }| <= |V|-1` for a fixed i and x free to vary.
+- $\forall y, |{ xy | x \in V }| <= |V|-1$ for a fixed $i$ and $x$ free to vary.
 
-#Tree
+## Tree
 
 Trees are special cases of directed connected graphs that have the properties:
 
@@ -24,9 +26,9 @@ Trees are special cases of directed connected graphs that have the properties:
 This immediately implies that E = V - 1, and simplifies search procedures
 since you don't need to check if you have already visited some nodes.
 
-##BST
+### BST
 
-##Binary search tree
+### Binary search tree
 
 Each node has 2 children.
 
@@ -39,9 +41,9 @@ which actually have $O(ln)$ for all operations.
 The only complicated operation is delete, visualize it here:
 <http://www.algolist.net/Data_structures/Binary_search_tree/Removal>
 
-##RB-tree.
+### RB-tree.
 
-##Red black tree
+### Red black tree
 
 Balanced binary search tree.
 
@@ -81,7 +83,7 @@ Requires a bit too many clicks, but really cool.
 
 TODO visualize insert
 
-##B-tree
+### B-tree
 
 *Not* binary tree: <http://en.wikipedia.org/wiki/B-tree>.
 
@@ -102,14 +104,14 @@ Advantage:
 
 - less nodes need to be retrieved. Huge practical gains here to read data from slow media.
 
-#DFS
+## DFS
 
 DFS can be done either recursively or not with a stack.
 
 The only key difference is that the recursive version uses the system's call stack,
 while the non-recursive version uses an explicit stack
 
-#BFS
+## BFS
 
 BFS cannot be done recursively naturally,
 since the non-recursive implementation uses a queue,
@@ -117,7 +119,7 @@ and not a stack like DFS.
 
 <http://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively>
 
-#DFS vs BFD
+## DFS vs BFD
 
 Both are methods to search vertexes on unordered graphs.
 
@@ -128,27 +130,27 @@ On trees (specific type of graph) this is not needed since trees have no loops b
 
 Advantages of DFS:
 
-- if the searched solutions are guaranteed to be at the greatest depths
+-   if the searched solutions are guaranteed to be at the greatest depths
     (e.g. leaves of a tree) then DFS will certainly be faster.
 
-- if the graph is somehow balanced (nodes of maximum depth are at similar depths),
+-   if the graph is somehow balanced (nodes of maximum depth are at similar depths),
     then DFS will certainly use less memory than BFS
     since BFS must store a FIFO of each level ($2^depth$ vertexes on a balanced binary tree)
     while BFS stores at most the maximum depth sequence of parents ($depth$ elements).
 
 Advantages of BFS:
 
-- it is the obvious choice when looking for minimum distances,
+-   it is the obvious choice when looking for minimum distances,
     since you want to keep as close as possible to the start and not go too deep.
 
-- if the depth can be too long, or even infinite,
+-   if the depth can be too long, or even infinite,
     it is simpler to look breadth first, and limit the descent,
     or the process could take forever or too long.
 
     It also makes more sense to use heuristics with BFS,
     looking around the current position, and then deciding where to descend further.
 
-#Dijkstra
+## Dijkstra
 
 <http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm>
 
@@ -157,7 +159,7 @@ Find the shortest path between two given nodes.
 Only works if all weights are positive. If negative weights are possible,
 consider using the [bellman ford algorithm](http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm).
 
-##Dijkstra complexity
+### Dijkstra complexity
 
 Time worst case: $O(|E| + |V| log |V|)$, so $O(|V|^2)$ on a dense graph.
 
@@ -178,7 +180,7 @@ Lets consider two data structure possibilities for storing node distances and if
 - unordered array
 - min heap
 
-###Unordered array
+#### Unordered array
 
 Vertexes and their distances are stored in an array ordered by their index.
 
@@ -196,7 +198,7 @@ $$
 
 operations.
 
-###Min heap
+#### Min heap
 
 We order the vertexes on a min heap that takes the distance into account.
 
@@ -236,7 +238,7 @@ $$
     V^2
 $$
 
-##Choice of data structure
+### Choice of data structure
 
 The final choice of the data structure will depend on the expected density of the graph:
 
@@ -250,7 +252,7 @@ The final choice of the data structure will depend on the expected density of th
     works as well as the unordered array implementation
     for dense graphs, and better if the graph is not dense (often the case).
 
-#A star
+## A star
 
 aka `A*`
 
@@ -272,7 +274,7 @@ Let $h(x)$ be the estimative.
 
 - $h(x)$ is the exact distance to destination: only the correct path is explored.
 
-#Bellman-ford
+## Bellman-ford
 
 Does the same as Dijkstra, but
 

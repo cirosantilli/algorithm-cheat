@@ -1,51 +1,54 @@
-#open addressing
+# Hash maps
+
+## Open addressing
 
 Good sources on open adressing:
 
-- <http://webdocs.cs.ualberta.ca/~holte/T26/open-addr.html>
-- <http://www.algolist.net/Data_structures/Hash_table/Open_addressing>
+-   <http://webdocs.cs.ualberta.ca/~holte/T26/open-addr.html>
+-   <http://www.algolist.net/Data_structures/Hash_table/Open_addressing>
 
 Tradeoffs with chaining:
 
 Open addressing vs. chaining
 
-- Collision resolution
+-   Collision resolution.
 
-    Using external data structure
+    Using external data structure.
 
-    Using hash table itself
+    Using hash table itself.
 
-- Memory waste
+-   Memory waste:
 
-    - Pointer size overhead per entry (storing list heads in the table)
+    - Pointer size overhead per entry (storing list heads in the table).
 
-    - No overhead 1
+    - No overhead 1.
 
-- Performance dependence on table's load factor
+-   Performance dependence on table's load factor
 
     - Directly proportional
 
     - Proportional to (loadFactor) / (1 - loadFactor)
 
-- Allow to store more items, than hash table size
+-   Allow to store more items, than hash table size
 
-    - Yes
-    - No. Moreover, it's recommended to keep table's load factor below 0.7
+    - Yes.
 
-- Hash function requirements
+    - No. Moreover, it's recommended to keep table's load factor below 0.7.
 
-    - Uniform distribution
+-   Hash function requirements
 
-    - Uniform distribution, should avoid clustering
+    - Uniform distribution.
 
-- Handle removals
+    - Uniform distribution, should avoid clustering.
 
-    - Removals are ok
+-   Handle removals
 
-    - Removals clog the hash table with "DELETED" entries
+    - Removals are OK.
 
-- Implementation
+    - Removals clog the hash table with "DELETED" entries.
 
-    - Simple
+-   Implementation
 
-    - Correct implementation of open addressing based hash table is quite tricky
+    - Simple.
+
+    - Correct implementation of open addressing based hash table is quite tricky.

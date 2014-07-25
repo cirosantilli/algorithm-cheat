@@ -1,154 +1,154 @@
-Formal regex: only (|), concat and * ops
+# Regular expressions
 
-#extensions
+Formal regex: only (|), concatenation and `*` operations possible.
 
-regex packages offer some extensions of regexes:
+## Extensions
 
-##predefined classes
+Practical Regex implementations offer several extensions, some of which are reducible
+to formal regexes, and others which are not and increase the capacity of the language,
+while reducing theoretical performance.
 
-``.``, ``\s``, etc.
+### Predefined classes
 
-obviously can be simply expanded into the base refs
+`.`, `\s`, etc.
 
-##? and +
+Obviously can be simply expanded into the base refs
 
-are directly defined in terms of the base ops
+### ? and +
 
-##{n,m}
+Are directly defined in terms of the base operations.
 
-can be expanded into a huge number of ``|``
+### {n,m}
 
-ex:
+Can be expanded into a huge number of `|`.
+
+Example:
 
     a{2,4}
 
-equals:
+Equals:
 
     aa(|a(|a)))
 
-##lazy matching
+### Lazy matching
 
-ex: ``.*?`` or ``.+?`` in perl
+E.g.: `.*?` or `.+?` in Perl.
 
-this concept does not exist in formal regexes
-since lazyness is only useful to remove ambiguity
-to predict the content of capturing groups,
-concept which does not exist in formal regexes
+This concept does not exist in formal regexes since lazyness is only useful to remove ambiguity
+to predict the content of capturing groups, concept which does not exist in formal regexes
 
-##backreferences
+### Backreferences
 
-example: ``(.*)\1.``, matching aa, ``abab``.
+Example: `(.*)\1.`, matching `aa`, `abab`.
 
-classic non regex thing, but possible in context freeK
+Classic non regex thing, but possible in context free.
 
-#pumping lemma
+## Pumping lemma
 
-##application
+### Application
 
-regexes cannot do parenthesis matching (you need context free for that)
+Regexes cannot do parenthesis matching (you need context free for that).
 
-also proves many other languages are not context free
+Also proves many other languages are not context free.
 
-#complexity
+## Complexity
 
-the main algorithms are:
+The main algorithms follow.
 
-##DFA
+### DFA
 
-best time, but exponential space
+Best time, but exponential space.
 
-first transforms into a dfa
+First transforms into a DFA.
 
-O(n)         time once you transformed it into a deterministic finite automaton
-O(2^n) memory 
+- $O(n)$ time once you transformed it into a deterministic finite automaton
+- $O(2^n)$ memory 
 
-O(n) time to do the transformatino (compile the regex)
+Then $O(n)$ time to do the transformation (compile the regex).
 
-this can always be done because:
+This can always be done because there is always a regex equivalent to DFA,
+and the equivalence can be done in $O(n)$.
 
-###regex equivalent to dfa
+##### Smallest automaton can be exponentially larger than a regex length
 
-yes it is true, and can be done in O(n)
+Example: $L_k$ family.
 
-####smallest automaton can be exponentially larger than a regex length
+Importance of this fact: $O(n)$ regex recognition is $O(2^n)$ memory.
 
-example: L_k familly
+### Lazy DFA
 
-importance of this fact: O(n) regex recognition is O(2^n) memory
+Build DFA and discard states on the fly.
 
-##lazy DFA
+$O(mn^2)$ time and polynomial space.
 
-build DFA and discard states on the fly
+### Backtracking
 
-O(mn^2) time and polynomial space
+Exponential time.
 
-##backtracking
+#### Often used in implementations because
 
-exponential time!
+##### Non exponential space
 
-###often used in implementations because
+##### Easier to code extra features such as group matching
 
-####non exponential space
+## DFA minimization
 
-####easier to code extra features such as group matching
+$O(n log n)$ by Hopcroft 71.
 
-#dfa minimization
+Minimization is unique (least numer of states).
 
-O(n log n): Hopcroft 71
+#### Application: reduce memory usage in regexes
 
-minimization is unique (least numer of states)
+## Ambiguity
 
-###application: reduce memory usage in regexes
+Can always be removed
 
-#ambiguity
+Example:
 
-can always be removed
+    (ab|a)(b|ab)
 
-##exaple:
+is ambiguous, since `aba` can be done in two ways.
 
-(ab|a)(b|ab)
+The equivalent:
 
-is ambiguous, since `aba`
-can be done in two ways
+    a(b|b(a|b))
 
-a(b|b(a|b))
+recognizes the same language but is not ambiguous.
 
-recognizes the same language
-but is not ambiguous
+### Meaning of ambiguous
 
-##meaning of ambiguous
+There are more than one way to reach a single string by deciding:
 
-there are more than one way to reach
-a single string by deciding:
+- which side of `|` to take
+- how many times to expand `a*`
 
-1) which side of | to take,
-2) how many times to expand a*
-
-##complexity of resolving ambiguity
+### Complexity of resolving ambiguity
 
 TODO time complexity of resolving ambiguity
 
-#regex equivalence
+## Regex equivalence
 
-O(n) Hopcroft Krap 73 possible
+$O(n)$ by Hopcroft-Krap 73.
 
-classically O(n log n), using dfa minimization/isomorphism
+Classically $O(n log n)$, using DFA minimization/isomorphism.
 
-##application: ensure that a simpler regex does the same as a complicated one
+### Application: ensure that a simpler regex does the same as a complicated one
 
-#star height problem:
+## Star height problem
 
-(a|b)* :     star height 1
-((a|b*)* : star height 2
-((a|b*)a|b*)* : star height 3
+<http://en.wikipedia.org/wiki/Star_height_problem>
 
-posed in 1963
+Nested level of Kleene stars:
 
-1) fininite star height is not enough for all langs
-counter example family given
+- `(a|b)*`:        star height 1
+- `((a|b*)*` :     star height 2
+- `((a|b*)a|b*)*`: star height 3
 
-2) computing star height:
-hashiguchi 1988, nontrivial, huge time complexity
-kirsten 2005: double exponential!
+Problems posed:
 
-application? TODO
+-   Is finite star height enough all regexes?
+    1966: no, counter example family given.
+
+-   Computing star height of a given sequence. Much harder.
+    First answer: Hashiguchi 1988, not in ELEMENTARY.
+    Kirsten 2005: double exponential.

@@ -1,18 +1,18 @@
-Sorting algorithms.
+# Sorting algorithms
 
 To understand them, see how they work step by step on examples.
 
-#beauty
+## Beauty
 
 The coolest thing about sorting is looking for the best algorithm there is!
 
-#sources
+## Sources
 
 - <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
 
     Compare them all
 
-#algorithm comparison
+## Algorithm comparison
 
 See this: <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
 
@@ -33,14 +33,14 @@ Heapsort which achieves both $n log(n)$ worst case time and $O(1)$ space is not 
 
 TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and* is stable?
 
-In practice, considering cache performance and average cases, the following altorithms are very
+In practice, considering cache performance and average cases, the following algorithms are very
 common and can all give good results:
 
 - quicksort (even if it is $O(n^2)$ worst case time)
 - mergesort
 - heapsort
 
-#buble
+## Bubble
 
 Very slow.
 
@@ -54,7 +54,7 @@ Bubble.
 
 - quick. Worst: $n^2$ time, $n$ space.
 
-##bubble visualization
+### Bubble visualization
 
 Start with:
 
@@ -121,23 +121,23 @@ We reached the end, restart:
 
 We made no exchanges on the latest pass, so we are done. As we can see, the list is sorted.
 
-##correctness
+### Correctness
 
 TODO
 
-##complexity
+### Complexity
 
 Input of length $n$, un upper limit for the worst possible case is $n^2$ because TODO.
 
 But then for each $n$ we can generate a case which takes $n^2$ TODO
 
-Therefore the w4 2 1 3orst case complexity must be $n^2$.
+Therefore the w4 2 1 3 worst case complexity must be $n^2$.
 
-#insert
+## Insert
 
 TODO
 
-#merge
+## Merge
 
 Worst: $n log(n)$ time $n$ space
 
@@ -148,7 +148,7 @@ Principle:
 - merging two ordered lists os size `n` can be done in `O(n)` time `O(n)` memory.
 - start with lists of size 1 (always ordered), of items side by side, then 2, then 4, etc. `log(n)` times.
 
-##global view
+### Global view
 
 The input comes into an array:
 
@@ -160,7 +160,7 @@ We first divide it in 1 sized chunks:
 
 The first step is to merge:
 
-- two sorted lists: one containing only `2` and the other only `4`
+-   two sorted lists: one containing only `2` and the other only `4`
 
         4 | 2 | 1 3
         ^   ^
@@ -170,7 +170,7 @@ The first step is to merge:
         2 | 4 | 1 3
         ^   ^
 
-- two sorted lists: one containing only `1` and the other only `3`
+-   two sorted lists: one containing only `1` and the other only `3`
 
         2 4 | 1 | 3
               ^   ^
@@ -186,9 +186,7 @@ Next we split things into 2 sized chunks:
 
     2 4 | 1 3
 
-And we merge:
-
-- two sorted lists `2 4` and `1 3` with $n=2$, which gives:
+And we merge two sorted lists `2 4` and `1 3` with $n=2$, which gives:
 
     1 2 3 4
 
@@ -196,13 +194,13 @@ If there were still more elements, we would take sizes 4, 8 and so on.
 
 In [another section](merge-step) we will go into detail on how to do the merge of two sorted arrays efficiently.
 
-##merge step
+### Merge step
 
 The merge step takes two *ordered* arrays of same size and merges them.
 
 It is the key for the efficiency of this algorithm.
 
-Let's merge the two following ordered arrays: `2 4` and `1 3`, both os size `n = 2`.
+Let's merge the two following ordered arrays: `2 4` and `1 3`, both of size `n = 2`.
 
 They are both on a single input array side by side:
 
@@ -314,7 +312,7 @@ because:
 
 Therefore each merge step of two arrays of size $n$ takes $O(n)$ steps.
 
-##complexity recursive analysis
+### Complexity recursive analysis
 
 Let $S(n)$ be the number of steps for size $n$.
 
@@ -330,7 +328,7 @@ where:
 
 $A = TODO$
 
-##complexity non recursive
+### Complexity non recursive
 
 Let $N$ be the number of elements.
 
@@ -373,7 +371,7 @@ where we recall that C was the cost of:
 The memory worst case was all on the last merge, which required merging $N/2$ arrays,
 so we actually made a copy of th entire original array.
 
-#quick
+## Quick
 
 $n^2$ time worst case. Extermelly rare for random inputs, but happens exactly on the potentially common cases
 of sorted / reverse sorted inputs!
@@ -386,7 +384,7 @@ Even if it is quadratic worst time,
 it is still quite used in practice because of $log(n)$ average and low memory usage,
 and because it has good cache reutilization.
 
-##visualization
+### Visualization
 
 Quick but imprecise view: [gif gisualization](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif).
 
@@ -593,7 +591,7 @@ Left side:
 
 Oops, $i = j = r$ and there is a single element. This is the base case. Do nothing.
 
-##worst case
+### Worst case
 
 The worst case happens when the input is either sorted or reverse sorted.
 
@@ -613,14 +611,14 @@ $1 < 4$:
     1 2 3 | 4
       ^   | ^
       i   | r
-      j   |  
+      j   |
 
 $2 < 4$:
 
     1 2 3 | 4
         ^ | ^
         i | r
-        j |  
+        j |
 
 $3 < 4$:
 
@@ -656,8 +654,8 @@ $$ n + (n - 1) + ... + 1 = n * (n + 1) / 2 $$
 
 moves, and therefore $O(n^2)$.
 
-#heap
+## Heap
 
 TODO
 
-#count
+## Count
