@@ -36,7 +36,7 @@ TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and
 In practice, considering cache performance and average cases, the following algorithms are very
 common and can all give good results:
 
-- quicksort (even if it is $O(n^2)$ worst case time)
+- quicksort:$O(n^2)$ worst case time but very rare
 - mergesort
 - heapsort
 
@@ -145,7 +145,7 @@ Average: same.
 
 Principle:
 
-- merging two ordered lists os size `n` can be done in `O(n)` time `O(n)` memory.
+- merging two ordered lists of size `n` can be done in `O(n)` time `O(n)` memory.
 - start with lists of size 1 (always ordered), of items side by side, then 2, then 4, etc. `log(n)` times.
 
 ### Global view
@@ -604,7 +604,7 @@ Initial input:
     1 2 3 | 4
     ^     | ^
     i     | r
-    j     |  
+    j     |
 
 $1 < 4$:
 

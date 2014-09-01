@@ -39,9 +39,15 @@ See [this](https://github.com/cirosantilli/text/blob/1.1/src/tech.md).
 
 <https://en.wikipedia.org/wiki/P_versus_NP_problem>
 
+Easy to state, hard to prove.
+
+Many other analogous questions like PSPACE vs NP.
+
 ### Undecidability
 
 <http://en.wikipedia.org/wiki/Undecidable_problem>
+
+Mysterious feeling: there are problems that you can state, but not solve in general.
 
 ### FPTAS
 

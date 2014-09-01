@@ -10,9 +10,9 @@ Usually, programming languages are faster to parse subsets of CFG
 most notably deterministic context free grammars,
 which parse in $O(n)$) instead of $O(n^3)$.
 
-## Automaton
+## Pushdown automata
 
-Pushdown automata (*Non deterministic*).
+Non deterministic.
 
 ## Recognition complexity
 

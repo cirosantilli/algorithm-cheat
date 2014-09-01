@@ -55,14 +55,18 @@ Also proves many other languages are not context free.
 
 The main algorithms follow.
 
-### DFA
+### DFA implementation
 
-Best time, but exponential space.
+DFAs have the Same power as regular expressions.
 
-First transforms into a DFA.
+Regular expressions implementation has a better time performance, but grow exponentially with regex size.
 
-- $O(n)$ time once you transformed it into a deterministic finite automaton
-- $O(2^n)$ memory 
+First a preprocessing step to transforms regex into a DFA.
+
+Once that is done, matching takes:
+
+- $O(n)$ time
+- $O(2^n)$ memory
 
 Then $O(n)$ time to do the transformation (compile the regex).
 
