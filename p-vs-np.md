@@ -87,3 +87,15 @@ The optimization version of those problems is therefore immediately NP-hard, sin
 Similar questions exist for many other related complexity classes. See:
 
 ![Complexity Space Inclusion](complexity-space-inclusion.svg)
+
+### LSPACE
+
+<http://en.wikipedia.org/wiki/L_%28complexity%29>
+
+Logarithmic space.
+
+### NL
+
+<http://en.wikipedia.org/wiki/L_%28complexity%29>
+
+Logarithmic space by non-deterministic Turing machine.

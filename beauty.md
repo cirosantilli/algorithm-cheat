@@ -1,4 +1,4 @@
-# Motivation
+# Beauty
 
 Links and short descriptions of beautiful problems in computer science.
 
@@ -307,3 +307,30 @@ They are fun and important to implement solutions using computers.
 -   Differential equations: ordinary/partial.
 
 -   Finite elements.
+
+### Number theory
+
+#### Diophantine equations
+
+##### Hilbert's tenth problem
+
+<https://en.wikipedia.org/wiki/Hilbert%27s_tenth_problem>
+
+Given an integer Diophantine equation $P(x, y, z, ...)$, where $P$ is a multivariate polynomial, is there an integer solution?
+
+Famously proposed as an important problem in 1900, last step of the undecidability proof in 1970.
+
+Interesting subset problems include:
+
+-   Fermat's last algorithm decides negatively a small subset of Diophantine equations of the form $x^n + y^n = z^n$.
+
+-   limiting maximum degree:
+
+    - 1: efficient solution
+    - 2: there is an algorithm: <http://math.stackexchange.com/questions/181380/second-degree-diophantine-equations/181384#comment418090_181384, but not efficient.
+    - 3: unsolved
+    - 4: equivalent to the general problem of degree $n$, so undecidable
+
+##### Reduction of generating equations to 9 variables
+
+If a set is defined by a system of Diophantine equations, it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).

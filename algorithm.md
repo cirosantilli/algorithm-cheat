@@ -58,7 +58,26 @@ The fist thing to do is to decide on a computer model to work with.
 
 Classical model.
 
-TODO explain.
+##### Variants
+
+###### Non-deterministic Turing Machine
+
+###### NTM
+
+Turing machine that has multiple possible transitions per input and state.
+
+It decides between those transitions either:
+
+- optimally through a magic oracle.
+- by following all paths at once. TODO: what is the correct output if multiple paths halt?
+
+##### Limitations of Turing machines
+
+While Turing machines accurately describe decidability of existing systems, it does not model performance so well for the following reasons:
+
+- modern computers have random access memory. Fortunately it is simple to model performance by using the so called RAM computation model.
+
+- out-of-core operations: for very large inputs, it is necessary to store data in lower speed access media like hard disks. It then becomes necessary to model how much slower those accesses are.
 
 #### RAM model
 
@@ -73,6 +92,8 @@ TODO vs Turing machine?
 Sometimes algorithms must operate on data that is too large to fit in RAM, e.g. hard disks. In those cases, it may be necessary to take that into consideration, since disk IO is 1000 slower than RAM access.
 
 Certain algorithms are developed with that restriction in mind, e.g., the B-tree, which is less efficient than other binary search trees for in RAM computing, but much more efficient of out-of-core problems.
+
+There is no simple way of modeling the performance of out-of-core algorithms: we just have to give different weights to certain operations, and then solve complex numerical optimization decisions.
 
 #### Input length vs value
 
@@ -225,7 +246,7 @@ If such algorithm is possible, the advantage is obvious: it uses less memory for
 
 ### Free sources
 
-lecture notes:
+Lecture notes:
 
 - <http://webdocs.cs.ualberta.ca/~holte/t26/top.realtop.html>
 - <https://secweb.cs.odu.edu/~zeil/cs361/web/website/directory/page/topics.html>
