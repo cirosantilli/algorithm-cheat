@@ -8,7 +8,7 @@ The coolest thing about sorting is looking for the best algorithm there is!
 
 ## Sources
 
-- <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
+-   <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>
 
     Compare them all
 
@@ -23,7 +23,7 @@ For example, if the values are all integers between $0$ and $k$, and $k$ is $O(n
 counting sort has $O(n)$ worst case.
 
 There are many algorithms that sort in-place, thus achieving $O(1)$ extra memory
-(excludig the input itself) worst case. This is the case for quicksort and heapsort,
+(excluding the input itself) worst case. This is the case for quicksort and heapsort,
 but not for merge sort.
 
 There are algorithms that achieve both optimal time and space at the same time such as heapsort,
@@ -36,7 +36,7 @@ TODO is there a stable algorithm that achieves $n log(n)$ time $O(1)$ space *and
 In practice, considering cache performance and average cases, the following algorithms are very
 common and can all give good results:
 
-- quicksort:$O(n^2)$ worst case time but very rare
+- quicksort: $O(n^2)$ worst case time but very rare
 - mergesort
 - heapsort
 
@@ -241,7 +241,7 @@ Put the smallest one into $A[k]$:
             k
 
 
-So the smallest was 1 (the owther was 2).
+So the smallest was 1 (the other was 2).
 
 Move $k$, and the smallest of $i$ and $j$ forward:
 
@@ -318,15 +318,15 @@ Let $S(n)$ be the number of steps for size $n$.
 
 We have:
 
-$S(n) = 2*S(n/2) + C*n$
+$$S(n) = 2*S(n/2) + C*n$$
 
 We can then verify that the solution has the form:
 
-$A*n*log(n)$
+$$A*n*log(n)$$
 
 where:
 
-$A = TODO$
+$$A = TODO$$
 
 ### Complexity non recursive
 
@@ -334,7 +334,7 @@ Let $N$ be the number of elements.
 
 We need to work with powers of 2, so let $2^m$ be the first power of two larger than $N$.
 
-For a simple analysis, we can just fill all values between $A[N + 1] and $2^m$ with infinities.
+For a simple analysis, we can just fill all values between $A[N + 1]$ and $2^m$ with infinities.
 
 We are doing:
 
@@ -364,7 +364,7 @@ m times.
 But since $2^m >= N$, we have in the worst case: $D*N*log(N)$, with $D = C/2$,
 where we recall that C was the cost of:
 
-- one comparisond
+- one comparison
 - one value copy
 - two increments
 
@@ -373,7 +373,7 @@ so we actually made a copy of th entire original array.
 
 ## Quick
 
-$n^2$ time worst case. Extermelly rare for random inputs, but happens exactly on the potentially common cases
+$n^2$ time worst case. Extremely rare for random inputs, but happens exactly on the potentially common cases
 of sorted / reverse sorted inputs!
 
 Average time: $log(n)$ time.
@@ -401,15 +401,17 @@ Pointer setup:
 
 Visualization: we will separate things into groups:
 
-- smaller or equal to $A[r]$
-- larger than $A[r]$
-- the pivot $A[r]$
+-   smaller or equal to $A[r]$
 
-          | 8 2 7 1 3 5 6 | 4
-          | ^             | ^
-          | i             | r
-          | j             |
-    small | large         | pivot
+-   larger than $A[r]$
+
+-   the pivot $A[r]$
+
+              | 8 2 7 1 3 5 6 | 4
+              | ^             | ^
+              | i             | r
+              | j             |
+        small | large         | pivot
 
 
 - $i$ is the first of the large side.
@@ -503,10 +505,10 @@ Oops: $j$ reached $r$. This means we are done, just exchange $A[r]$ and $A[i]$:
             |
       small | large
 
-Note how we effectivelly split things into two sides: one larger than $4$, the other smaller or equal to it.
+Note how we effectively split things into two sides: one larger than $4$, the other smaller or equal to it.
 
 Intuitively, why does it work? At each step, if we find a small number we throw it to the left,
-and the small side increases, ``eating'' that number up.
+and the small side increases, eating that number up.
 
 What to do next? Recurse down twice:
 
@@ -639,7 +641,7 @@ Left side gives:
     i   | r
     j   |
 
-Ok, this shoult be enough to see what will happen.
+OK, this should be enough to see what will happen.
 
 We will do:
 
@@ -650,7 +652,7 @@ We will do:
 
 Which gives:
 
-$$ n + (n - 1) + ... + 1 = n * (n + 1) / 2 $$
+$$n + (n - 1) + ... + 1 = n * (n + 1) / 2$$
 
 moves, and therefore $O(n^2)$.
 
@@ -659,3 +661,13 @@ moves, and therefore $O(n^2)$.
 TODO
 
 ## Count
+
+## Shuffle
+
+Pseudo inverse of sorting.
+
+## Shuffle
+
+### Fisher Yates shuffle
+
+<http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle>

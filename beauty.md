@@ -51,8 +51,7 @@ Mysterious feeling: there are problems that you can state, but not solve in gene
 
 ### FPTAS
 
-1/0 knapasack can be solved in polynomial time in $n$ and $\epsilon$
-if solutions that are $1 - \epsion$ of the optimum are acceptable.
+1/0 knapsack can be solved in polynomial time in $n$ and $\epsilon$ if solutions that are $1 - \epsion$ of the optimum are acceptable.
 
 <http://en.wikipedia.org/wiki/FPTAS>
 
@@ -188,15 +187,13 @@ It is cool to understand how the following calculations can be implemented:
 
         -   the graph shows that there can be only either 1 or 2 optimal paths.
 
-        -   the original problem of moving all pegs from one configuration to another
-            is the problem that takes the longest time possible.
+        -   the original problem of moving all pegs from one configuration to another is the problem that takes the longest time possible.
 
             This time is also attained by any other problem on the opposite side of the sierpinski triangle.
 
             Any starting position on the interior will lead to shortesr optimal paths to anywhere.
 
-        -   there is an explicit formula by Hinz and Chan Hat-Tung for the average optimal solution length
-            if initial and states are chosen at random which is assymptotically: $466/885 * 2^n - 1/3 + o(1)$
+        -   there is an explicit formula by Hinz and Chan Hat-Tung for the average optimal solution length if initial and states are chosen at random which is assymptotically: $466/885 * 2^n - 1/3 + o(1)$
 
     -   Any increase the number of pegs.
 
@@ -216,8 +213,7 @@ It is cool to understand how the following calculations can be implemented:
 
     It becomes then a continuous linear programming problem, and can therefore be solved in polynomial time.
 
-    We know that the actual solution cannot be better than the relaxed one,
-    since the relaxed solution has many more possibilities, so we can bound what is the best possible solution.
+    We know that the actual solution cannot be better than the relaxed one, since the relaxed solution has many more possibilities, so we can bound what is the best possible solution.
 
     This allows for more efficient cutting.
 
@@ -268,20 +264,15 @@ It is cool to understand how the following calculations can be implemented:
 
 <http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication>
 
-Is there an $O(n^2)$ matrix multiplication algorithm?
-If not, how fast can we get?
+Is there an $O(n^2)$ matrix multiplication algorithm? If not, how fast can we get?
 
-This is practically important because matrix multiplications
-are done millions and millions of times
-to approximate solutions to physical problems.
+This is practically important because matrix multiplications are done millions and millions of times to approximate solutions to physical problems.
 
 Naive school algorithm: $O(n^3)$.
 
-First improvement: [1969 Strassen](http://en.wikipedia.org/wiki/Strassen_algorithm).
-Easy to understand, and better in practice for large enough matrices.
+First improvement: [1969 Strassen](http://en.wikipedia.org/wiki/Strassen_algorithm). Easy to understand, and better in practice for large enough matrices.
 
-Current best: [1987 Volker-Strassen](http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm).
-More complicated and not yet useful on practical matrix sizes found on current problems.
+Current best: [1987 Volker-Strassen](http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm). More complicated and not yet useful on practical matrix sizes found on current problems.
 
 ### Numerical analysis
 
@@ -327,10 +318,68 @@ Interesting subset problems include:
 -   limiting maximum degree:
 
     - 1: efficient solution
-    - 2: there is an algorithm: <http://math.stackexchange.com/questions/181380/second-degree-diophantine-equations/181384#comment418090_181384, but not efficient.
+    - 2: there is an algorithm: <http://math.stackexchange.com/questions/181380/second-degree-diophantine-equations/181384#comment418090_181384>, but not efficient.
     - 3: unsolved
     - 4: equivalent to the general problem of degree $n$, so undecidable
 
 ##### Reduction of generating equations to 9 variables
 
 If a set is defined by a system of Diophantine equations, it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).
+
+## Game theory
+
+In a game of chess, if both player play perfectly, does the first player always win?
+Always loses? Always draws? Open as of 2013.
+
+Is there a polynomial algorithm that allows to chose the next perfect move?
+Or is brute force necessary (almost never polynomial for interesting games).
+
+Some games have been weakly solved: it have been proven that one player always wins / loses,
+bit the actual strategy is unknown.
+
+Generalization for non perfect information games: strategy that leads to greatest expected outcome.
+
+Non-mathematical question: if it is not polynomially decidable,
+do the best computers today beat the best humans?
+
+List of solved games: <https://en.wikipedia.org/wiki/Solved_game>
+
+### Unsolved
+
+#### Go
+
+2013
+
+Humans win.
+
+#### Chess
+
+2013
+
+Humans tie.
+
+### Solved
+
+#### Tic tac toe
+
+Draw.
+
+Good programming exercise!
+
+tic tac toe is an specific instance of an m-n-k game.
+
+#### m n k game
+
+Generalizes tic tac toe and simple gomoku: <https://en.wikipedia.org/wiki/M,n,k-game>
+
+Second player cannot win with perfect play.
+
+Many win / lose results exist in function of m, n and k.
+
+#### Connect four
+
+First player forces win in at most 41 moves.
+
+### Non perfect information
+
+- TODO poker? other card games. Could not find.
