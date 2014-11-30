@@ -1,15 +1,13 @@
 # P vs NP
 
-The speed with which certain problems can be solved in terms of time and space
-can be divided into two categories:
+The speed with which certain problems can be solved in terms of time and space can be divided into two categories:
 
 - polynomial
 - non-polynomial: growth larger than any polynomial
 
-The division is interesting because non-polyimial problems are *MUCH* harder to solve than polynomial ones.
+The division is interesting because non-polynomial problems are *MUCH* harder to solve than polynomial ones.
 
-Just consider the fact that on an exponential problem with $2^x$ complexit, increasing the problem size `x`
-by one *doubles* the time it takes to solve the problem.
+Just consider the fact that on an exponential problem with $2^x$ complexity, increasing the problem size `x` by one *doubles* the time it takes to solve the problem.
 
 ## P
 

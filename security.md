@@ -45,6 +45,8 @@ Job postings on the domain will useful techniques.
     - Improper Initialization
     - ...and so on
 
+    They use Metasploit.
+
 ### Tutorials
 
 -   <http://googleprojectzero.blogspot.fr/2014/08/the-poisoned-nul-byte-2014-edition.html>
@@ -75,33 +77,65 @@ Cool disclaimers on who they claim to sell for: <http://grahamcluley.com/2013/07
 
 How to sell zero day exploits lists:
 
+-   Vendors: most vendors don't pay, only have a measly hall of fame.
+
+    Vendors may consider it extortion if you ask them for money: <http://security.stackexchange.com/questions/13760/found-huge-bug-what-should-i-do?lq=1>. Likely because they think their software is so perfect and that no-one should touch it.
+
+    Of course, those companies are silly, and will eventually get hacked and pay a much greater cost, so many smart companies like Google and Facebook have a bounty program.
+
+- Bug programs like ZDI. Do pay, but not a lot.
+
+- Governments. You need to have contact with a trusted broker. Pay the most.
+
+- Organizations with bad reputation: pay more than programs, less than the government, but governments may consider that illegal, and you may get involved with criminal organizations.
+
+Legality: in most countries, it is legal to find and sell exploits, but not to use them (unless you're the government and make the laws).
+
+In Germany it seems that it has recently become illegal to even find exploits.
+
+**ONLY SEND ENCRYPTED EMAILS TO THE VULN BUYERS**, otherwise they may disqualify your submission.
+
+#### Buyer lists
+
+-   <http://www.bugsheet.com>: collection of vendor bounty programs indicating which pay or not, and pointing to the rules.
+
+-   <http://security.stackexchange.com/questions/4086/which-companies-facilitate-payment-in-return-for-vulnerability-disclosure>
+
 -   <http://www.darkreading.com/vulnerabilities-and-threats/so-you-want-to-be-a-zero-day-exploit-millionaire/d/d-id/1101256?>
 
 -   <http://www.forbes.com/sites/andygreenberg/2012/03/23/shopping-for-zero-days-an-price-list-for-hackers-secret-software-exploits/>
 
     Price list to governments based on deals done by middleman Grugq.
 
-Buyers:
+-   Interesting general marked analysis: <http://www.ekoparty.org/archive/2009/Mostrame_la_guita_.pdf>
 
--   ZDI: <http://www.zerodayinitiative.com/>.
+#### ZDI
 
-    The FAQ: <http://www.zerodayinitiative.com/about/faq/>
+ZDI: <http://www.zerodayinitiative.com/>.
 
-    Always discloses to the maintainers. TODO: how does it make money for them? Seems that they use it to protect themselves, and may sell the information to other vendors after they fix for themselves but before public disclosure.
+The FAQ: <http://www.zerodayinitiative.com/about/faq/>
 
-    Linked to HP.
+Always discloses to the maintainers. TODO: how does it make money for them? Seems that they use it to protect themselves, and may sell the information to other vendors after they fix for themselves but before public disclosure.
 
-    Pays more than vendors?
+Linked to HP.
 
-    Simple and specialized procedures.
+Pays more than vendors?
 
--   Vendors. Only worth it for the larger vendors.
+<http://www.reddit.com/r/ReverseEngineering/comments/1ewaqz/how_much_does_zdi_pay/>
 
--   Governments. You need to have contact with a broker.
+Simple and specialized procedures.
 
-Legality: in most countries, it is legal to find and sell exploits, but not to use them, unless you're the government.
+#### Notable sellers
 
-In Germany it seems that it has recently become illegal to find exploits.
+##### VUPEN
+
+<http://www.vupen.com>
+
+Interesting to see how they offer 3 levels of services:
+
+- 1 day vulnerability defense.
+- 0 day vulnerability defense.
+- 0 day vulnerability offense. The real deal.
 
 ### Security clearance
 
@@ -175,9 +209,24 @@ This section also related exploits and counter measures.
 
     Birthday attack: an specific technique: <http://en.wikipedia.org/wiki/Birthday_attack>
 
+### Arbitrary code execution
+
+### Remote code execution
+
+<http://en.wikipedia.org/wiki/Arbitrary_code_execution>
+
+The most destructive, and thus desirable for researchers, vulnerability.
+
+With that, given enough execution privileges, you can steal all data, including passwords through key loggers.
+
 ### Path transversal
 
-<http://cwe.mitre.org/data/definitions/22.html>
+<https://www.owasp.org/index.php/Path_Traversal>
+
+<http://cwe.mitre.org/data/definitions/22.html>: Improper Limitation of a Pathname to a Restricted Directory.
+
+Subsets: <http://cwe.mitre.org/data/definitions/59.html> with symlinks. In particular affects Git based systems
+e.g., GitHub Page's defense: <https://help.github.com/articles/page-build-failed-symlink-does-not-exist-within-your-site-s-repository/>
 
 ### Web
 
@@ -229,13 +278,29 @@ Beware of: <https://capec.mitre.org/data/definitions/209.html>. `X-Content-Type-
 
 ### Information leakage
 
+<http://cwe.mitre.org/data/definitions/717.html>
+
 <https://www.owasp.org/index.php/Information_Leakage>
 
 Used for getting useful server information to prepare for further attacks later on.
 
+### Stack buffer overflow
+
+<http://en.wikipedia.org/wiki/Stack_buffer_overflow>
+
+## Tools
+
+- <http://www.metasploit.com/>
+
 ## Famous attacks
 
 This section also discusses famous attackers, or security researchers.
+
+-   <http://en.wikipedia.org/wiki/Morris_worm>
+
+    One of the earliest.
+
+    And the guy later funded Y combinator.
 
 -   <http://en.wikipedia.org/wiki/PlayStation_Network_outage>
 
@@ -248,4 +313,3 @@ This section also discusses famous attackers, or security researchers.
 -   <http://en.wikipedia.org/wiki/Samy_KamkarI> made a few.
 
 -   <http://en.wikipedia.org/wiki/Stuxnet> Attacks controllers, reportedly used by the USA to destroy nuclear centrifuges in Iran.
-
