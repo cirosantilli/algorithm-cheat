@@ -12,6 +12,11 @@ Classical model.
 
 #### Variants
 
+Variants mentioned in other sections include:
+
+- Probabilistic Turing Machine
+- Quantum Turing Machine
+
 ##### Non-deterministic Turing Machine
 
 ##### NTM
@@ -22,30 +27,6 @@ It decides between those transitions either:
 
 - optimally through a magic oracle.
 - by following all paths at once. TODO: what is the correct output if multiple paths halt?
-
-##### Probabilistic Turing Machine
-
-Each transition happens with a given probability.
-
-This is of course a generalization of the deterministic machine, since you can get a deterministic machine by setting all probabilities to either 0 or 1.
-
-This machine is considered to solve a problem whenever it gives the right answer with any fixed probability larger than half: to find the right answer you can then just run the algorithm many times and see what it tends to.
-
-There is a relation between BPP and Quantum Turing Machines TODO
-
-##### BPP
-
-There are probabilistic complexity classes for PTMs: e.g. BPP the P equivalent.
-
-P == BPP is an open problem. PRIMES was a famous problem known for a long time to be in BPP but a P was found in 2002. A famous problem in BPP but unknown P is polynomial identity testing: test if two polynomials are equal. The naive method of expanding the polynomial is not P because, e.g.:
-
-$$(x_0 + x_1)(x_1 + x_2) ... (x_{n-1} x_n)$$
-
-expands to $2^n$ terms, even though it is only $O(n)$ in initial size.
-
-##### Quantum Turing Machine
-
-Model for quantum computation.
 
 #### Limitations of Turing machines
 
