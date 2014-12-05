@@ -2,6 +2,16 @@
 
 <http://en.wikipedia.org/wiki/Bitcoin>
 
+## Sources
+
+-   <http://www.michaelnielsen.org/ddi/how-the-bitcoin-protocol-actually-works/>
+
+-   <http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html>
+
+    <http://www.righto.com/2014/02/bitcoin-mining-hard-way-algorithms.html>
+
+    <http://www.righto.com/2014/02/bitcoin-transaction-malleability.html>
+
 ## Alternatives
 
 Bitcoin is the most popular one today, but there are others:
@@ -36,6 +46,8 @@ There is no entity that corresponds to a single bitcoin: only transactions. When
 ## Specification Overview
 
 This supposes you know what SHA-256 does.
+
+### Transaction format
 
 Data is JSON encoded as follows (with abbreviated hex SHA-256 hashes):
 
@@ -115,9 +127,27 @@ Where:
 
 You can trace transactions back
 
-## Scripting
+### Peer finding
+
+<http://bitcoin.stackexchange.com/questions/3536/how-do-bitcoin-clients-find-each-other>
+
+<https://en.bitcoin.it/wiki/Satoshi_Client_Node_Discovery>
+
+Peers are generally found through other peers.
+
+For the first connection, known domains are used.
+
+### Mining
+
+### Transaction verification
 
 TODO
+
+## Scripting
+
+Bitcoin has a [stack based scripting language](http://en.wikipedia.org/wiki/Stack-oriented_programming_language) built-in, but it is purposefully not Turing complete as it does not have loops to prevent DoS.
+
+TODO how does it work exactly?
 
 ## Implementations
 
@@ -135,7 +165,7 @@ Bitcoin core is the reference implementation by the core developers.
 
 -   <http://en.wikipedia.org/wiki/Mt._Gox>
 
-    Originally the domain and software were used for Magic the Gathering trading: it stands for MtG Onlilne eXchange.
+    Originally the domain and software were used for Magic the Gathering trading: it stands for `MtG Onlilne eXchange`.
 
     Interesting how that was converted to become a bitcoin trading pole.
 
@@ -161,3 +191,9 @@ Bitcoin core is the reference implementation by the core developers.
 -   <http://en.wikipedia.org/wiki/SatoshiDice>
 
     Bitcoin gambling website. Sold for 12M in 2013.
+
+-   You can store arbitrary data on the blockchain.
+
+    Small selection of amusing ones:
+
+    <http://www.righto.com/2014/02/ascii-bernanke-wikileaks-photographs.html>

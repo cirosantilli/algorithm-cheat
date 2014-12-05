@@ -288,6 +288,10 @@ Used for getting useful server information to prepare for further attacks later 
 
 <http://en.wikipedia.org/wiki/Stack_buffer_overflow>
 
+### Denial of service
+
+- <http://en.wikipedia.org/wiki/Black_fax> Even fax had it!
+
 ## Tools
 
 - <http://www.metasploit.com/>

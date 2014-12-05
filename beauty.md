@@ -75,21 +75,6 @@ It is cool to understand how the following calculations can be implemented:
 
 -   MCD, MCM.
 
--   Primality testing: given a number, is it prime or not?
-
-    For a long time it was an open question if a polynomial algorithm existed.
-
-    Note that the naive algorithm of trying division by every number below $\sqrt(n)$
-    is polynomial on the value of $n$, but *not* on the number of digits of the input,
-    which is what is considered in complexity analysis.
-
-    The question was solved positively in 2002 by the [AKS primality tesst](https://en.wikipedia.org/wiki/AKS_primality_test).
-    Before AKS, there were many algorithms which were either probabilistic,
-    or dependent on the truth of unproven conjectures, at the time of their proposal,
-    such as the Miller test which depends on the generalized Riemann hypothesis.
-
-    Many variants of AKS were created, and one of them is known to run in $O(log^6(n))$.
-
 -   Combinatorial optimization and satisfiability:
 
     -   Knapsack.
@@ -235,6 +220,49 @@ It is cool to understand how the following calculations can be implemented:
     [Boyer–Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm)
     does $O(t)$ worst case.
 
+### Primality testing
+
+Primality testing: given a number, is it prime or not?
+
+For a long time it was an open question if a polynomial algorithm existed.
+
+Note that the naive algorithm of trying division by every number below $\sqrt(n)$
+is polynomial on the value of $n$, but *not* on the number of digits of the input,
+which is what is considered in complexity analysis.
+
+The question was solved positively in 2002 by the [AKS primality test](https://en.wikipedia.org/wiki/AKS_primality_test).
+Before AKS, there were many algorithms which were either probabilistic,
+or dependent on the truth of unproven conjectures, at the time of their proposal,
+such as the Miller test which depends on the generalized Riemann hypothesis.
+
+Many variants of AKS were created, and one of them is known to run in $O(log^6(n))$.
+
+In practice however, faster probabilistic algorithms are used. GPG, PGP and OpenSSL use a mixture of:
+
+- trial division by small primes
+- <http://en.wikipedia.org/wiki/Fermat_primality_test>, $log^2(n)$
+- <http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test>, $log^3(n)$
+
+Those algorithms used a known property of every prime that not many other numbers have,
+e.g. Fermat's primality test uses Fermat's little theorem.
+
+#### Carmichael number
+
+<http://en.wikipedia.org/wiki/Carmichael_number>
+
+Always passes Fermat's primality tests for any choice of random number.
+
+Carmichael numbers are very rare, making Fermat's primality test acceptable:
+
+- infinity conjectured earlier, but only proved in 1994
+- bounds exist for every range, including the 1994 lower bound that proved infinity
+- asymptotic distribution is open but conjectured
+
+Korselt's criterion (1899) gives an iff condition for a number $n$ being Carmichael:
+
+- square free
+- all prime divisors $p$ of $n$ hold $p - 1$ | $n - 1$
+
 ### Integer multiplication
 
 -   Unknown sup of lower bounds.
@@ -259,6 +287,32 @@ It is cool to understand how the following calculations can be implemented:
     $O(log n log log n)$
 
     FFT based.
+
+### Integer factorization
+
+<http://en.wikipedia.org/wiki/Integer_factorization>
+
+### Modular arithmetic
+
+Many operations can be done more efficiently in memory and time if we only want the mod output:
+
+    A operation B (mod C)
+
+Such operations come up often in cryptography.
+
+Examples:
+
+-   <http://en.wikipedia.org/wiki/Montgomery_reduction>
+
+-   <http://en.wikipedia.org/wiki/Modular_exponentiation>
+
+-   Square root
+
+    May not exist.
+
+    Existence criteria given at: <http://en.wikipedia.org/wiki/Quadratic_reciprocity>
+
+    Efficient algorithm given existence: <http://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm>
 
 ### Matrix multiplication
 
@@ -307,24 +361,38 @@ They are fun and important to implement solutions using computers.
 
 <https://en.wikipedia.org/wiki/Hilbert%27s_tenth_problem>
 
-Given an integer Diophantine equation $P(x, y, z, ...)$, where $P$ is a multivariate polynomial, is there an integer solution?
+Given an integer Diophantine equation $P(x, y, z, ...)$,
+where $P$ is a multivariate polynomial with integer coefficients,
+is there an integer solution?
 
-Famously proposed as an important problem in 1900, last step of the undecidability proof in 1970.
+Famously proposed as an important problem in 1900,
+last step of the undecidability proof in 1970.
 
 Interesting subset problems include:
 
--   Fermat's last algorithm decides negatively a small subset of Diophantine equations of the form $x^n + y^n = z^n$.
+-   Fermat's last problems decides negatively a small subset
+    of Diophantine equations of the form $x^n + y^n = z^n$.
 
 -   limiting maximum degree:
 
-    - 1: efficient solution
-    - 2: there is an algorithm: <http://math.stackexchange.com/questions/181380/second-degree-diophantine-equations/181384#comment418090_181384>, but not efficient.
-    - 3: unsolved
-    - 4: equivalent to the general problem of degree $n$, so undecidable
+    -   1: efficient solution
+
+    -   2: there is an algorithm:
+        <http://math.stackexchange.com/questions/181380/second-degree-diophantine-equations/181384#comment418090_181384>,
+        but not efficient.
+
+    -   3: open
+
+    -   4: equivalent to the general problem of degree $n$, so undecidable
 
 ##### Reduction of generating equations to 9 variables
 
-If a set is defined by a system of Diophantine equations, it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).
+If a set is defined by a system of Diophantine equations,
+it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).
+
+##### Diophantine quintuple
+
+<http://en.wikipedia.org/wiki/Diophantine_quintuple>
 
 ## Game theory
 

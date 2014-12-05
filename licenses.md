@@ -45,7 +45,15 @@ explicitly allowing linking, since GitHub is behind the library.
 
 ## LGPL
 
-Lesser GPL: like MIT, but you must also distribute modifications you make to the source.
+<http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License>
+
+Lesser GPL: closed source projects can use it without opening their source,
+but they must allow end users to modify the LGPL component.
+
+For this reason, this license is used in practice mostly for linked libraries
+where the separation between library and proprietary code is clear.
+
+TODO: vs GPL linking exception?
 
 ## Dual
 
