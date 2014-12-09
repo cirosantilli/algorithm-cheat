@@ -1,5 +1,7 @@
 # Computer Science
 
+Computer science notes and tutorials
+
 Introduction:
 
 - [Beauty](beauty.md): beautiful things about computer science
