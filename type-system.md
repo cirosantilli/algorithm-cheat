@@ -1,6 +1,6 @@
 # Type systems
 
-General classificaitons of programming languages.
+General classifications of programming languages.
 
 ## Statically vs dynamically
 
@@ -69,7 +69,7 @@ does not work. It is necessary to say that `i` is an `int` via:
     int main(){ int i = 0; }
 
 With the C++11, C++ has gained type inference capabilities.
-For example, the keword `auto` allows the following to work;
+For example, the keyword `auto` allows the following to work;
 
     int main(){ auto i = 0; }
 

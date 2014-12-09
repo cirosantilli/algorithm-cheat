@@ -31,8 +31,8 @@ It is possible to do so because:
 
 -   all operations come down to switching elements two by two.
 
-    There is no operation which involves insertion at an arbritary point of the array,
-    which would require the costly operaiton of shifting all elements to the right once.
+    There is no operation which involves insertion at an arbitrary point of the array,
+    which would require the costly operation of shifting all elements to the right once.
 
 ## Binary
 
@@ -50,7 +50,7 @@ a simple balanced binary tree will do (also has $O(log(n))$).
 
 1987.
 
-Best in practice for large enough problems. Theorethically good amortized times.
+Best in practice for large enough problems. Theoretically good amortized times.
 
 The only operation that has $log(n)$ amortized time is deleting the root, the others are $O(1)$.
 
@@ -60,4 +60,4 @@ The only operation that has $log(n)$ amortized time is deleting the root, the ot
 
 <http://en.wikipedia.org/wiki/Brodal_queue>
 
-Best theorethical assymptotic worst cases. Not useful in practice.
+Best theoretical asymptotic worst cases. Not useful in practice.

@@ -1,8 +1,8 @@
-# Hash maps
+# Hash map
 
 ## Open addressing
 
-Good sources on open adressing:
+Good sources on open addressing:
 
 -   <http://webdocs.cs.ualberta.ca/~holte/T26/open-addr.html>
 -   <http://www.algolist.net/Data_structures/Hash_table/Open_addressing>
@@ -27,7 +27,7 @@ Open addressing vs. chaining
 
     - Directly proportional
 
-    - Proportional to (loadFactor) / (1 - loadFactor)
+    - Proportional to $(loadFactor) / (1 - loadFactor)$
 
 -   Allow to store more items, than hash table size
 

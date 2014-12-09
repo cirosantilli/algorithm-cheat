@@ -236,6 +236,14 @@ HTML, CSS and JavaScript related vulnerabilities:
 
 -   <https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet>
 
+-   Master XSS evasion cheatsheet: <https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet#Tests>
+
+##### Self-XSS
+
+<http://en.wikipedia.org/wiki/Self-XSS> The type of XSS where you must social engineer the user to click a link to self attack.
+
+TODO: what other kinds of XSS are possible?
+
 ### XML
 
 -   <http://en.wikipedia.org/wiki/Billion_laughs>

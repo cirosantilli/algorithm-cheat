@@ -1,19 +1,18 @@
-# Object oriented design patterns
+# Design patterns
 
 -   <https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns>
 
 -   <http://calumgrant.net/patterns/index.html>
 
--   <http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms>
-    huge list, c++
+-   <http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms> huge list, C++
 
 -   <http://sourcemaking.com/>: site on both UML and design patterns
 
-- creation
+-   creation
 
-    - abstract factory : select from an entire family of abstract classes (one per OS for example)
+    -   abstract factory : select from an entire family of abstract classes (one per OS for example)
 
-    - factory
+    -   factory
 
         <http://sourcemaking.com/design_patterns/factory_method/cpp/1>
 
@@ -23,15 +22,15 @@
 
         application : factor out the selection from enum into lib
 
-    - prototype
+    -   prototype
 
         abstract ``virtual Class* clone(){ return new Class(*this); }`` method
 
         TODO why use this?
 
-    - singleton : self evident. Application: hold configuration.
+    -   singleton : self evident. Application: hold configuration.
 
-    - object pool
+    -   object pool
 
         <http://sourcemaking.com/design_patterns/object_pool>
 
@@ -39,9 +38,9 @@
 
         performance only
 
-- structural
+-   structural
 
-    - adapter
+    -   adapter
 
         <http://sourcemaking.com/design_patterns/adapter>
 
@@ -49,9 +48,9 @@
 
         new class contains old.
 
-    - bridge TODO ?
+    -   bridge TODO ?
 
-    - composite
+    -   composite
 
         <http://en.wikipedia.org/wiki/Composite_pattern>
 
@@ -59,7 +58,7 @@
 
         call on inner node propagates call down to all leaves
 
-    - decorator
+    -   decorator
 
         lots of classes have a given ``do_it`` method
 
@@ -69,13 +68,13 @@
         the linked list can receive any combination of nodes, and a call to
         the first calls all the elements
 
-    - facade
+    -   facade
 
         <http://sourcemaking.com/design_patterns/facade>
 
         simple single interface for lots of classes
 
-    - flyweight
+    -   flyweight
 
         <http://sourcemaking.com/design_patterns/flyweight/cpp/1>
 
@@ -83,14 +82,14 @@
 
         memory performance only
 
-    - private class data
+    -   private class data
 
         <http://sourcemaking.com/design_patterns/private_class_data>
 
         prevent attribute modification from ``class Main``
         by putting them into ``class Data`` with getters
 
-    - proxy
+    -   proxy
 
         <http://sourcemaking.com/design_patterns/proxy/cpp/1>
 
@@ -99,18 +98,18 @@
         the proxy interface bahaves differently from the real interface
         by doing additional actions
 
-- behaviour
+-   behaviour
 
     - strategy : abstract method to vary algorithm
     - template : same as strategy, but change only part of an algorithm
 
-- UML
+-   UML
 
-- class diagram
+-   class diagram
 
-    - name
+    -   name
 
-    - members
+    -   members
 
         relations (member that is a list of other objects):
 
@@ -121,16 +120,16 @@
         - compositio (company department)
         - reflexive
 
-    - methods
-    - inheritance
-    - interfaces
-    - visibility
-    - packages
+    -   methods
 
-- object diagram
+    -   inheritance
+
+    -   interfaces
+
+    -   visibility
+
+    -   packages
+
+-   object diagram
 
     - same as class, but with instances instead
-
-<http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/>
-
-    uml intro
