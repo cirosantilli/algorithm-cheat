@@ -83,11 +83,11 @@ How to sell zero day exploits lists:
 
     Of course, those companies are silly, and will eventually get hacked and pay a much greater cost, so many smart companies like Google and Facebook have a bounty program.
 
-- Bug programs like ZDI. Do pay, but not a lot.
+-   Bug programs like ZDI. Do pay, but not a lot.
 
-- Governments. You need to have contact with a trusted broker. Pay the most.
+-   Governments. You need to have contact with a trusted broker. Pay the most.
 
-- Organizations with bad reputation: pay more than programs, less than the government, but governments may consider that illegal, and you may get involved with criminal organizations.
+-   Organizations with bad reputation: pay more than programs, less than the government, but governments may consider that illegal, and you may get involved with criminal organizations.
 
 Legality: in most countries, it is legal to find and sell exploits, but not to use them (unless you're the government and make the laws).
 
@@ -232,6 +232,18 @@ e.g., GitHub Page's defense: <https://help.github.com/articles/page-build-failed
 
 HTML, CSS and JavaScript related vulnerabilities:
 
+#### Man in the middle
+
+Way to beat SSL. If you intercept the requests made by the client,
+you can send him your public key and make him believe that it is the server response.
+
+You can then forward his request to the server, you acting as proxy,
+and send replies back transparently, or arbitrarily altering data.
+
+Certificates exist on the TLS system exactly to prevent this kind of attack.
+
+<http://blog.philippheckel.com/2013/07/01/how-to-use-mitmproxy-to-read-and-modify-https-traffic-of-your-phone/>
+
 #### XSS
 
 -   <https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet>
@@ -304,6 +316,12 @@ Used for getting useful server information to prepare for further attacks later 
 
 - <http://www.metasploit.com/>
 
+### USB attacks
+
+-   <https://github.com/samyk/usbdriveby>
+
+    <http://techcrunch.com/2014/12/18/this-little-usb-necklace-hacks-your-computer-in-no-time-flat/>
+
 ## Famous attacks
 
 This section also discusses famous attackers, or security researchers.
@@ -325,3 +343,9 @@ This section also discusses famous attackers, or security researchers.
 -   <http://en.wikipedia.org/wiki/Samy_KamkarI> made a few.
 
 -   <http://en.wikipedia.org/wiki/Stuxnet> Attacks controllers, reportedly used by the USA to destroy nuclear centrifuges in Iran.
+
+## Misc
+
+Someone said:
+
+> Black hat hackers will dig deeper than unpaid white hat hackers.

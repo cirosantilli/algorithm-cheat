@@ -1,7 +1,6 @@
-# Quick
+# Quicksort
 
-$n^2$ time worst case. Extremely rare for random inputs, but happens exactly on the potentially common cases
-of sorted / reverse sorted inputs!
+$n^2$ time worst case. Extremely rare for random inputs, but happens exactly on the potentially common cases of sorted / reverse sorted inputs!
 
 Average time: $log(n)$ time.
 
@@ -136,8 +135,7 @@ Oops: $j$ reached $r$. This means we are done, just exchange $A[r]$ and $A[i]$:
 
 Note how we effectively split things into two sides: one larger than $4$, the other smaller or equal to it.
 
-Intuitively, why does it work? At each step, if we find a small number we throw it to the left,
-and the small side increases, eating that number up.
+Intuitively, why does it work? At each step, if we find a small number we throw it to the left, and the small side increases, eating that number up.
 
 What to do next? Recurse down twice:
 
@@ -284,3 +282,11 @@ Which gives:
 $$n + (n - 1) + ... + 1 = n * (n + 1) / 2$$
 
 moves, and therefore $O(n^2)$.
+
+## Variants
+
+### Dual pivot
+
+Used in Java 7's `Arrays.sort`: <http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort%28byte[]%29>
+
+TODO
