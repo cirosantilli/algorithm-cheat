@@ -1,14 +1,14 @@
 # Quicksort
 
-$n^2$ time worst case. Extremely rare for random inputs, but happens exactly on the potentially common cases of sorted / reverse sorted inputs!
+$O(n^2)$ time worst case for an already sorted input input. Extremely rare for random inputs, but potentially common case in certain applications.
 
-Average time: $log(n)$ time.
+Average time: $O(log(n))$ time.
+
+Best time: TODO
 
 Space: $O(1)$ (in place).
 
-Even if it is quadratic worst time,
-it is still quite used in practice because of $log(n)$ average and low memory usage,
-and because it has good cache reutilization.
+Even if it is quadratic worst time, it is still quite used in practice because of $log(n)$ average and low memory usage, and because it has good cache reutilization.
 
 ## Visualization
 

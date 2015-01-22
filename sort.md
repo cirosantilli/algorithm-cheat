@@ -2,10 +2,6 @@
 
 To understand them, see how they work step by step on examples.
 
-## Beauty
-
-The coolest thing about sorting is looking for the best algorithm there is!
-
 ## Sources
 
 -   <https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms>

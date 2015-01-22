@@ -12,8 +12,11 @@ Introduction:
 
 Data structures:
 
-- [Heap](heap.md)
 - [Graph](graph.md)
+- [Hash map](hash-map.md)
+- [Heap](heap.md)
+- [Disjoint set](disjoint-set.md) TODO
+- [Set](set.md) TODO
 
 Sorting:
 
