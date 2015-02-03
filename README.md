@@ -39,6 +39,7 @@ Cryptography:
 Misc:
 
 - [Bitcoin](bitcoin.md)
+- [Decimal data type](decimal-data-type.md)
 - [Licenses](licenses.md)
 - [Quantum computing](quantum-computing.md)
 - [Security](security.md)
