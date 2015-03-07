@@ -23,6 +23,8 @@ Hash map:
 
     Insert comes from the rehashes.
 
--   harder to implement because a good hash function must be chosen
+-   takes up more memory than then number of elements because it must have an array of entries, and it must usually be at least 50% larger than the actual number of entries.
 
 -   no ordered transversal
+
+-   harder to implement because a good hash function must be chosen

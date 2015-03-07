@@ -46,6 +46,10 @@ and be accessible and kept up to date in time not larger than the corresponding 
 Since all operations that modify / access the map are $O(log(n))$ for the binary heap,
 a simple balanced binary tree will do (also has $O(log(n))$).
 
+## Pairing
+
+<http://en.wikipedia.org/wiki/Pairing_heap>
+
 ## Fibonacci
 
 1987.

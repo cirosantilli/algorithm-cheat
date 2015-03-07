@@ -25,7 +25,16 @@ Some of the major classes of structures are:
 
 ## Algorithm analysis
 
-You need to decide what algorithm is better than what: <http://en.wikipedia.org/wiki/Analysis_of_algorithms>
+Consists of proving that:
+
+- correctness: the algorithm does that it advertises
+- complexity: how fast and how much memory it takes to do it
+
+## Correctness proofs
+
+TODO
+
+## Complexity proofs
 
 The first thing to understand is how to model a computer: the most common way is to use a Turing Machine or one of its variants.
 
@@ -50,27 +59,9 @@ The following types of analysis give useful measures on how efficient an algorit
 
 Also, our measures will often be asymptotic (input $n$ tends to infinity), so we must introduce some notation that will simplify writing messy limits all over: that is the role of big O notation.
 
+The calculation of the limit can be greatly simplified for recursive algorithms if you are able to solve the resulting **recurrence relation**.
+
 One important idea is then to classify algorithm complexities into larger classes, e.g. P and NP. Those classifications are meaningful because exponential time algorithms will never be implementable in practice even for relatively small inputs. P vs NP is one of the many questions about the equality or not of such nested complexity classes.
-
-### Big O
-
-*The* major concept to classify algorithms.
-
-Also known specially in physics as Landau notations.
-
-Each is evaluated at the limit as x tends to some point, and this point is always taken by default to be infinity in complexity calculations.
-
--   $f = O(g)$ iff exists $k$ in $R$ such that $f(x) <= k*g(x)$.
-
-    This can be interpreted as $f$ is smaller than $g$
-
--   $f = Omega(g)$ iff exists $k$ in $R$ such that $f(x) >= k*g(x)$.
-
-    This can be interpreted as $f$ is larger than $g$
-
--   $f = Theta(g)$ iff exists $k1$ and $k2$ in $R$ such that $k1*g(x) <= f(x) <= k2*g(x)$
-
-    This can be interpreted as $f$ is the same as $g$.
 
 ### Worst case
 
@@ -80,7 +71,7 @@ Takes the instance in which the algorithm runs the worst, and analyses it.
 
 If this measure is good, then the algorithm is always good.
 
-This does however leave out something: it is possible that worst cases are very rare considering all possible problems, and that the algorithm still performs well in practice. This is why two other types of analysis were created: [average](#average) and [amortized](#amortized) analysis.
+This does however leave out something: it is possible that worst cases are very rare considering all possible problems, and that the algorithm still performs well in practice. This is why two other types of analysis were created: average and amortized analysis.
 
 ### Best case
 
@@ -90,7 +81,7 @@ Not very often used.
 
 ### Average case
 
-Like in worst case, we put a bound on the assymptotic average case.
+Like in worst case, we put a bound on the asymptotic average case.
 
 Sources:
 
@@ -100,41 +91,17 @@ Sources:
 
 ### Amortized
 
-Sources: [cormen] chapter "Amortized Analysis"
-
-### Recursive vs non recursive proofs
-
-For many algorithms, there are two methods to calculate the big O complexity: using a recursion relation or not.
-
-It is often the case that using a recursion relation will be simpler, if not the only way, to compute the solution.
-
-#### Recursive calculation
-
-Comes down to a formula something like:
-
-$$C(n) = C(n-1, n-2, ... 0)$$
-
-where $C$ is the cost of time / memory for a given problem size.
-
-This means that $C(n)$ is a function of the anterior values of $C$.
-
-Special case of which comes up very often:
-
-$$C(n) = a*C(n/b) + f(n)$$
-
-Then in terms of $f$:
-
-1. If $f(n) = O(n^{log(b, a - e)})$ for some constant $e > 0$, then $C(n) = Theta(n*log(b,a)$
-
-2. If $f(n) = Theta(n^{log(b, a - e)})$, then $C(n) = Theta(n^{log_{b}(a)}*lg(n))$
-
-3. If $f(n) = Omega(n^{log_{b}(a + e)})$ for some constant $e > 0$, and if af $(n/b) <= cf (n)$ for some $c < 1$, then $T(n) = Omega(f(n))$
+Sources: [cormen][] chapter "Amortized Analysis"
 
 ## Design patterns
 
-This section describes high level design patters used when creating algorithms.
+High level design patters used when creating / classifying algorithms.
 
-Those are not necessarily mathematically definable, and may represent only an intuitive perception of the problems.
+Those are not necessarily mathematically definable, and may represent only an intuitive perception of the problems. They are however very useful to help humans understand and create new algorithms.
+
+Patterns not commented here:
+
+- recursive algorithms
 
 ### Divide and conquer
 
@@ -146,13 +113,13 @@ Example: merge sort.
 
 ### Dynamic programming
 
-Sources: [skiena] chapter "Dynamic Programming"
+Sources: [skiena][] chapter "Dynamic Programming"
 
 General algorithm type.
 
 Store solutions to subproblems that can be reused.
 
-Can reduce time complexity dratically (from exponential to linear for example in the Fibonnacci sequence),
+Can reduce time complexity drastically (from exponential to linear for example in the Fibonacci sequence),
 at the cost of potentially increasing memory complexity.
 
 ### Greedy algorithm
@@ -183,6 +150,7 @@ Lecture notes:
 
 - <http://webdocs.cs.ualberta.ca/~holte/t26/top.realtop.html>
 - <https://secweb.cs.odu.edu/~zeil/cs361/web/website/directory/page/topics.html>
+- <http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/toc.htm>. Seems to be an HTML rip-off of Cormen's introduction to algorithms.
 
 ### Non-free sources
 

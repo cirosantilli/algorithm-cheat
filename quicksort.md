@@ -1,14 +1,19 @@
 # Quicksort
 
-$O(n^2)$ time worst case for an already sorted input input. Extremely rare for random inputs, but potentially common case in certain applications.
+-   Time:
 
-Average time: $O(log(n))$ time.
+    - $O(n^2)$ worst case time for an already sorted input input
+    - $O(log(n))$ average (wort case is very rare)
+    - $O(log(n))$ best for the traditional version on sorted input, $O(N)$ for the three-way version on constant input.
 
-Best time: TODO
+-   Unstable.
 
-Space: $O(1)$ (in place).
+-   Extra memory: comes from the call stack:
 
-Even if it is quadratic worst time, it is still quite used in practice because of $log(n)$ average and low memory usage, and because it has good cache reutilization.
+    -   $O(n)$ worst on naive implementation for highly unbalanced tree of sorted input
+    -   $O(lng(n))$ worst if right tail recursion optimized
+
+Good cache reutilization: <http://cs.stackexchange.com/questions/3/why-is-quicksort-better-than-other-sorting-algorithms-in-practice>
 
 ## Visualization
 
@@ -40,10 +45,10 @@ Visualization: we will separate things into groups:
         small | large         | pivot
 
 
+Where:
+
 - $i$ is the first of the large side.
-
 - $j$ is the current one we are checking now.
-
 - $r$ is a recursive input of this step. It will move only between two steps. It starts at the rightmost element.
 
 The rule is simple:
@@ -220,11 +225,32 @@ Left side:
 
 Oops, $i = j = r$ and there is a single element. This is the base case. Do nothing.
 
+## Pseudo code
+
+    void quicksort(int[] A, int left, int right)
+        if left < right
+            int middle = partition(array, left, right)
+            quicksort(array, left, middle - 1)
+            quicksort(array, middle + 1, right)
+
+    int partition(int[] A, int left, int right)
+        int i = left
+        int j = left
+        while j < right
+            if A[j] > A[right]
+                swap A[i], A[j]
+                i++
+            j++
+
+You use `quicksort(A, 1, A.length())` to sort the entire array.
+
 ## Worst case
 
 The worst case happens when the input is either sorted or reverse sorted.
 
 Although very rare for random inputs, almost sorted inputs may be common for certain applications.
+
+### Sorted input
 
 Let's see how a sorted input yields worst time.
 
@@ -268,7 +294,13 @@ Left side gives:
     i   | r
     j   |
 
-OK, this should be enough to see what will happen.
+The recurrence relation is:
+
+$$T(n) = T(n - 1) + n$$
+
+TODO can this be analysed with the master theorem?
+
+Let's use induction.
 
 We will do:
 
@@ -283,7 +315,120 @@ $$n + (n - 1) + ... + 1 = n * (n + 1) / 2$$
 
 moves, and therefore $O(n^2)$.
 
+### Reverse sorted input
+
+    8 7 6 5 4 3 2 1
+    ^             ^
+    i             r
+    j
+
+    8 7 6 5 4 3 2 1
+    ^ ^           ^
+    i j           r
+
+    8 7 6 5 4 3 2 1
+    ^   ^         ^
+    i   j         r
+
+Fast forward:
+
+    8 7 6 5 4 3 2 1
+    ^             ^
+    i             r
+                  j
+
+    1 7 6 5 4 3 2 8
+    ^             ^
+    i             r
+                  j
+
+There is no left side. Recurse on right:
+
+    7 6 5 4 3 2 8
+    ^           ^
+    i           r
+    j
+
+    7 6 5 4 3 2 8
+    ^           ^
+    i           r
+    j
+
+    7 6 5 4 3 2 8
+      ^         ^
+      i         r
+      j
+
+Fast forward:
+
+    7 6 5 4 3 2 8
+                ^
+                r
+                i
+                j
+
+There is no right side. Recurse on left:
+
+    7 6 5 4 3 2
+              ^
+              r
+              i
+              j
+
+Aha, another inverse sorted input, but unlike the sorted case, it came after two rounds. Same analysis as before.
+
+### Repeated elements
+
+In case all, or many of the elements are the same, the input is already sorted (and reverse sorted as well), so the running time is $n^2$.
+
+But the three-way version does it linearly, which makes this implementation very popular as this may be a common case.
+
+### Proof that this is the worst case
+
+TODO. We need to use some formal property that encodes that fact that after any round, we get one step closer to the sorted output. Then count how many steps could happen.
+
+## Best case
+
+TODO. Find a family that always gets cut into half. Then optimality follows because of the theorem that says that $O(N log(N))$ is the best possible for comparison sort.
+
+## Average case
+
+TODO.
+
 ## Variants
+
+### Three-way
+
+This may however be a common case, so that a variant of quicksort exists that solves it.
+
+The idea is simply to use an extra pointer when partitioning, so that the array will be split into three parts.
+
+We then recurse quicksort on the left and right parts.
+
+This problem has a famous artistic formulation: <http://en.wikipedia.org/wiki/Dutch_national_flag_problem>
+
+TODO: I think the best case for this algorithm is $O(N)$ since if all elements are equal, a single pass is done.
+
+### Tail recursion optimized
+
+This reduces the extra memory from `O(N)` to `O(lg(N))`.
+
+TODO implement. For this to work for the worst case, you must select the side with the fewest elements, and tail recurse the one with more elements.
+
+    void quicksort(int[] A, int left, int right)
+        if left < right
+            int middle = partition(array, left, right)
+            quicksort(array, left, middle - 1)
+            quicksort(array, middle + 1, right)
+
+    int partition(int[] A, int left, int right)
+        int i = left
+        int j = left
+        while j < right
+            if A[j] > A[right]
+                swap A[i], A[j]
+                i++
+            j++
 
 ### Dual pivot
 
