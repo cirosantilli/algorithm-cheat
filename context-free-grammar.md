@@ -34,7 +34,21 @@ In practice however, CYK is still the most used algorithm as of 2014.
 
 ## Normal form
 
+## Backus-Naur form
+
+<http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form>
+
+Popular way to describe a CFG.
+
 TODO
+
+### Extended Backus-Naur form
+
+<http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form>
+
+More convenient than the BNF for practical languages, but equally powerful.
+
+Used by ANTLR.
 
 ## Ambiguity
 

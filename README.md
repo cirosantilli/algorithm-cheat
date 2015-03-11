@@ -7,24 +7,19 @@ Educational implementations of the simpler algorithms may be found at: <https://
 Introduction:
 
 -   [Beauty](beauty.md): beautiful things about computer science
-
 -   [Algorithms](algorithms.md): starting point for those learning about algorithms
-
     - [Recursive algorithms](Recursive algorithms.md)
-
 -   [Turing machine](turing-machine.md)
-
     - [Out of core algorithms](out-of-core.md)
-
 -   [Undecidability](undecidability.md)
-
 -   [P vs NP](p-vs-np.md)
 
 Data structures:
 
-- [Graph](graph.md)
-- [Hash map](hash-map.md)
-- [Heap](heap.md)
+-   [Graph](graph.md)
+    - [Dijkstra](dijkstra.md)
+-   [Hash map](hash-map.md)
+-   [Heap](heap.md)
 
 [Sorting algorithms](sort/):
 
