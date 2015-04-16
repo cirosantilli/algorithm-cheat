@@ -89,10 +89,6 @@ Sources:
 
     Good simple example.
 
-### Amortized
-
-Sources: [cormen][] chapter "Amortized Analysis"
-
 ## Design patterns
 
 High level design patters used when creating / classifying algorithms.
@@ -151,12 +147,4 @@ Lecture notes:
 - <http://webdocs.cs.ualberta.ca/~holte/t26/top.realtop.html>
 - <https://secweb.cs.odu.edu/~zeil/cs361/web/website/directory/page/topics.html>
 - <http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/toc.htm>. Seems to be an HTML rip-off of Cormen's introduction to algorithms.
-
-### Non-free sources
-
-- [Skiena - Algorithm Design Manual 2ed][skiena]
-
-- [Cormen - Introduction do Algorithms 2ed][cormen]
-
-[cormen]: http://www.amazon.com/books/dp/0262033844
-[skiena]: http://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1848000693
+- <http://webdocs.cs.ualberta.ca/~holte/T26/top.realTop.html>

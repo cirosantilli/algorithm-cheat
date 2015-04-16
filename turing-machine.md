@@ -29,7 +29,13 @@ It decides between those transitions either:
 
 Random data access. Same computability class as Turing machine, but models currently existing memories better.
 
-TODO vs Turing machine?
+TODO vs Turing machine with a simple example.
+
+### Cache oblivious algorithm
+
+<http://en.wikipedia.org/wiki/Cache-oblivious_algorithm>
+
+Model a cache but without explicitly knowing the cache size.
 
 ### PRAM
 

@@ -349,3 +349,7 @@ This section also discusses famous attackers, or security researchers.
 Someone said:
 
 > Black hat hackers will dig deeper than unpaid white hat hackers.
+
+Security models:
+
+- <http://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model>

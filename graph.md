@@ -1,4 +1,4 @@
-# Graph algorithms
+# Graph
 
 ## E and V
 
@@ -12,19 +12,24 @@ $|V|$: number of vertices
 
 Important relation:
 
-- $|E| <= |V|^2$. If equality happens, the graph is said to be dense.
+- $0 <= E <= V^2$, and for connected graphs: $|V| - 1 <= |E| <= |V|^2$. If equality happens, the graph is said to be dense.
 
-- $\forall y, |{ xy | x \in V }| <= |V|-1$ for a fixed $i$ and $x$ free to vary.
+- if $|E| > (V - 1)(V - 2)/2$ then it must be connected.
+
+- $\forall y, |{ xy | x \in V }| <= V - 1$ for a fixed $i$ and $x$ free to vary.
 
 ## Tree
 
 Trees are special cases of directed connected graphs that have the properties:
 
 - no loops
-- root: there is a distinguished node from which every other node is reachable
+- a root: there is a special node called the root. Any root you take on a tree generates a new different tree.
 
-This immediately implies that E = V - 1, and simplifies search procedures
-since you don't need to check if you have already visited some nodes.
+The great advantage of tree is perhaps the ability to create balanced trees which have `O(log(n)` height.
+
+It also simplifies search procedures since you don't need to check if you have already visited some nodes, as there can be no loops.
+
+Trees have $E = V - 1$.
 
 ### BST
 
@@ -32,90 +37,49 @@ since you don't need to check if you have already visited some nodes.
 
 Each node has 2 children.
 
-Not necessarily balanced, so bounds for all operations is $O(n)$,
-although average times are $long(n)$.
+Not necessarily balanced, so bounds for all operations is $O(n)$, although average times are $long(n)$.
 
-There are balanced search trees such as [RB-tree](red-black-tree)
-which actually have $O(ln)$ for all operations.
+There are balanced search trees such as RB-tree which actually have $O(ln)$ for all operations.
 
-The only complicated operation is delete, visualize it here:
-<http://www.algolist.net/Data_structures/Binary_search_tree/Removal>
+The only complicated operation is delete, visualize it here: <http://www.algolist.net/Data_structures/Binary_search_tree/Removal>
 
-### RB-tree.
+### Array-backed binary tree
 
-### Red black tree
+<http://en.wikipedia.org/wiki/Binary_tree#Arrays>
 
-Balanced binary search tree.
+Represents the tree as:
 
-Red black tree are binary search trees that support element query,
-insertion and deletion in $log(n)$ time.
+            1
+        2      3
+      4   5  6   7
 
-All that is needed is to store one extra bit per node: red or black.
+On the array it becomes:
 
-It must have the following properties:
+    1 2 3 4 5 6 7
 
--   A node is either red or black.
+Then:
 
--   The root is black.
+- `child[i][0] == array[2*i]`
+- `child[i][1] == array[(2*i + 1]`
+- `parent[i] == array[(i/2)]`
 
--   All leaves (NIL) are black.
+Upside: memory efficient. Don't store any pointers: only the raw data.
 
--   Both children of every red node are black.
-
-    Children of a black node can have any color.
-
--   Every simple path from a given node to any of its descendant leaves
-    contains the same number of black nodes.
-
-A leaf is not a node and a node is not a leaf in this context.
-Nodes contain the actual numbers that are being indexed,
-leafs don't contain any information, except indicating that there are no more nodes below.
-
-Leafs in this context are also called sentinels.
-
-Operations are $log(n)$ because the properties imply that the tree is balanced
-in the sense that the deepest leaf from a node can only be twice as deep as the shallowest one.
-
-The key to using the tree is keeping it balanced after insertion or deletion.
-
-Live Java applet demo: <http://www.ece.uc.edu/~franco/C321/html/RedBlack/>.
-Requires a bit too many clicks, but really cool.
-
-TODO visualize insert
-
-### B-tree
-
-*Not* binary tree: <http://en.wikipedia.org/wiki/B-tree>.
-
-Like a binary tree with many values per node:
-
-![btree](bree.png)
-
-Same complexity as RB-tree, but with slower in theory by a constant factor.
-
-Default data structure for MySQL InnoDB `INDEX`.
-
-In practice: way faster for accessing trees saved in slow storage like hard disks.
-
-- to go down each level, you must traverse all values of a node
-- less memory efficient
-
-Advantage:
-
-- less nodes need to be retrieved. Huge practical gains here to read data from slow media.
+Downside: BST operations like insert and rebalance are expensive as they requires to move lots of array elements around.
 
 ## DFS
 
+## Depth first search
+
 DFS can be done either recursively or not with a stack.
 
-The only key difference is that the recursive version uses the system's call stack,
-while the non-recursive version uses an explicit stack
+The only key difference is that the recursive version uses the system's call stack, while the non-recursive version uses an explicit stack.
 
 ## BFS
 
-BFS cannot be done recursively naturally,
-since the non-recursive implementation uses a queue,
-and not a stack like DFS.
+## Breadth first search
+
+BFS cannot be done recursively naturally, since the non-recursive implementation uses a queue, and not a stack like DFS.
 
 <http://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively>
 
@@ -123,58 +87,32 @@ and not a stack like DFS.
 
 Both are methods to search vertexes on unordered graphs.
 
-On a general graph, you must keep track of which nodes you have already looked into not to go on loops,
-so you need to add a search bit to each vertex.
-
-On trees (specific type of graph) this is not needed since trees have no loops by definition.
-
 Advantages of DFS:
 
--   if the searched solutions are guaranteed to be at the greatest depths
-    (e.g. leaves of a tree) then DFS will certainly be faster.
+-   if the searched solutions are guaranteed to be at the greatest depths (e.g. leaves of a tree) then DFS will certainly be faster.
 
--   if the graph is somehow balanced (nodes of maximum depth are at similar depths),
-    then DFS will certainly use less memory than BFS
-    since BFS must store a FIFO of each level ($2^depth$ vertexes on a balanced binary tree)
-    while BFS stores at most the maximum depth sequence of parents ($depth$ elements).
+-   if the graph is somehow balanced (nodes of maximum depth are at similar depths), then DFS will certainly use less memory than BFS since BFS must store a FIFO of each level ($2^depth$ vertexes on a balanced binary tree) while BFS stores at most the maximum depth sequence of parents ($depth$ elements).
+
+    Iterative deepening DFS may be used to reduce memory usage of the regular DFS.
 
 Advantages of BFS:
 
--   it is the obvious choice when looking for minimum distances,
-    since you want to keep as close as possible to the start and not go too deep.
+-   it is the obvious choice when looking for minimum distances, since you want to keep as close as possible to the start and not go too deep.
 
--   if the depth can be too long, or even infinite,
-    it is simpler to look breadth first, and limit the descent,
-    or the process could take forever or too long.
+-   if the depth can be too long, or even infinite, it is simpler to look breadth first, and limit the descent, or the process could take forever or too long.
 
-    It also makes more sense to use heuristics with BFS,
-    looking around the current position, and then deciding where to descend further.
+    It also makes more sense to use heuristics with BFS, looking around the current position, and then deciding where to descend further.
 
-## A star
+### IDDFS
 
-aka `A*`
+### Iterative deepening DFS
 
-Does the same as Dijkstra, but supposes that extra knowledge is known about the graph.
+<https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search>
 
-That extra knowledge is an estimative $h$ of distance between the current node and the target such as the straight line or manhattan distance.
+Do depth-limited searches with increasing height.
 
-The algorithm then first explores nodes with lowest: $current distance + h(next node)$
+The best only possibility when `2^height` is too much for your RAM, and uses just `O(height)` for the backtracking. Downside: way slower.
 
-Good tutorial:
+This also implies of course that the graph does not fit into memory, so that you have to think about how to 
 
-- <http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html>
-
-Let $h(x)$ be the estimative.
-
-- $h(x)$ is always smaller than the actual distance to goal: convergence guaranteed.
-
-- $h(x) = 0$: same as Dijkstra
-
-- $h(x)$ is the exact distance to destination: only the correct path is explored.
-
-## Bellman-ford
-
-Does the same as Dijkstra, but
-
-- larger time complexity: $n^2 log n$
-- also works for graphs with negative weights
+It is not feasible to keep track of the visited notes because that would take up too much memory. Infinite loops are voided by the depth limiting.

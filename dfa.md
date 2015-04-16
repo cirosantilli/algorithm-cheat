@@ -18,8 +18,17 @@ Hopcroft (1971) in $O(n log n)$ .
 
 Equivalent power to deterministic, proved with definition in 1959.
 
-Interestingly, the same is not the case for push down automata,
-in which deterministic are less powerful than non-deterministic.
+Interestingly, the same is not the case for:
 
-Turing machines are also equivalent to NTMs,
-but the change alters the complexity of computations.
+- push down automata, in which deterministic are less powerful than non-deterministic
+- omega automatons
+
+Turing machines are also equivalent to NTMs, but the change alters the complexity of computations.
+
+## Omega automaton
+
+<http://en.wikipedia.org/wiki/%CE%A9-automaton>
+
+Look just like automaton, but with one of several rules for what it means to accept a finite input.
+
+Non-deterministic is strictly more powerful than deterministic in this case.

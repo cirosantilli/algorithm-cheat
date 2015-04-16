@@ -88,9 +88,12 @@ $$
 
 The final choice of the data structure will depend on the expected density of the graph:
 
--   if the graph is expected to be dense, use an unordered array, as it has the best wort time for that case, while a Fibonacci heap offers only
+-   if the graph is expected to be dense, use an unordered array, as it has the best worst time for that case, while a Fibonacci heap offers only
 
--   if the graph is known to be sparse, $degree(v) <<< V/log(V)$, then the ordered approach starts being better.
+-   if the graph is known to be sparse, $degree(v) <<< V/log(V)$, then the heap approach starts being better.
 
--   If amortized time can be taken into account and it is not clear if the graph is dense or not, the Fibonacci Heap implementation is the best option, as it: works as well as the unordered array implementation for dense graphs, and better if the graph is not dense (often the case).
+-   If amortized time can be taken into account and it is not clear if the graph is dense or not, the Fibonacci Heap implementation is the best option, as it:
+
+    - works as well as the unordered array implementation for dense graphs
+    - works better if the graph is not dense (often the case).
 

@@ -77,13 +77,15 @@ It is cool to understand how the following calculations can be implemented:
 
 -   Combinatorial optimization and satisfiability:
 
-    -   Knapsack.
+    -   Knapsack. Tons of variants at: <http://en.wikipedia.org/wiki/List_of_knapsack_problems>
 
     -   [Coin problem](http://en.wikipedia.org/wiki/Coin_problem).
 
         A monetary system has 3 types of coins: 3, 5 and 7. What is the largest ammount that cannot be attained?
 
-        NP-complete in the number of types of coins.
+        NP-complete in the number of types of coins. For a fixed number of coins, polynomial.
+
+        For 2 coins, has an explicit formula.
 
     -   [Change making problem](http://en.wikipedia.org/wiki/Change-making_problem).
 
@@ -91,7 +93,30 @@ It is cool to understand how the following calculations can be implemented:
 
         NP-complete in the number of types of coins.
 
-        Belongs to the knapsack family.
+        Like Knapsack but:
+
+        - unlimited supply
+        - each cost is 1
+        - must match exactly
+
+    -   [Coin collector problem](http://en.wikipedia.org/wiki/Package-merge_algorithm#The_coin_collector.27s_problem)
+
+        Generalization of change making:
+
+        - limited supply
+        - the cost of each coin is different
+
+    -   Subset sum problem.
+
+        Is there a subset whose sum is exactly 0?
+
+        Subset sum problem.
+
+        <http://en.wikipedia.org/wiki/Subset_sum_problem>
+
+        There was even an early public key encryption system based on this problem, but it was broken: <http://en.wikipedia.org/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem>
+
+        <http://en.wikipedia.org/wiki/3SUM> has a $N^2$ algorithm conjectured to be optimal.
 
 -   Sorting.
 
@@ -451,3 +476,11 @@ First player forces win in at most 41 moves.
 ### Non perfect information
 
 - TODO poker? other card games. Could not find.
+
+## Computational geometry
+
+<http://en.wikipedia.org/wiki/Euclidean_shortest_path> 2D: P. 3D: NP-hard.
+
+<http://en.wikipedia.org/wiki/Closest_pair_of_points_problem>
+
+<http://en.wikipedia.org/wiki/Convex_hull_algorithms>
