@@ -1,6 +1,6 @@
 # Algorithm cheat
 
-[![Build Status](https://travis-ci.org/cirosantilli/algorithms.svg?branch=master)](https://travis-ci.org/cirosantilli/algorithms)
+[![Build Status](https://travis-ci.org/cirosantilli/algorithm-cheat.svg?branch=master)](https://travis-ci.org/cirosantilli/algorithm-cheat)
 
 Algorithm tutorials and simple implementations.
 
