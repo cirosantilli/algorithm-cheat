@@ -1,0 +1,150 @@
+#!/usr/bin/env python
+
+import os
+import subprocess
+import sys
+
+# Parameters
+base_dir = os.path.abspath(os.getcwd())
+data_base_dir = os.path.join(base_dir, 'data')
+src_dir = os.path.join(base_dir, 'src')
+in_ext = '.in'
+out_ext = '.out'
+sep = '-' * 75
+class TestDescription:
+    def __init__(self, data):
+        self.data = data
+known_basenames_test = {
+    'HeapSort.java': TestDescription('sort'),
+    'QuickSort.java': TestDescription('sort'),
+    'QuickSortTail.java': TestDescription('sort'),
+    'Tac.java': TestDescription('tac'),
+    'merge_sort.cpp': TestDescription('sort'),
+    'quick_sort.cpp': TestDescription('sort'),
+    'tac.c': TestDescription('tac'),
+}
+known_basenames = known_basenames_test.keys()
+
+# Assert that the stdout is the same as the expected one, and that the exit_status is 0.
+# If not, print diagnostic error message and exit 1.
+def assert_output(exit_status, stdout, expected_stdout, stderr, test_id = None, input_path = None):
+    fail = False
+    if stderr:
+        print
+        print sep
+        print 'stderr\n'
+        print stderr
+    if exit_status != 0:
+        print
+        print 'Exit status != 0: {}'.format(exit_status)
+        if stdout:
+            print 'stdout\n'
+            print stdout
+        fail = True
+    elif stdout != expected_stdout:
+        print
+        print 'stdout'
+        print
+        print stdout
+        print sep
+        print 'Expected stdout'
+        print
+        print expected_stdout
+        fail = True
+    if fail:
+        if input_path:
+            print
+            print sep
+            print 'Input'
+            print
+            with open(input_path, 'r') as input_file:
+                print input_file.read()
+        if test_id:
+            msg = 'Failed test id: ' + test_id
+        else:
+            msg = 'A test failed.'
+        print msg
+        sys.exit(1);
+
+def run(cmd):
+    process = subprocess.Popen(
+        cmd,
+        shell  = False,
+        stdin  = None,
+        stdout = subprocess.PIPE,
+        stderr = subprocess.PIPE,
+        universal_newlines = True
+    )
+    stdout, stderr = process.communicate()
+    exit_status = process.wait()
+    return [exit_status, stdout, stderr]
+
+if __name__ == '__main__':
+
+    if len(sys.argv) > 1:
+        paths = sys.argv[1:]
+    else:
+        paths = []
+        for lang in os.listdir(src_dir):
+            if os.path.isdir(os.path.join(src_dir, lang)):
+                paths.append(lang)
+
+    basenames = []
+    for path in paths:
+        new_path = os.path.join(src_dir, path)
+        if os.path.isdir(new_path):
+            path = new_path
+        if os.path.isdir(path):
+            basenames.extend(os.listdir(path))
+        else:
+            basenames.append(os.path.split(path)[1])
+    basenames.sort()
+
+    for basename in basenames:
+        basename_noext, lang = os.path.splitext(basename)
+        lang = lang[1:]
+        if lang:
+            lang_dir = os.path.join(src_dir, lang)
+            if (os.path.exists(lang_dir)):
+                print basename
+                if lang == 'c' or lang == 'cpp':
+                    run_cmd = [os.path.join(lang_dir, basename_noext + '.out')]
+                elif lang == 'java':
+                    run_cmd = ['java', '-cp', lang_dir, '-ea', basename_noext]
+
+                # Build.
+                os.chdir(lang_dir)
+                if subprocess.call(['make', '--silent']) != 0:
+                    print 'Error: Build failed.'
+                    sys.exit(1);
+                os.chdir(base_dir)
+
+                if basename in known_basenames:
+                    # Run executable by passing the data input file to them.
+
+                    # Get input data.
+                    data_dir = os.path.join(data_base_dir, known_basenames_test[basename].data)
+                    data_basenames = [os.path.splitext(p)[0]
+                            for p
+                            in os.listdir(data_dir)
+                            if os.path.splitext(p)[1] == '.in'
+                                and os.path.isfile(os.path.join(data_dir, p))]
+
+                    # Run tests.
+                    for data_basename in data_basenames:
+                        input_path = os.path.join(data_dir, data_basename) + in_ext
+                        output_path = os.path.join(data_dir, data_basename) + out_ext
+                        exit_status, stdout, stderr = run(run_cmd + [input_path])
+                        with open(output_path, 'r') as output_file:
+                            expected_stdout = output_file.read()
+                        assert_output(exit_status, stdout, expected_stdout, stderr, data_basename, input_path)
+                else:
+                    # Run executable without any command line arguments,
+                    # and check its exit status.
+                    # Ignore stdout. Print stderr.
+                    exit_status, stdout, stderr = run(run_cmd)
+                    assert_output(exit_status, stdout, stdout, stderr, None)
+
+    print
+    print 'All tests passed.'
+    sys.exit(0);

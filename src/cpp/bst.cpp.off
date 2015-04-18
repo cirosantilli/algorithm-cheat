@@ -1,0 +1,473 @@
+#ifndef BST_H
+#define BST_H
+
+#include <algorithm> // swap
+#include <sstream>
+#include <string>
+
+#include "map.hpp"
+
+/**
+TODO broken
+
+Current implementation is bad becuase it does not differentiate between the tree and its nodes:
+empty nodes are NULL.
+The problem is that this makes it harder to represent an empty map.
+TODO convert to two clases:
+one root, and other for nodes only.
+
+Binary search tree node.
+
+Implements a map.
+
+@tparam KEY the key type of the map. Must be sortable via `<` family of operators.
+@tparam VAL the value type value of the map.
+
+# Rationale
+
+Differentiaing tree objects may be a good thing since some methods such as `==` have different meanings
+for entire subtrees or for single nodes.
+
+A better possibility may be to make every operator operate nodewise, and give nodes an extra subtree function
+version of those operators.
+*/
+template<class KEY, class VAL>
+class Bst : public Map<KEY,VAL> {
+    KEY key;
+    VAL val;
+    Bst<KEY,VAL>* left;
+    Bst<KEY,VAL>* right;
+    public:
+        using Map<KEY,VAL>::init_initializer;
+        using Map<KEY,VAL>::add;
+        Bst() : key(0), val(0), left(NULL), right(NULL) {}
+
+        Bst(const KEY& key, const VAL& val) : key(key), val(val), left(NULL), right(NULL) {}
+
+        // TODO broken here. The problem is the edge condition for the first pair.
+        // Either the root is treated differently, or this cons
+        Bst(std::initializer_list<std::pair<KEY,VAL>> pairs) {
+            this->init_initializer(pairs);
+        }
+
+        Bst(const Bst& other) : key(other.key), val(other.val) {
+            if (other.hasLeft()) {
+                this->left = new Bst<KEY,VAL>(*(other.left));
+            } else {
+                this->left = NULL;
+            }
+            if (other.hasRight()) {
+                this->right = new Bst<KEY,VAL>(*(other.right));
+            } else {
+                this->right = NULL;
+            }
+        }
+
+        virtual ~Bst() {
+            delete this->left;
+            delete this->right;
+        }
+
+        friend void swap(Bst<KEY,VAL>& first, Bst<KEY,VAL>& second) {
+            std::swap(first.key,   second.key);
+            std::swap(first.val,   second.val);
+            std::swap(first.left,  second.left);
+            std::swap(first.right, second.right);
+        }
+
+        Bst<KEY,VAL>& operator=(Bst<KEY,VAL> other) {
+            swap(*this, other);
+            return *this;
+        }
+
+        // Move constructor.
+        Bst<KEY,VAL>(Bst<KEY,VAL>&& other) :
+
+        // Initialize via default constructor, C++11 only.
+        Bst<KEY,VAL>() {
+            swap(*this, other);
+        }
+
+        bool operator==(const Bst<KEY,VAL>& other) const {
+            if (this->key != other.key)
+                return false;
+            if (this->val != other.val)
+                return false;
+            if (other.hasLeft()) {
+                if (! (*(this->left) == *(other.left)))
+                    return false;
+            } else {
+                if (! (this->left == NULL))
+                    return false;
+            }
+            if (other.hasRight()) {
+                if (! (*(this->right) == *(other.right)))
+                    return false;
+            } else {
+                if (! (this->right == NULL))
+                    return false;
+            }
+            return true;
+        }
+
+        bool operator!=(const Bst<KEY,VAL>& other) const { return ! (*this == other); }
+        bool hasLeft() const { return this->left != NULL; }
+        bool hasRight() const { return this->right != NULL; }
+
+        /*
+        Add a key to the Bst below current node.
+
+        Retuns `true` if the key was inserted sucessfuly, `false` if it was already present.
+        */
+        bool add(const KEY& key, const VAL& val) {
+            Bst<KEY,VAL>* cur = this;
+            while (true) {
+                if (key == cur->key) {
+                    return false;
+                } else if (key < cur->key) {
+                    if (cur->hasLeft()) {
+                        cur = cur->left;
+                    } else {
+                        cur->left = new Bst<KEY,VAL>(key, val);
+                        return true;
+                    }
+                } else {
+                    if (cur->hasRight()) {
+                        cur = cur->right;
+                    } else {
+                        cur->right = new Bst<KEY,VAL>(key, val);
+                        return true;
+                    }
+                }
+            }
+        }
+
+        /**
+        Add with findNodeAndParent helper.
+
+        This is still less efficient than a direct add,
+        since a direct add does not keep track of parent and lr.
+        */
+        /*
+        bool add(const KEY& key, const VAL& val) {
+
+            Bst<KEY,VAL> *parent, *node;
+            int lr;
+
+            lr = findNodeAndParent(key, parent, node);
+            if (node == NULL) {
+                if(lr < 0)
+                    parent->left = new Bst<KEY,VAL>(key, val);
+                else
+                    parent->right = new Bst<KEY,VAL>(key, val);
+                return true;
+            }
+            return false;
+        }
+        */
+
+        void removeLeft() {
+            delete this->left;
+            this->left = NULL;
+        }
+
+        void removeRight() {
+            delete this->right;
+            this->right = NULL;
+        }
+
+        /**
+        Remove either the left or right node depending on rl.
+
+        @parm[in] rl If `-1`, remove left, if `1`, remove right, else do nothing.
+        */
+        void remove(int rl) {
+            if (rl == -1) {
+                delete this->left;
+                this->left = NULL;
+            } else if (rl == -1) {
+                delete this->right;
+                this->right = NULL;
+            }
+        }
+
+        /**
+        Find the value for a given key under the current node.
+
+        @param[in]  key key to search for.
+        @param[out] val output value found. If not found, `NULL`.
+        @return     true iff the key was found
+
+        #rationale
+
+        This could return either the values, or a pointer to the found node.
+
+        If this class is is only a map interface, then it should node return nodes,
+        since maps could be implemented in other ways, for example as a hashmap.
+
+        There are other functions such as `del` which can reuse this function if it returns
+        pointers.
+
+        A possible solution is then to have a helper that returns pointers,
+        and use that helper to implement both this function and `del`.
+        */
+
+            /* direct implementation */
+        /*
+        bool find(const KEY& key, VAL& val) const {
+            const Bst<KEY,VAL>* cur = this;
+            while (true) {
+                if (key == cur->key) {
+                    val = cur->val;
+                    return true;
+                } else if (key < cur->key) {
+                    if (cur->hasLeft()) {
+                        cur = cur->left;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    if (cur->hasRight()) {
+                        cur = cur->right;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        */
+
+            /* Implementation with `findNodeAndParent` helper.
+
+            Better code reuse, but slower as a tradeoff. */
+        /*
+        bool find(const KEY& key, VAL& val) const {
+            const Bst<KEY,VAL> *parent, *node;
+            findNodeAndParent(key, parent, node);
+            if (node != NULL) {
+                val = node->val;
+                return true;
+            }
+            return false;
+        }
+        */
+
+            /* Implementation with `findNode` helper.
+
+            Better code reuse */
+
+
+        /**
+        TODO How to make this const correct? In particular, how to call findNode if it were const?
+        */
+        bool find(const KEY& key, VAL& val) {
+            Bst<KEY,VAL> *node;
+            findNode(key, node);
+            if (node != NULL) {
+                val = node->val;
+                return true;
+            }
+            return false;
+        }
+
+        /**
+        Remove key value pair from map.
+
+        @param[in] key key to search
+        @return true iff the value was present
+        */
+        bool del(const KEY& key) {
+            Bst<KEY,VAL> *node, *parent, *nextNode, *nextNodeParent; // nextNode: first node that has a larger key than key
+            bool hasLeft, hasRight;
+            int nodeLr;
+            //this->findNode(key, node);
+            nodeLr = this->findNodeAndParent(key, parent, node);
+            if (node == NULL)
+                return false;
+            hasLeft = node->hasLeft();
+            hasRight = node->hasRight();
+            if (hasRight && hasLeft) {
+                nextNode = node->right;
+                nextNodeParent = NULL;
+                while (nextNode->hasLeft()) {
+                    nextNodeParent = nextNode;
+                    nextNode = nextNode->left;
+                }
+                node->key = nextNode->key;
+                node->val = nextNode->val;
+                nextNodeParent->removeLeft();
+            } else if (hasLeft) { //only left
+                node->key   = node->left->key;
+                node->val   = node->left->val;
+                node->right = node->left->right;
+                nextNode  = node->left->left;
+                node->left->left  = NULL;
+                node->left->right = NULL;
+                delete node->left;
+                node->left = nextNode;
+            } else if (hasRight) { //only right
+                node->key   = node->right->key;
+                node->val   = node->right->val;
+                node->left  = node->right->left;
+
+                nextNode = node->right->right;
+                node->right->left  = NULL;
+                node->right->right = NULL;
+                delete node->right;
+                node->right = nextNode;
+            } else { // only child
+                parent->remove(nodeLr);
+            }
+            return true;
+        }
+
+        /**
+        Get DFS preorder string representation of map.
+        */
+        std::string str() const {
+            bool hasLeft  = this->hasLeft();
+            bool hasRight = this->hasRight();
+            std::string stringLeft;
+            std::string stringRight;
+            std::stringstream ss;
+            ss << this->key << ": ";
+            ss << this->val << " | ";
+            if (hasLeft) {
+                ss << this->left->key;
+            } else {
+                ss << "NULL";
+            }
+            ss << ", ";
+            if (hasRight) {
+                ss << this->right->key;
+            } else {
+                ss << "NULL";
+            }
+            ss << std::endl;
+            if (hasLeft)
+                ss << *(this->left);
+            if (hasRight)
+                ss << *(this->right);
+            return ss.str();
+        }
+
+    private:
+
+        /**
+        Find node and its parent in current node's subtree.
+
+        @param[in]  key key to find
+        @param[out] parent output only
+
+            At return points to either:
+
+            - if the node is found
+
+                - if it is not the current node, its pasrent
+                - else, NULL
+
+            - else, the last searched parent node
+
+        @param[out] node
+
+            At return contains:
+
+            - if the node is not found, `NULL`
+            - else, points to the node searched for
+
+        @return
+
+            - -1 if `node` was found and is the left  child
+            -  1 if `node` was found and is the right child
+            -  0 otherwise.
+
+                This could happen either if:
+
+                - the found node is the node given by key
+                - the node was not found.
+
+                so this cannot be used to decide if the node was found or not.
+
+        #rationale
+
+            This helper allows for maximal code reuse and minimum memory usage (no parent pointers)
+            at the cost of slower speeds.
+
+            If each node had a parent pointer, this helper function would not be necessary for certain methods
+            a simpler find would do.
+
+            There are methods for each even having a parent node would not suffice.
+            For example, in `add`, if the node cannot be found we do want a pointer to the last searched parent
+            so we can add the node there. Up to now this is the only method I could find for which this does not work,
+            and if it really the only such method, this function can be ommited and implemented directly inside `add`
+            as it gives no code reuse. In the case of add however, using this helper makes things slower,
+            because a direct add implementation does not need:
+
+            - `lr = +-1`
+            - `parent = node`
+
+            so maybe this helper can never be used for optimal speed.
+
+            Parent nodes can be avoided with this helper for ceratin operations such as `del` and `find`,
+            at the cost of making find operations slower,
+            since two extra assignments have to be done for each descent:
+
+            - `lr = +-1`
+            - `parent = node`
+
+            It is a classic speed / memory tradeoff. In this case it might be better so simply.
+        */
+        int findNodeAndParent(const KEY& key, Bst<KEY,VAL>*& parent, Bst<KEY,VAL>*& node) {
+            parent = NULL;
+            node   = this;
+            int lr = 0;
+            while (true) {
+                if (key == node->key) {
+                    return lr;
+                } else {
+                    parent = node;
+                    if (key < node->key) {
+                        lr = -1;
+                        node = node->left;
+                        if (! parent->hasLeft())
+                            return 0;
+                    } else {
+                        lr = 1;
+                        node = node->right;
+                        if (! parent->hasRight())
+                            return 0;
+                    }
+                }
+            }
+        }
+
+        /**
+        @brief Find a node that has a given key and return a pointer to it.
+
+        @param[in]  key the key to search for.
+        @param[out] if the node if found, a pointer to it. Else, NULL.
+        @return true iff the node is found
+        */
+        bool findNode(const KEY& key, Bst<KEY,VAL>*& node) {
+            node = this;
+            while (true) {
+                if (key == node->key) {
+                    return true;
+                } else {
+                    if (key < node->key) {
+                        node = node->left;
+                        if (node == NULL) {
+                            return false;
+                        }
+                    } else {
+                        node = node->right;
+                        if (node == NULL) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+};
+
+#endif

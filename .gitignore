@@ -1,0 +1,11 @@
+# Compiled languages
+*.o
+# Must be in src, because those in data should be included.
+/src/**/*.out
+
+# Java
+*.class
+
+# Eclipse
+.classpath
+.project

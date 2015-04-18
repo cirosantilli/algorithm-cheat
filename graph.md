@@ -1,6 +1,10 @@
 # Graph
 
-## E and V
+<http://en.wikipedia.org/wiki/Graph_%28abstract_data_type%29>
+
+## Properties
+
+### Relations between E and V
 
 E = set of edges
 
@@ -18,72 +22,25 @@ Important relation:
 
 - $\forall y, |{ xy | x \in V }| <= V - 1$ for a fixed $i$ and $x$ free to vary.
 
-## Tree
+## Transversals
 
-Trees are special cases of directed connected graphs that have the properties:
+### DFS
 
-- no loops
-- a root: there is a special node called the root. Any root you take on a tree generates a new different tree.
-
-The great advantage of tree is perhaps the ability to create balanced trees which have `O(log(n)` height.
-
-It also simplifies search procedures since you don't need to check if you have already visited some nodes, as there can be no loops.
-
-Trees have $E = V - 1$.
-
-### BST
-
-### Binary search tree
-
-Each node has 2 children.
-
-Not necessarily balanced, so bounds for all operations is $O(n)$, although average times are $long(n)$.
-
-There are balanced search trees such as RB-tree which actually have $O(ln)$ for all operations.
-
-The only complicated operation is delete, visualize it here: <http://www.algolist.net/Data_structures/Binary_search_tree/Removal>
-
-### Array-backed binary tree
-
-<http://en.wikipedia.org/wiki/Binary_tree#Arrays>
-
-Represents the tree as:
-
-            1
-        2      3
-      4   5  6   7
-
-On the array it becomes:
-
-    1 2 3 4 5 6 7
-
-Then:
-
-- `child[i][0] == array[2*i]`
-- `child[i][1] == array[(2*i + 1]`
-- `parent[i] == array[(i/2)]`
-
-Upside: memory efficient. Don't store any pointers: only the raw data.
-
-Downside: BST operations like insert and rebalance are expensive as they requires to move lots of array elements around.
-
-## DFS
-
-## Depth first search
+### Depth first search
 
 DFS can be done either recursively or not with a stack.
 
 The only key difference is that the recursive version uses the system's call stack, while the non-recursive version uses an explicit stack.
 
-## BFS
+### BFS
 
-## Breadth first search
+### Breadth first search
 
 BFS cannot be done recursively naturally, since the non-recursive implementation uses a queue, and not a stack like DFS.
 
 <http://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively>
 
-## DFS vs BFD
+### DFS vs BFD
 
 Both are methods to search vertexes on unordered graphs.
 
@@ -116,3 +73,57 @@ The best only possibility when `2^height` is too much for your RAM, and uses jus
 This also implies of course that the graph does not fit into memory, so that you have to think about how to 
 
 It is not feasible to keep track of the visited notes because that would take up too much memory. Infinite loops are voided by the depth limiting.
+
+## Attributes
+
+Graph structures must be able to contain arbitrary attributes associated to each edge (node pair), and this is their major design concern.
+
+For example:
+
+-   on a shortest path problem, the only edge attributes is the width of an edge.
+
+-   on a city, each street takes a time to cross, and has a different length.
+
+    The two are not necessarily proportional since some streets have more traffic than others.
+
+    Cover the maximum length withing a fixed amount of time.
+
+    In this problem, each edge must have 2 integers associated to it: length and time to cross.
+
+Node attributes are simpler to deal with as they can just be stored into a single array of properties.
+
+Dynamic operations such as addition and removal of edges and nodes are also required, but often less important, as many practical graph problems are based on static graphs.
+
+## Implementations
+
+There are two major graph implementations:
+
+- adjacency list
+- adjacency matrix
+
+### Adjacency list
+
+Represent nodes by integers. For each node, store what it points to.
+
+-   directed implementation: array of destination to properties maps:
+
+        g[origin0] = {dest00: properties00, dest01: properties01}.
+        g[origin1] = {dest10: properties10, dest11: properties11}.
+        ...
+
+    Probably the best option in general, as it is `O(1)` average to get edge properties from an origin / destination pair.
+
+-   undirected: same as above, but store every node pair as `(smaller, larger)`, and convert all inputs `(larger, smaller)` to `(smaller, larger)`.
+
+### Adjacency matrix
+
+Keep a matrix of edge properties.
+
+Advantage: `O(1)` worst time to access each edge properties from node pair.
+
+Disadvantage: `O(n^2)` memory, regardless of graph density.
+
+This method is generally less useful because:
+
+- most graphs encountered in practice are very sparse, so the matrix will contain too many 0 entries.
+- adjacency list implementation can already reach `O(1)` average time (but not worst).

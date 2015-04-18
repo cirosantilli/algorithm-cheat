@@ -27,7 +27,7 @@ Good sources on open addressing:
 - <http://webdocs.cs.ualberta.ca/~holte/T26/open-addr.html>
 - <http://www.algolist.net/Data_structures/Hash_table/Open_addressing>
 
-Open addressing vs. chaining
+Open addressing vs. chaining:
 
 -   Collision resolution.
 
