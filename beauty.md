@@ -251,14 +251,9 @@ Primality testing: given a number, is it prime or not?
 
 For a long time it was an open question if a polynomial algorithm existed.
 
-Note that the naive algorithm of trying division by every number below $\sqrt(n)$
-is polynomial on the value of $n$, but *not* on the number of digits of the input,
-which is what is considered in complexity analysis.
+Note that the naive algorithm of trying division by every number below $\sqrt(n)$ is polynomial on the value of $n$, but *not* on the number of digits of the input, which is what is considered in complexity analysis.
 
-The question was solved positively in 2002 by the [AKS primality test](https://en.wikipedia.org/wiki/AKS_primality_test).
-Before AKS, there were many algorithms which were either probabilistic,
-or dependent on the truth of unproven conjectures, at the time of their proposal,
-such as the Miller test which depends on the generalized Riemann hypothesis.
+The question was solved positively in 2002 by the [AKS primality test](https://en.wikipedia.org/wiki/AKS_primality_test). Before AKS, there were many algorithms which were either probabilistic, or dependent on the truth of unproven conjectures, at the time of their proposal, such as the Miller test which depends on the generalized Riemann hypothesis.
 
 Many variants of AKS were created, and one of them is known to run in $O(log^6(n))$.
 
@@ -268,8 +263,7 @@ In practice however, faster probabilistic algorithms are used. GPG, PGP and Open
 - <http://en.wikipedia.org/wiki/Fermat_primality_test>, $log^2(n)$
 - <http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test>, $log^3(n)$
 
-Those algorithms used a known property of every prime that not many other numbers have,
-e.g. Fermat's primality test uses Fermat's little theorem.
+Those algorithms used a known property of every prime that not many other numbers have, e.g. Fermat's primality test uses Fermat's little theorem.
 
 #### Carmichael number
 
@@ -304,8 +298,7 @@ Korselt's criterion (1899) gives an iff condition for a number $n$ being Carmich
 
     <http://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication>
 
-    Algorithm family, hard to analyse, Toom-3 does $O(n^{\log_{3}5})$,
-    about $O(n^{1.465})$
+    Algorithm family, hard to analyse, Toom-3 does $O(n^{\log_{3}5})$, about $O(n^{1.465})$
 
 -   Schonhage–Strassen
 
@@ -386,17 +379,13 @@ They are fun and important to implement solutions using computers.
 
 <https://en.wikipedia.org/wiki/Hilbert%27s_tenth_problem>
 
-Given an integer Diophantine equation $P(x, y, z, ...)$,
-where $P$ is a multivariate polynomial with integer coefficients,
-is there an integer solution?
+Given an integer Diophantine equation $P(x, y, z, ...)$, where $P$ is a multivariate polynomial with integer coefficients, is there an integer solution?
 
-Famously proposed as an important problem in 1900,
-last step of the undecidability proof in 1970.
+Famously proposed as an important problem in 1900, last step of the undecidability proof in 1970.
 
 Interesting subset problems include:
 
--   Fermat's last problems decides negatively a small subset
-    of Diophantine equations of the form $x^n + y^n = z^n$.
+-   Fermat's last problems decides negatively a small subset of Diophantine equations of the form $x^n + y^n = z^n$.
 
 -   limiting maximum degree:
 
@@ -412,8 +401,7 @@ Interesting subset problems include:
 
 ##### Reduction of generating equations to 9 variables
 
-If a set is defined by a system of Diophantine equations,
-it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).
+If a set is defined by a system of Diophantine equations, it can also be defined by a system of Diophantine equations in only 9 variables (Matiyasevich 1999).
 
 ##### Diophantine quintuple
 
@@ -421,19 +409,15 @@ it can also be defined by a system of Diophantine equations in only 9 variables 
 
 ## Game theory
 
-In a game of chess, if both player play perfectly, does the first player always win?
-Always loses? Always draws? Open as of 2013.
+In a game of chess, if both player play perfectly, does the first player always win? Always loses? Always draws? Open as of 2013.
 
-Is there a polynomial algorithm that allows to chose the next perfect move?
-Or is brute force necessary (almost never polynomial for interesting games).
+Is there a polynomial algorithm that allows to chose the next perfect move? Or is brute force necessary (almost never polynomial for interesting games).
 
-Some games have been weakly solved: it have been proven that one player always wins / loses,
-bit the actual strategy is unknown.
+Some games have been weakly solved: it have been proven that one player always wins / loses, bit the actual strategy is unknown.
 
 Generalization for non perfect information games: strategy that leads to greatest expected outcome.
 
-Non-mathematical question: if it is not polynomially decidable,
-do the best computers today beat the best humans?
+Non-mathematical question: if it is not polynomially decidable, do the best computers today beat the best humans?
 
 List of solved games: <https://en.wikipedia.org/wiki/Solved_game>
 

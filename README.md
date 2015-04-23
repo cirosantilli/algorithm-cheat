@@ -1,4 +1,4 @@
-# Algorithm cheat
+# Algorithm cheat ![logo](logo.png)
 
 [![Build Status](https://travis-ci.org/cirosantilli/algorithm-cheat.svg?branch=master)](https://travis-ci.org/cirosantilli/algorithm-cheat)
 
@@ -50,6 +50,7 @@ Algorithm tutorials and simple implementations.
     1. [tac](tac.md): [tac.c](src/c/tac.c), [Tac.java](src/java/Tac.java)
 1.  Misc algorithms
     1. [Hanoi tower](hanoi-tower.md)
+    1. [Hash function](hash-function.md)
     1. [XOR-swap](xor-swap.md)
 1.  Misc
     1. [Bitcoin](bitcoin.md)
@@ -62,24 +63,25 @@ Algorithm tutorials and simple implementations.
 
 ## WIP
 
-1. [Knapsack](knapsack.md)
-1. Data structures
-   1.  [Crit-bit tree](crit-bit-tree.md)
-   1.  [Disjoint set](disjoint-set.md)
-   1.  [Radix tree](radix-tree.md)
-   1.  [Skip list](skip-list.md)
-   1.  [Set](set.md)
-   1.  [Trie](trie.md)
-   1.  [RB tree](rb-tree.md)
-   1.  [B-tree](b-tree.md)
-       1. [B-tree](b-tree.md)
-       1. [B-plus-tree](b-plus-tree.md)
-1. Graph algorithms
-   1. [A*](a-star.md)
-   1. [B*](b-star.md)
-   1. [Bellman-ford](bellman-ford.md)
-1. Sorting algorithms
-   1. [Heap sort](heap-sort.md)
-   1. [Insertion sort](insertion-sort.md)
-1. Misc
-   1. [Error detection](error-detection.md)
+1.  [Knapsack](knapsack.md)
+1.  Data structures
+    1.  [Crit-bit tree](crit-bit-tree.md)
+    1.  [Disjoint set](disjoint-set.md)
+    1.  [Radix tree](radix-tree.md)
+    1.  [Skip list](skip-list.md)
+    1.  [Set](set.md)
+    1.  [Trie](trie.md)
+    1.  [RB tree](rb-tree.md)
+    1.  [B-tree](b-tree.md)
+        1. [B-tree](b-tree.md)
+        1. [B-plus-tree](b-plus-tree.md)
+    1. Graph
+        1. [Topological sort](topological-sort.md)
+        1. [A*](a-star.md)
+        1. [B*](b-star.md)
+        1. [Bellman-ford](bellman-ford.md)
+1.  Sorting algorithms
+    1. [Heap sort](heap-sort.md)
+    1. [Insertion sort](insertion-sort.md)
+1.  Misc
+    1. [Error detection](error-detection.md)
