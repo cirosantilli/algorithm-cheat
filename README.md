@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cirosantilli/algorithm-cheat.svg?branch=master)](https://travis-ci.org/cirosantilli/algorithm-cheat)
 
-Algorithm tutorials and simple implementations.
+Algorithm tutorials and simple implementations with unit tests.
 
 1.  Implementations
     1. [Getting started](getting-started.md)

@@ -246,6 +246,10 @@ Certificates exist on the TLS system exactly to prevent this kind of attack.
 
 #### XSS
 
+-   <http://stackoverflow.com/a/26819187/895245>
+
+-   Login form CSRF: <http://stackoverflow.com/questions/6412813/do-login-forms-need-tokens-against-csrf-attacks>
+
 -   <https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet>
 
 -   Master XSS evasion cheatsheet: <https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet#Tests>
@@ -343,6 +347,14 @@ This section also discusses famous attackers, or security researchers.
 -   <http://en.wikipedia.org/wiki/Samy_KamkarI> made a few.
 
 -   <http://en.wikipedia.org/wiki/Stuxnet> Attacks controllers, reportedly used by the USA to destroy nuclear centrifuges in Iran.
+
+## Side channel attack
+
+- <https://en.wikipedia.org/wiki/Side-channel_attack>
+
+- L3 cache based: <http://securityaffairs.co/wordpress/36178/hacking/spy-in-the-sandbox-attack.html>
+
+- Rowhammer DRAM based: <http://www.v3.co.uk/v3-uk/analysis/2399431/manufacturers-ignored-possibility-of-rowhammer-dram-attacks>
 
 ## Misc
 

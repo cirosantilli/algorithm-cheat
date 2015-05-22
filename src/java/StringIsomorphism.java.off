@@ -1,0 +1,72 @@
+/*
+https://leetcode.com/problems/isomorphic-strings/
+
+The perfect data structure to solve this is a bimap, which represents a bijection.
+
+There are no bimaps on the stlib: http://stackoverflow.com/questions/9783020/bidirectional-map
+but it is easy to simulate them with two separte maps.
+*/
+
+import java.util.Map;
+import java.util.HashMap;
+
+/*
+Current solutions do not consider 4-byte codepoints.
+
+For 2-byte codepoints we could use an array as a map (64kB),
+but fro 4-byte codepoints it would be too much.
+*/
+public class Solution {
+
+    /* Double map solution. Duplicates the code, and is marginaly more efficient because it does only a single loop. */
+    public boolean isIsomorphic(String s, String t) {
+        int l = s.length();
+        if (l != t.length())
+            return false;
+        Map<Character, Character> mapst = new HashMap<>();
+        Map<Character, Character> mapts = new HashMap<>();
+        for (int i = 0; i < l; i++) {
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            Character sm = mapst.get(sc);
+            Character tm = mapts.get(tc);
+            if (sm == null) {
+                mapst.put(sc, tc);
+            } else {
+                if (!sm.equals(tc))
+                    return false;
+            }
+            if (tm == null) {
+                mapts.put(tc, sc);
+            } else {
+                if (!tm.equals(sc))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isIsomorphicOneSide(String s, String t) {
+        Map<Character, Character> map = new HashMap<>();
+        int l = s.length();
+        for (int i = 0; i < l; i++) {
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            Character mc = map.get(sc);
+            if (mc == null) {
+                map.put(sc, tc);
+            } else {
+                if (!mc.equals(tc))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        int l = s.length();
+        if (l != t.length())
+            return false;
+        return isIsomorphicOneSide(s, t) && isIsomorphicOneSide(t, s);
+    }
+}

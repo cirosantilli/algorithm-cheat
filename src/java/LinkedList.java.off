@@ -1,0 +1,83 @@
+/**
+ * https://leetcode.com/problems/reverse-linked-list/
+ *
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class LinkedList {
+    public static ListNode reverseList(ListNode head) {
+        if (head == null)
+            return null;
+        ListNode cur = head.next;
+        ListNode prev = head;
+        head.next = null;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+
+    public ListNode removeAll(ListNode head, int val) {
+        ListNode newHead = head;
+        while (newHead != null && newHead.val == val) {
+            newHead = newHead.next;
+        }
+        if (newHead != null)  {
+            ListNode prev = newHead;
+            ListNode cur = newHead.next;
+            while (cur != null) {
+                ListNode next = cur.next;
+                if (cur.val == val) {
+                    prev.next = next;
+                } else {
+                    prev = cur;
+                }
+                cur = next;
+            }
+        }
+        return newHead;
+    }
+
+    /*
+    Remove all val nodes from the list.
+
+    Do the first removal check in the same loop as the other checks,
+    which is less efficient than pre-removing the heads in a separate loop.
+    */
+    public ListNode removeAllOneLoop(ListNode head, int val) {
+        ListNode prev = null;
+        ListNode cur = head;
+        ListNode newHead = head;
+        while (cur != null) {
+            ListNode next = cur.next;
+            if (cur.val == val) {
+                if (prev == null) {
+                    newHead = next;
+                } else {
+                    prev.next = next;
+                }
+            } else {
+                prev = cur;
+            }
+            cur = next;
+        }
+        return newHead;
+    }
+
+    /* Super short, and super inneficient. */
+    public ListNode removeAllRecursive(ListNode head, int val) {
+        if(head == null)
+            return null;
+        if(head.val == val)
+            return removeAllRecursive(head.next, val);
+        head.next = removeAllRecursive(head.next, val);
+        return head;
+    }
+}

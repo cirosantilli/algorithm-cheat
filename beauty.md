@@ -152,21 +152,27 @@ It is cool to understand how the following calculations can be implemented:
 
     -   [Vehicle Routing Problem](http://en.wikipedia.org/wiki/Vehicle_routing_problem). Generalization of Route Inspection, but edges have one or more weights, and multiple constraints are possible.
 
-    -   [Four Color Theorem](http://en.wikipedia.org/wiki/Four-color_theorem)
+    -   [Graph coloring](https://en.wikipedia.org/wiki/Graph_coloring)
 
-        You can color a map with 4 colors in a way that no two countries share a border with same color.
+        Several interesting concepts and conjectures.
 
-        Graph statement: every planar graph can be colored in a way that no two neighbours have the same color.
+        Used for <https://en.wikipedia.org/wiki/Register_allocation> during compilation.
 
-        Conjectured in 1852, proven in 1976.
+        -   [Four Color Theorem](http://en.wikipedia.org/wiki/Four-color_theorem)
 
-        Proof uses a computer to check each 1936 base cases, first of its type.
+            You can color a map with 4 colors in a way that no two countries share a border with same color.
 
-        Proof for the 5 color case much easier and completed in 1890.
+            Graph statement: every planar graph can be colored in a way that no two neighbours have the same color.
 
-        Simple to state, hard to prove.
+            Conjectured in 1852, proven in 1976.
 
-        Complexity of finding a coloring: $O(n^2)$.
+            Proof uses a computer to check each 1936 base cases, first of its type.
+
+            Proof for the 5 color case much easier and completed in 1890.
+
+            Simple to state, hard to prove.
+
+            Complexity of finding a coloring: $O(n^2)$.
 
     -   Self balancing search trees. RB-tree, AVL tree, B-tree.
 

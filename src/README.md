@@ -24,7 +24,7 @@ The advantages of this method are that:
 - it is language agnostic
 - it factors out the error checking across all algorithms
 
-Although stdin input is more elegant as it does not require file IO, file input is more general as it allow for out-of-core considerations.
+Although stdin input is more elegant as it does not require file IO, file input is more general as it allow for out-of-core considerations. This can be important for instance to implement [tac.c](https://github.com/cirosantilli/algorithm-cheat/blob/b09a181b686ebc33fb49a45b8264bbdde8508a9c/src/c/tac.c), since you cannot start from the end of stdin without reading everything to memory.
 
 File output may also be supported some day if we find cool optimizations that need it.
 
