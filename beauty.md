@@ -43,11 +43,15 @@ Easy to state, hard to prove.
 
 Many other analogous questions like PSPACE vs NP.
 
+### Computability
+
 ### Undecidability
 
 <http://en.wikipedia.org/wiki/Undecidable_problem>
 
 Mysterious feeling: there are problems that you can state, but not solve in general.
+
+A recursive definition of computable for integer functions: <https://en.wikipedia.org/wiki/Primitive_recursive_function#Relationship_to_recursive_functions> Famous counter example which removes the "Minimisation operator": <https://en.wikipedia.org/wiki/Ackermann_function>, and falls under <https://en.wikipedia.org/wiki/Primitive_recursive_function>
 
 ### FPTAS
 
@@ -67,7 +71,7 @@ It is cool to understand how the following calculations can be implemented:
 
     Specially interesting to look at efficient different implementations and their efficienty:
 
-    - simple recursive:               $O(2^n)$ time!
+    - simple recursive: $O(2^n)$ time!
 
     - dynamic programming with array: $O(n)$ time, $O(n)$ memory.
 

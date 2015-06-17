@@ -234,11 +234,9 @@ HTML, CSS and JavaScript related vulnerabilities:
 
 #### Man in the middle
 
-Way to beat SSL. If you intercept the requests made by the client,
-you can send him your public key and make him believe that it is the server response.
+Way to beat SSL. If you intercept the requests made by the client, you can send him your public key and make him believe that it is the server response.
 
-You can then forward his request to the server, you acting as proxy,
-and send replies back transparently, or arbitrarily altering data.
+You can then forward his request to the server, you acting as proxy, and send replies back transparently, or arbitrarily altering data.
 
 Certificates exist on the TLS system exactly to prevent this kind of attack.
 
@@ -347,6 +345,8 @@ This section also discusses famous attackers, or security researchers.
 -   <http://en.wikipedia.org/wiki/Samy_KamkarI> made a few.
 
 -   <http://en.wikipedia.org/wiki/Stuxnet> Attacks controllers, reportedly used by the USA to destroy nuclear centrifuges in Iran.
+
+-   <https://en.wikipedia.org/wiki/Siberian_pipeline_sabotage>
 
 ## Side channel attack
 

@@ -44,7 +44,6 @@ Visualization: we will separate things into groups:
               | j             |
         small | large         | pivot
 
-
 Where:
 
 - $i$ is the first of the large side.
@@ -435,3 +434,11 @@ TODO implement. For this to work for the worst case, you must select the side wi
 Used in Java 7's `Arrays.sort`: <http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#sort%28byte[]%29>
 
 TODO
+
+### Pivot in the middle
+
+### Organ pipe input
+
+It is possible to take the pivot in the middle, to avoid worst case on sorted input which may be very common.
+
+But then this gives worst case for organ pipe inputs of the form `[1,2,3,4,5,4,3,2,1]`.

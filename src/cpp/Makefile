@@ -1,4 +1,6 @@
+G ?= gdb3
 IN_EXT ?= .cpp
+O ?= 0
 OUT_EXT ?= .out
 
 INS := $(wildcard *$(IN_EXT))
@@ -10,7 +12,7 @@ OUTS := $(addsuffix $(OUT_EXT), $(OUTS_NOEXT))
 all: $(OUTS)
 
 %$(OUT_EXT): %$(IN_EXT)
-	g++ -g -o '$@' -std=c++11 '$<'
+	g++ -g'$(G)' -O'$(O)' -pg -pthread -std=c++11 -Wextra -o '$@' '$<'
 
 clean:
 	rm *$(OUT_EXT)

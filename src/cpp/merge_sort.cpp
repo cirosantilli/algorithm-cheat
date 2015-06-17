@@ -2,7 +2,7 @@
 #include <cmath>        // pow, ceil
 #include <vector>
 
-#include "sort.hpp"
+#include "common.hpp"
 
 /**
 Sort the input vector via merge sort inline.
@@ -75,7 +75,7 @@ void merge_sort(std::vector<COMPARABLE>& input) {
 }
 
 int main(int argc, char **argv) {
-    std::vector<int> input = parse_input(argv[1]);
+    std::vector<int> input = parse_array(argv[1]);
     merge_sort(input);
-    print_output(input);
+    print_array(input);
 }

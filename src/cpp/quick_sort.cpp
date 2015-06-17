@@ -1,8 +1,8 @@
 #include <algorithm> // swap
 #include <vector>
-#include <utility>   // pair
+#include <utility> // pair
 
-#include "sort.hpp"
+#include "common.hpp"
 
 /**
 Sort the input vector via quick sort.
@@ -45,7 +45,7 @@ void quick_sort(std::vector<COMPARABLE>& input) {
 }
 
 int main(int argc, char **argv) {
-    std::vector<int> in = parse_input(argv[1]);
-    quick_sort(in);
-    print_output(in);
+    std::vector<int> input = parse_array(argv[1]);
+    quick_sort(input);
+    print_array(input);
 }

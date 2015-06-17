@@ -21,6 +21,8 @@ known_basenames_test = {
     'Tac.java': TestDescription('tac'),
     'merge_sort.cpp': TestDescription('sort'),
     'quick_sort.cpp': TestDescription('sort'),
+    'sum_array.cpp': TestDescription('sum_array'),
+    'sum_array_parallel.cpp': TestDescription('sum_array'),
     'tac.c': TestDescription('tac'),
 }
 known_basenames = known_basenames_test.keys()

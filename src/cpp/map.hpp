@@ -1,7 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <utility>          // pair
+#include <utility> // pair
 
 /**
 Map abstract class.

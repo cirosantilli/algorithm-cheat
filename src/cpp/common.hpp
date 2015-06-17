@@ -1,13 +1,16 @@
-#ifndef SORT_H
-#define SORT_H
+#ifndef COMMON_H
+#define COMMON_H
 
 #include <algorithm> // TODO why required?
-#include <fstream>   // ifstream
-#include <iostream>  // cout, endl
-#include <string>    // string
-#include <sstream>   // istringstream
+#include <fstream> // ifstream
+#include <iostream> // cout, endl
+#include <string> // string
+#include <sstream> // istringstream
 
-std::vector<int> parse_input(std::string path) {
+/**
+Read file at `path`. It's format should be as of `data/sort`.
+*/
+std::vector<int> parse_array(std::string path) {
     int i, size, value;
     std::ifstream infile(path);
     std::string inputS;
@@ -27,8 +30,11 @@ std::vector<int> parse_input(std::string path) {
     return input;
 }
 
-void print_output(std::vector<int> output) {
-    for (int i = 0; i < output.size() - 1; ++i) {
+/**
+Print the vector to stdout space separated.
+*/
+void print_array(std::vector<int> output) {
+    for (unsigned int i = 0; i < output.size() - 1; ++i) {
         std::cout << output[i] << ' ';
     }
     std::cout << output[output.size() - 1] << '\n';
