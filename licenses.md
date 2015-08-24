@@ -26,9 +26,9 @@ If someone else modifies your code and distributes it, he must make the source o
 
 The holder of the copyright is not force to do so. For example, before being bought by Oracle, MySQL makers got some money from selling licences that allows companies to distribute closed source forks of MySQL.
 
-If you don't distribute the code, you can fork it without opening the source: <http://stackoverflow.com/questions/1492687/using-gpl-3rd-party-code-for-internal-closed-source-project>
+If you don't distribute the code, you can fork it without opening the source: <http://stackoverflow.com/questions/1492687/using-gpl-3rd-party-code-for-internal-closed-source-project> Of course, what "distributing" mans may be blurry: <http://programmers.stackexchange.com/questions/162870/gpl-what-is-distribution>
 
-Contributors are not forced to merge back: they only need to open source their contributions. But in the end it is much more profitable to try to merge back, as the community will then maintain the code for you.
+You are not forced to merge back:only open source the contributions. But in the end it is much more profitable to try to merge back, as the community will then maintain the code for you.
 
 The following website is of a leading group of lawyers that enforces GPL: <http://gpl-violations.org/about.html> It is in general up to the copyright owner to enforce GPL.
 
@@ -67,6 +67,15 @@ TODO: vs GPL linking exception?
 <https://en.wikipedia.org/wiki/GNU_Free_Documentation_License>
 
 See also: Creative Commons.
+
+### Affero GPL
+
+GPL allows you to modify software used Server Side without distributing the source code.
+
+Affero GPL blocks it:
+
+- <http://programmers.stackexchange.com/questions/131264/what-constitutes-distributing-for-lgpl-v3>
+- <http://www.gnu.org/licenses/why-affero-gpl.en.html>
 
 ## CC
 

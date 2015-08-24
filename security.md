@@ -1,60 +1,5 @@
 # Security
 
-## Sources
-
--   <http://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures>
-
-    Public vulnerability database.
-
-    Data viewer frontend: <http://www.cvedetails.com/>
-
-    Types: <http://www.cvedetails.com/vulnerabilities-by-types.php>
-
--   <http://en.wikipedia.org/wiki/CVSS>
-
-    Common Vulnerability Scoring System, used by CVE.
-
-    Very interesting to see the different impact aspects of vulnerabilities.
-
--   <http://cwe.mitre.org/data/index.html>
-
-    CWE: Common Weakness Enumeration.
-
--   <https://www.owasp.org>
-
-    Amazing wikis with tons of vulnerabilities and their counter measures.
-
-    <https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013> The top ten is a good place to start.
-
--   <https://bounty.github.com/index.html>
-
-    GitHub's security page. Some interesting info there, like:
-    <https://github.com/joernchen/evil_stuff>
-
-### Security job postings
-
-Job postings on the domain will useful techniques.
-
--   <https://www.exodusintel.com/careers.html>
-
-    - Pathname Traversal and Equivalence Errors
-    - Insufficient Verification of Data Authenticity
-    - Improper Restriction of Operations within the Bounds of a Memory Buffer
-    - Incorrect Type Conversion or Cast
-    - Pointer Issues
-    - Improper Initialization
-    - ...and so on
-
-    They use Metasploit.
-
-### Tutorials
-
--   <http://googleprojectzero.blogspot.fr/2014/08/the-poisoned-nul-byte-2014-edition.html>
-
-    Amazingly detailed description of a hard exploit of a vulnerability.
-
-    Cool to learn the names of general techniques.
-
 ## General concepts
 
 -   <http://en.wikipedia.org/wiki/Exploit_%28computer_security%29>
@@ -314,6 +259,14 @@ Used for getting useful server information to prepare for further attacks later 
 
 - <http://en.wikipedia.org/wiki/Black_fax> Even fax had it!
 
+### Heap spray
+
+<https://en.wikipedia.org/wiki/Heap_spraying>
+
+### JIT spray
+
+<https://en.wikipedia.org/wiki/JIT_spraying>
+
 ## Tools
 
 - <http://www.metasploit.com/>
@@ -365,3 +318,67 @@ Someone said:
 Security models:
 
 - <http://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model>
+
+## Bibliography
+
+-   <http://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures>
+
+    Public vulnerability database.
+
+    Data viewer frontend: <http://www.cvedetails.com/>
+
+    Types: <http://www.cvedetails.com/vulnerabilities-by-types.php>
+
+-   <http://en.wikipedia.org/wiki/CVSS>
+
+    Common Vulnerability Scoring System, used by CVE.
+
+    Very interesting to see the different impact aspects of vulnerabilities.
+
+-   <http://cwe.mitre.org/data/index.html>
+
+    CWE: Common Weakness Enumeration.
+
+-   <https://www.owasp.org>
+
+    Amazing wikis with tons of vulnerabilities and their counter measures.
+
+    <https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013> The top ten is a good place to start.
+
+-   <https://bounty.github.com/index.html>
+
+    GitHub's security page. Some interesting info there, like: <https://github.com/joernchen/evil_stuff>
+
+-   <https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle>
+
+-   <http://opensecuritytraining.info/Training.html>
+
+### Security product features
+
+-   <https://www.leviathansecurity.com/lotan/>
+
+### Security job postings
+
+Job postings on the domain will useful techniques.
+
+-   <https://www.exodusintel.com/careers.html>
+
+    - Pathname Traversal and Equivalence Errors
+    - Insufficient Verification of Data Authenticity
+    - Improper Restriction of Operations within the Bounds of a Memory Buffer
+    - Incorrect Type Conversion or Cast
+    - Pointer Issues
+    - Improper Initialization
+    - ...and so on
+
+    They use Metasploit.
+
+### Tutorials
+
+-   <http://googleprojectzero.blogspot.fr/2014/08/the-poisoned-nul-byte-2014-edition.html>
+
+    Amazingly detailed description of a hard exploit of a vulnerability.
+
+    Cool to learn the names of general techniques.
+
+-   Assembly vulnerabilities exploit game: https://microcorruption.com/

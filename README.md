@@ -55,6 +55,7 @@ Algorithm tutorials and simple implementations with unit tests.
 1.  Misc
     1. [Bitcoin](bitcoin.md)
     1. [Decimal data type](decimal-data-type.md)
+    1. [Human factors](human-factors.md)
     1. [Licenses](licenses.md)
     1. [Quantum computing](quantum-computing.md)
     1. [Security](security.md)

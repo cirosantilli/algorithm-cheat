@@ -115,3 +115,11 @@ Some centralized authorities exist whom everyone trusts.
 Model popularized by open source left wing projects like PGP.
 
 Everyone makes a list of keys they trust.
+
+## Yao's Millionaires' Problem
+
+<https://en.wikipedia.org/wiki/Yao%27s_Millionaires%27_Problem>
+
+## Socialist millionaire
+
+<https://en.wikipedia.org/wiki/Socialist_millionaire>
