@@ -15,4 +15,4 @@ all: $(OUTS)
 	g++ -g'$(G)' -O'$(O)' -pg -pthread -std=c++11 -Wextra -o '$@' '$<'
 
 clean:
-	rm *$(OUT_EXT)
+	rm -f *$(OUT_EXT)

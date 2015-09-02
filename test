@@ -102,6 +102,7 @@ if __name__ == '__main__':
             basenames.append(os.path.split(path)[1])
     basenames.sort()
 
+    built_langs = set()
     for basename in basenames:
         basename_noext, lang = os.path.splitext(basename)
         lang = lang[1:]
@@ -115,11 +116,17 @@ if __name__ == '__main__':
                     run_cmd = ['java', '-cp', lang_dir, '-ea', basename_noext]
 
                 # Build.
-                os.chdir(lang_dir)
-                if subprocess.call(['make', '--silent']) != 0:
-                    print 'Error: Build failed.'
-                    sys.exit(1);
-                os.chdir(base_dir)
+                if lang not in built_langs:
+                    built_langs.add(lang)
+                    os.chdir(lang_dir)
+                    # Maybe add an option later to also clean everything.
+                    #if subprocess.call(['make', 'clean'], stdout=open(os.devnull, 'wb')) != 0:
+                        #print 'error: make clean.'
+                        #sys.exit(1);
+                    if subprocess.call(['make'], stdout=open(os.devnull, 'wb')) != 0:
+                        print 'error: make failed.'
+                        sys.exit(1);
+                    os.chdir(base_dir)
 
                 if basename in known_basenames:
                     # Run executable by passing the data input file to them.

@@ -20,7 +20,7 @@ public class WellNestedOpenClose {
         }
     }
 
-    public boolean isValid(String s) {
+    public static boolean isValid(String s) {
         Deque<Character> stack = new LinkedList<>();
         int l = s.length();
         for (int i = 0; i < l; i++) {
@@ -61,20 +61,46 @@ public class WellNestedOpenClose {
         return 0;
     }
 
-    public boolean isValidMagic(String s) {
+    public static boolean isValidMagic(String s) {
         Deque<Character> stack = new LinkedList<>();
         int l = s.length();
         for (int i = 0; i < l; i++) {
             char c = s.charAt(i);
-            if (close(c) != 0) {
+            if (closeMagic(c) != 0) {
                 stack.push(c);
             } else {
-                if (stack.isEmpty() || c != close(stack.pop()))
+                if (stack.isEmpty() || c != closeMagic(stack.pop()))
                         return false;
             }
         }
         if (!stack.isEmpty())
             return false;
         return true;
+    }
+
+    public static void main(String[] args) {
+        String stringsPass[] = {
+            "",
+            "()",
+            "[]",
+            "{}",
+            "([])",
+            "[()]",
+        };
+        for (String s : stringsPass) {
+            assert isValid(s);
+            assert isValidMagic(s);
+        }
+
+        String stringsFail[] = {
+            "(",
+            ")",
+            "(]",
+            "([)]",
+        };
+        for (String s : stringsFail) {
+            assert !isValid(s);
+            assert !isValidMagic(s);
+        }
     }
 }
