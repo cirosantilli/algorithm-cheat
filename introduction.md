@@ -1,4 +1,4 @@
-# Algorithms
+# Introduction
 
 General algorithm concepts.
 
@@ -115,8 +115,7 @@ General algorithm type.
 
 Store solutions to subproblems that can be reused.
 
-Can reduce time complexity drastically (from exponential to linear for example in the Fibonacci sequence),
-at the cost of potentially increasing memory complexity.
+Can reduce time complexity drastically (from exponential to linear for example in the Fibonacci sequence), at the cost of potentially increasing memory complexity.
 
 ### Greedy algorithm
 

@@ -16,6 +16,8 @@ The beauty of computer science lies mainly on:
 
     Good place to look for cool algorithms.
 
+-   Search for useful / beauty lists on Google: <https://medium.com/@_marcos_otero/the-real-10-algorithms-that-dominate-our-world-e95fa9f16c04>
+
 ## Applications
 
 ### Manipulate information for humans
@@ -248,12 +250,11 @@ It is cool to understand how the following calculations can be implemented:
     Let:
 
     - $p$ be the pattern length
-    - $t$ be the text    length
+    - $t$ be the text length
 
     Naive algorithm does $O(pt)$ worst case.
 
-    [Boyer–Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm)
-    does $O(t)$ worst case.
+    [Boyer–Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) does $O(t)$ worst case.
 
 ### Primality testing
 
@@ -478,3 +479,11 @@ First player forces win in at most 41 moves.
 <http://en.wikipedia.org/wiki/Closest_pair_of_points_problem>
 
 <http://en.wikipedia.org/wiki/Convex_hull_algorithms>
+
+## Tier 2
+
+Not the most beautiful, but interting.
+
+### Game theory
+
+-   <https://en.wikipedia.org/wiki/15_puzzle>

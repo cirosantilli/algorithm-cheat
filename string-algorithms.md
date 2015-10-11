@@ -81,6 +81,8 @@ The most famous string metric. Operations: single char addition, deletion and su
 
 <http://en.wikipedia.org/wiki/Sequence_alignment> seem to be string search algorithms with more complex metrics. Used in practice in bioinformatics.
 
+<https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm> is a famous one.
+
 ### Longest repeated substring problem
 
 <http://en.wikipedia.org/wiki/Longest_repeated_substring_problem>

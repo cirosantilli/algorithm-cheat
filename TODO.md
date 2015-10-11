@@ -59,3 +59,25 @@ Some NP-complete ones:
 -   <http://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems>
 
 -   <http://en.wikipedia.org/wiki/Vertex_cover>
+
+Computer graphics:
+
+-  <https://en.wikipedia.org/wiki/Bresenham's_line_algorithm>
+
+Ranking and search algorithms:
+
+-   <http://www.quora.com/What-algorithm-does-IMDB-use-for-ranking-the-movies-on-its-site>
+
+    <http://math.stackexchange.com/questions/169032/understanding-the-imdb-weighted-rating-function-for-usage-on-my-own-website>
+
+-   <http://amix.dk/blog/post/19574> how Hacker News ranking algorithm works
+
+    <http://amix.dk/blog/post/19588> how Reddit ranking algorithm works. Wilson score interval.
+
+    <http://www.evanmiller.org/statistical-formulas-for-programmers.html>
+
+-   TODO: Sort search results which have some sort of rating, e.g. GitHub "best match" search for repositories, which have stars.
+
+-   TODO: Sort search results with multiple fields of different importance. E.g.: title and summary.
+
+-   <http://www.quora.com/Recommendation-Systems/How-do-ranking-algorithms-eg-Amazon-Tripadvisor-work>

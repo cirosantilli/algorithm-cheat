@@ -9,9 +9,8 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [src/](src/)
     1. [data/](data/)
     1. [test](test)
-1.  Introduction to algorithms
-    1.  [Beauty](beauty.md): beautiful things about computer science
-    1.  [Algorithms](algorithms.md): starting point for those learning about algorithms
+1.  [Introduction](introduction.md)
+    1.  [Beauty](beauty.md)
         1. [Recursive algorithms](Recursive algorithms.md)
     1.  [Turing machine](turing-machine.md)
         1. [Out of core algorithms](out-of-core.md)
@@ -25,7 +24,7 @@ Algorithm tutorials and simple implementations with unit tests.
         1. [Hash map](hash-map.md): [hash_map.cpp](src/cpp/hash_map.hpp)
     1. [Heap](heap.md): [Heap.java](src/java/Heap.java)
 1.  [Sorting algorithms](sort/)
-    1. [Quicksort](quicksort.md): [QuickSort.java](src/java/QuickSort.java), [QuickSortTail.java](src/java/QuickSortTail.java), [HeapSort.java](src/java/HeapSort.java)
+    1. [Quicksort](quicksort.md): [QuickSort.java](src/java/QuickSort.java), [QuickSortTail.java](src/java/QuickSortTail.java)
     1. [Merge sort](merge-sort.md)
     1. [Bubble sort](bubble-sort.md)
 1.  Parsing, formal languages and their automatons
@@ -82,7 +81,7 @@ Algorithm tutorials and simple implementations with unit tests.
         1. [B*](b-star.md)
         1. [Bellman-ford](bellman-ford.md)
 1.  Sorting algorithms
-    1. [Heap sort](heap-sort.md)
+    1. [Heap sort](heap-sort.md): [HeapSort.java](src/java/HeapSort.java)
     1. [Insertion sort](insertion-sort.md)
 1.  Misc
     1. [Error detection](error-detection.md)

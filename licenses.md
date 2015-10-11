@@ -22,17 +22,35 @@ Basically like GPL except you *can* use in commercial projects, so you can basic
 
 ## GPL
 
-If someone else modifies your code and distributes it, he must make the source open.
+If someone else makes a derivative work of your code and distributes it, he must make the source open.
+
+What counts as a "derivative" is gray. Some well known cases that count as derivative:
+
+- modify the source
+- use the source in your project, even if you don't modify it
+- use compiled output like `.so` in your project. The LGPL exists to allow that.
+
+Things which do not count as derivatives:
+
+- the Linux kernel explicitly says on their license that system calls do not count
+
+### GPL ownership
 
 The holder of the copyright is not force to do so. For example, before being bought by Oracle, MySQL makers got some money from selling licences that allows companies to distribute closed source forks of MySQL.
 
+By default, everyone owns whichever modifications they make. So if someone makes something and then merges back, you cannot not sell a relicensed version without asking for their permission.
+
+I think it is because of this that you don't write your name on the GPL, e.g. unlike MIT. Otherwise, every derived work would say it is owned by you. TODO but then, how do you get attribution? <http://programmers.stackexchange.com/questions/170188/is-requiring-attribution-gpl-compatible>
+
+---
+
 If you don't distribute the code, you can fork it without opening the source: <http://stackoverflow.com/questions/1492687/using-gpl-3rd-party-code-for-internal-closed-source-project> Of course, what "distributing" mans may be blurry: <http://programmers.stackexchange.com/questions/162870/gpl-what-is-distribution>
 
-You are not forced to merge back:only open source the contributions. But in the end it is much more profitable to try to merge back, as the community will then maintain the code for you.
+You are not forced to merge back: only open source the contributions. But in the end it is much more profitable to try to merge back, as the community will then maintain the code for you.
+
+You are obliged to give away the method used to generate the derivative work, e.g. the `Makefile`. TODO: what if it requires a closed source compiler? This site says no: <https://softwarefreedom.org/resources/2008/compliance-guide.html>, you only need to say what version of it you used, and how.
 
 The following website is of a leading group of lawyers that enforces GPL: <http://gpl-violations.org/about.html> It is in general up to the copyright owner to enforce GPL.
-
-Everyone owns whichever modifications they make. So if someone makes something and then merges back, you cannot not give out that part of the source when you distribute the source.
 
 Notable cases include:
 
@@ -68,6 +86,10 @@ TODO: vs GPL linking exception?
 
 See also: Creative Commons.
 
+Used by Wikipedia, dual with CC BY SA.
+
+### AGPL
+
 ### Affero GPL
 
 GPL allows you to modify software used Server Side without distributing the source code.
@@ -76,6 +98,14 @@ Affero GPL blocks it:
 
 - <http://programmers.stackexchange.com/questions/131264/what-constitutes-distributing-for-lgpl-v3>
 - <http://www.gnu.org/licenses/why-affero-gpl.en.html>
+
+Apparently you can use AGPL as a service in the backend of a closed source site: what you can't do is make source level usage / modifications to it.
+
+MongoDB uses it: <http://programmers.stackexchange.com/questions/226111/can-i-use-mongodb-for-a-commercial-web-based-service> But it explicitly notes that you can use it as a backend for closed source projects.
+
+MySQL Google closed source fork is a notable case where the server-side loophole was used.
+
+Banned by Google: <http://www.theregister.co.uk/2011/03/31/google_on_open_source_licenses/>
 
 ## CC
 
@@ -87,7 +117,13 @@ Family of licenses.
 
 <https://wiki.creativecommons.org/Frequently_Asked_Questions>
 
-Not specialized for software, and more used for human readable text, music, etc. Used by Stack Overflow and Wikipedia content.
+Not specialized for software, and more used for human readable text, music, etc.
+
+Likely the best choice for non-software. One main reason is that it is very popular, so using it makes it much easier to interface with other projects.
+
+One major downside for text is that it does not require source code to be released: <http://programmers.stackexchange.com/questions/297894/does-the-creative-commons-sharealike-license-require-that-source-code-of-derivat>
+
+Used by: Stack Overflow and Wikipedia (BY_SA) content.
 
 The main difference between software and text is that for text the source is easily derived from the human readable output. Software however can be useful in a form that is not human understandable through compiled code.
 
@@ -115,6 +151,8 @@ and many fixed combinations are possible.
 
 This is indicated in their logo.
 
+What CC can you combine: <https://wiki.creativecommons.org/wiki/Frequently_Asked_Questions#Can_I_combine_material_under_different_Creative_Commons_licenses_in_my_work.3F>
+
 ### CC0
 
 Creative commons public domain version. GPL compatible.
@@ -128,3 +166,43 @@ Once released on the public domain, you relinquish any rights you have over the 
 Anyone can do anything with the work without even mentioning you, except copyright it.
 
 There have been cases of removal from the public domain because of earlier international blunders: <http://www.themarysue.com/take-works-out-of-public-domain/>
+
+## Copyright ownership
+
+## Contributor License Agreement
+
+## CLA
+
+It seems that by default in all licenses, the person who makes a significant change owns it.
+
+So if you want to sell a relicensed version, you'd have to contact everyone.
+
+This is why the FSF requires software assignments for merging back. This is a great idea.
+
+TODO: is there a license that requires assignment automatically on commit? <http://programmers.stackexchange.com/questions/191535/could-submitting-a-pull-request-ever-constitute-accepting-a-contributor-licence>
+
+Examples:
+
+- <http://apache.org/licenses/icla.txt>
+- <https://cla.developers.google.com/about/google-individual>
+- <http://doc.gitlab.com/ce/legal/individual_contributor_license_agreement.html>
+
+GitHub: <https://github.com/clahub/clahub> But I think I'd just keep it inside the repo in a `CLI.md` file, and make first time committers write a line there saying I agree.
+
+TODO: can you make a CLA that allows you to resell the work under a different license? E.g.: you work is GPL, someone contributes, and then you want to sell a license that allows buyers to modify the source, without asking every single contributor if you can do that with their code. Discourse's makes that very clear with: the terms "relicense". 
+
+### Copyright assignment
+
+Stronger than CLA: gives copyright to someone else.
+
+<http://producingoss.com/en/copyright-assignment.html> vs CLA Contributor License Agreement
+
+Used by the FSF.
+
+## Non-software
+
+### Freedom of panorama
+
+<https://en.wikipedia.org/wiki/Freedom_of_panorama>
+
+<https://commons.wikimedia.org/wiki/Commons:Freedom_of_panorama>

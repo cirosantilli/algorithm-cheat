@@ -277,7 +277,21 @@ Used for getting useful server information to prepare for further attacks later 
 
     <http://techcrunch.com/2014/12/18/this-little-usb-necklace-hacks-your-computer-in-no-time-flat/>
 
-## Famous attacks
+## Trivia
+
+-   <https://en.wikipedia.org/wiki/Phreaking>
+
+    Phone hacking to make free calls.
+
+    <https://en.wikipedia.org/wiki/Blue_box>
+
+    Woz and Mitnick started like that.
+
+-   <https://en.wikipedia.org/wiki/Garbage_picking>
+
+-   <https://en.wikipedia.org/wiki/IDN_homograph_attack>
+
+### Famous attacks
 
 This section also discusses famous attackers, or security researchers.
 
@@ -301,6 +315,18 @@ This section also discusses famous attackers, or security researchers.
 
 -   <https://en.wikipedia.org/wiki/Siberian_pipeline_sabotage>
 
+### Kevin Mitnick
+
+Black hat turned white consultant.
+
+He is *very* charismatic, and seems a bit narcisistic. I ask myself how much he is a psycopath.
+
+Live social engineering: <https://www.youtube.com/watch?v=DB6ywr9fngU>
+
+Famous hacker to consultant: <https://en.wikipedia.org/wiki/Kevin_Mitnick>
+
+Long interview: <https://www.youtube.com/watch?v=Q7G3kKRdUl4>
+
 ## Side channel attack
 
 - <https://en.wikipedia.org/wiki/Side-channel_attack>
@@ -319,7 +345,15 @@ Security models:
 
 - <http://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model>
 
+<https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle>
+
+Don't roll your own cryptosystem: <http://security.stackexchange.com/questions/25585/is-my-developers-home-brew-password-security-right-or-wrong-and-why>
+
+Targeted vs opportunistic attacks: <http://blog.quatrashield.com/2013/05/30/cyber-attack-targeted-or-opportunistic/> <https://en.wikipedia.org/wiki/Crime_of_opportunity>
+
 ## Bibliography
+
+-   <https://github.com/enaqx/awesome-pentest>
 
 -   <http://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures>
 
@@ -348,8 +382,6 @@ Security models:
 -   <https://bounty.github.com/index.html>
 
     GitHub's security page. Some interesting info there, like: <https://github.com/joernchen/evil_stuff>
-
--   <https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle>
 
 -   <http://opensecuritytraining.info/Training.html>
 
@@ -382,3 +414,5 @@ Job postings on the domain will useful techniques.
     Cool to learn the names of general techniques.
 
 -   Assembly vulnerabilities exploit game: https://microcorruption.com/
+
+-   <http://securityzap.com/a-story-of-a-finfisher-hacker/>
