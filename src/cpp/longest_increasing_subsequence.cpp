@@ -1,8 +1,4 @@
-#include <algorithm> // lower_bound
-#include <cassert>
-#include <iostream>  // cout
-#include <utility>   // get, pair
-#include <vector>
+#include "common.hpp"
 
 /**
 Computes the longest increasing subsequence of the given input.

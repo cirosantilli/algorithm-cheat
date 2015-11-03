@@ -81,3 +81,21 @@ Ranking and search algorithms:
 -   TODO: Sort search results with multiple fields of different importance. E.g.: title and summary.
 
 -   <http://www.quora.com/Recommendation-Systems/How-do-ranking-algorithms-eg-Amazon-Tripadvisor-work>
+
+Error correction:
+
+-   <https://en.wikipedia.org/wiki/Cyclic_redundancy_check> CRC
+
+-   <https://en.wikipedia.org/wiki/Hamming%287,4%29>
+
+    Interesting, it has a matrix representation!
+
+    TODO: what does it mean that it is linear?
+
+-   As mentioned at <https://en.wikipedia.org/wiki/Forward_error_correction>, error correction is much more useful for multicast, where it would be impractical for all receivers to request a correction.
+
+    TODO vs Hamming code? <https://en.wikipedia.org/wiki/Cyclic_code#Hamming_code> Many Hamming codes are also CRC. TODO: is there any advantage for those that are not?
+
+-   <https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction> Used in most modern optic and magnetic media.
+
+-   <https://en.wikipedia.org/wiki/Erasure_code> Some error checking can also deal with erasure.

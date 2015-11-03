@@ -1,12 +1,4 @@
-#include <algorithm> // TODO why required?
-#include <cassert>
-#include <initializer_list>
-#include <iostream> // cout, endl
-#include <list>
-#include <sstream>
-#include <string>
-#include <utility> // pair
-#include <vector>
+#include "common.hpp"
 
 /**
 TODO use vector of destination edge properties maps representation.

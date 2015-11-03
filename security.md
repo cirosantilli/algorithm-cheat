@@ -291,6 +291,8 @@ Used for getting useful server information to prepare for further attacks later 
 
 -   <https://en.wikipedia.org/wiki/IDN_homograph_attack>
 
+-   DOX <http://www.urbandictionary.com/define.php?term=dox>
+
 ### Famous attacks
 
 This section also discusses famous attackers, or security researchers.

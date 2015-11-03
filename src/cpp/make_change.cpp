@@ -1,6 +1,4 @@
-#include <algorithm>    // TODO why required?
-#include <cassert>
-#include <iostream>     // cout, endl
+#include "common.hpp"
 
 void vector_sum(const std::vector<int>& v0, const std::vector<int>& v1,
         std::vector<int>& output) {

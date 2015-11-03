@@ -1,9 +1,4 @@
-#include <algorithm>    // TODO why required?
-#include <cassert>      // assert
-#include <iostream>     // cout, endl
-#include <iterator>     // iterator_traits
-#include <utility>      // pair
-#include <vector>
+#include "common.hpp"
 
 /**
 Solve the [maximum subarray problem](http://en.wikipedia.org/wiki/Maximum_subarray_problem)

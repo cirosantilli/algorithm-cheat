@@ -1,14 +1,22 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <algorithm> // TODO why required?
-#include <fstream> // ifstream
-#include <iostream> // cout, endl
-#include <string> // string
-#include <sstream> // istringstream
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+#include <fstream>
+#include <initializer_list>
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <string>
+#include <thread>
+#include <tuple>
+#include <utility>
+#include <vector>
 
-/**
-Read file at `path`. It's format should be as of `data/sort`.
+/*
+Read file at `path` as an array. It's format should be as of `data/sort`.
 */
 std::vector<int> parse_array(std::string path) {
     int i, size, value;
@@ -30,7 +38,7 @@ std::vector<int> parse_array(std::string path) {
     return input;
 }
 
-/**
+/*
 Print the vector to stdout space separated.
 */
 void print_array(std::vector<int> output) {

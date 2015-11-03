@@ -1,9 +1,12 @@
 # data-gen
 
-Executables in this directory generate test data to an output file.
+Executables in this directory generate test data to output files.
 
-The interface of each script is:
+Those scripts generate large inputs / output, random or not, that would be infeasible to write manually.
 
-    ./script <output-file> [<parameters>...]
+They are often used for performance benchmarking.
 
-where `<parameters>` are parameters for the output generation, and depend on the exact script to be run.
+TODO:
+
+- allow the `test` script to use the generated data and do the benchmark
+- discard the cost of disk read from benchmarks

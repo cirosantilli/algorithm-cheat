@@ -6,9 +6,10 @@ Child topics:
 
 ## Implementations
 
-- GPG <http://en.wikipedia.org/wiki/GNU_Privacy_Guard>. Installed by default on Ubuntu 14.04.
-- PGP <http://en.wikipedia.org/wiki/Pretty_Good_Privacy>.
-- OpenSSL <http://en.wikipedia.org/wiki/OpenSSL>
+-   GPG <http://en.wikipedia.org/wiki/GNU_Privacy_Guard>. Installed by default on Ubuntu 14.04.
+-   PGP <http://en.wikipedia.org/wiki/Pretty_Good_Privacy>.
+-   OpenSSL <http://en.wikipedia.org/wiki/OpenSSL>
+    - LibreSSL <https://en.wikipedia.org/wiki/LibreSSL> BSD fork after Heartbleed...
 
 ### OpenPGP
 
