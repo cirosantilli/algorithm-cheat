@@ -21,11 +21,8 @@ static void sum(
         uintmax_t repeat,
         T *output) {
     for (uintmax_t i = 0; i < repeat; ++i)
-        for (size_type_t j = start; j < end; ++j) {
+        for (size_type_t j = start; j < end; ++j)
             *output += (*input)[j];
-            //*output += 1;
-            //*output += *output**output + 2**output + 1;
-        }
 }
 
 template<typename T = uint64_t>

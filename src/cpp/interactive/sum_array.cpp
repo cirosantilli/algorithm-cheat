@@ -10,7 +10,6 @@ T sum_array(std::vector<T>& input, uintmax_t repeat) {
     for (uintmax_t i = 0; i < repeat; ++i)
         for (auto& n : input)
             sum += n;
-            //sum += sum*sum + 2*sum + 1;
     return sum;
 }
 

@@ -472,6 +472,8 @@ First player forces win in at most 41 moves.
 
 - TODO poker? other card games. Could not find.
 
+- Guess Who <http://arxiv.org/abs/1509.03327>
+
 ## Computational geometry
 
 <http://en.wikipedia.org/wiki/Euclidean_shortest_path> 2D: P. 3D: NP-hard.
