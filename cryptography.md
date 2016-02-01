@@ -75,7 +75,9 @@ Main algorithms are:
 
     Discrete Exponent mod n / Discrete logarithm mod n problem.
 
-    Only provides secrecy.
+    Only provides secrecy, not signature.
+
+    Vs RSA: <http://security.stackexchange.com/questions/35471/is-there-any-particular-reason-to-use-diffie-hellman-over-rsa-for-key-exchange>
 
 -   RSA.
 

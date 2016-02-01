@@ -34,6 +34,11 @@ Things which do not count as derivatives:
 
 - the Linux kernel explicitly says on their license that system calls do not count
 
+Apple Store and GPL:
+
+- <https://www.fsf.org/news/2010-05-app-store-compliance>
+- <http://www.fsf.org/blogs/licensing/more-about-the-app-store-gpl-enforcement>
+
 ### GPL ownership
 
 The holder of the copyright is not force to do so. For example, before being bought by Oracle, MySQL makers got some money from selling licences that allows companies to distribute closed source forks of MySQL.

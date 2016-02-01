@@ -388,7 +388,7 @@ HTTP Keyserver Protocol (HKP), used for example to publish keys.
 
 The least interesting method.
 
-Create a `"$MESSAGE_FILE.gpg"` password only encrypted file:
+Create a `"$MESSAGE_FILE.gpg"` password-only encrypted file:
 
     gpg -c "$MESSAGE_FILE"
 

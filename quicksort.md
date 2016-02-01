@@ -398,7 +398,7 @@ TODO.
 
 ### Three-way
 
-This may however be a common case, so that a variant of quicksort exists that solves it.
+Sorted input may be a disproportionately large input case, so that a variant of quicksort was created to solve it efficiently.
 
 The idea is simply to use an extra pointer when partitioning, so that the array will be split into three parts.
 

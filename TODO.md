@@ -99,3 +99,5 @@ Error correction:
 -   <https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction> Used in most modern optic and magnetic media.
 
 -   <https://en.wikipedia.org/wiki/Erasure_code> Some error checking can also deal with erasure.
+
+-   <https://en.wikipedia.org/wiki/Cache_algorithms>, LRU with heap

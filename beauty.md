@@ -420,6 +420,8 @@ If a set is defined by a system of Diophantine equations, it can also be defined
 
 ## Game theory
 
+<https://xkcd.com/1002/>
+
 In a game of chess, if both player play perfectly, does the first player always win? Always loses? Always draws? Open as of 2013.
 
 Is there a polynomial algorithm that allows to chose the next perfect move? Or is brute force necessary (almost never polynomial for interesting games).
