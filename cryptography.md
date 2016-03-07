@@ -33,6 +33,18 @@ GPG and PGP on the other hand are suitable for unidirectional encryption, e.g. l
 
 You use a password to lock the data.
 
+### XOR
+
+<https://en.wikipedia.org/wiki/XOR_cipher>
+
+If all you wanted were to encrypt random sequences, then XOR would be an unbeatable cypher: <http://stackoverflow.com/questions/1135186/whats-wrong-with-xor-encryption>
+
+XOR is useful because it is reversible and does not leak information: <http://stackoverflow.com/questions/1379952/why-is-xor-used-on-cryptography>
+
+E.g., if we used AND, any 1 one the output would imply 1 on the input!
+
+What advanced algorithms try to do, is to try to encrypt non-random messages with repeated patterns and a single small key.
+
 ### AES
 
 <http://en.wikipedia.org/wiki/Advanced_Encryption_Standard>.
@@ -46,6 +58,17 @@ It is a type of <http://en.wikipedia.org/wiki/Block_cipher>.
 Implemented by OpenSSL.
 
 Intel has extended x86 to add instructions to accelerate AES encryption since 2008.
+
+### Determine if key is correct
+
+Impossible without extra knowledge.
+
+<http://crypto.stackexchange.com/questions/1507/can-i-determine-if-a-user-has-the-wrong-symmetric-encryption-key>
+
+Possibilities:
+
+- store a separate salted hash
+- add previously known salted data to the message to be encrypted, and check that it matches
 
 ## Asymmetric cryptography
 
@@ -126,3 +149,25 @@ Everyone makes a list of keys they trust.
 ## Socialist millionaire
 
 <https://en.wikipedia.org/wiki/Socialist_millionaire>
+
+## Brute force
+
+<https://en.wikipedia.org/wiki/Password_cracking>
+
+### Online attack
+
+### Offline attack
+
+<http://crypto.stackexchange.com/questions/25715/what-is-the-difference-between-online-and-offline-brute-force-attacks>
+
+Offline more destructive of course.
+
+No throttling / server communication.
+
+## Salt
+
+<https://en.wikipedia.org/wiki/Salt_(cryptography)>
+
+Something you add to the input before hashing to avoid attacks.
+
+Can be publicly known.

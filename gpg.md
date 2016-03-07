@@ -29,6 +29,8 @@ So the key ID is `01234567`.
 
 Post `key.asc` on your homepage where everyone can see it.
 
+If you are serious about it, find a Certificate Authority, and register. There are even free ones like: <http://www.cacert.org/> They take your passport, and associate your personal data to your key.
+
 #### Message sender
 
 Get the `key.asc` from the receiver.
@@ -127,8 +129,6 @@ is a direct Base64 encoding of the binary raw data.
 Import a public key someone else exported:
 
     gpg --import key.asc
-
-
 
 ### k
 
@@ -279,7 +279,11 @@ Create a `"$MESSAGE_FILE.gpg"` pubkey encrypted file:
 
     gpg -r "$KEY_ID" -e "$MESSAGE_FILE"
 
-You must have previously imported the `KEY_ID`: <http://unix.stackexchange.com/questions/104941/is-there-a-way-to-embed-a-gpg-public-key-in-a-script-without-adding-it-to-the-ke>, <http://lists.gnupg.org/pipermail/gnupg-users/2004-October/023409.html>
+You must have previously imported the `KEY_ID`:
+
+- <http://unix.stackexchange.com/questions/104941/is-there-a-way-to-embed-a-gpg-public-key-in-a-script-without-adding-it-to-the-ke>
+- <http://stackoverflow.com/questions/9073288/decrypt-encrypted-gpg-file-using-external-secret-key>
+- <http://lists.gnupg.org/pipermail/gnupg-users/2004-October/023409.html>
 
 Only the person who knows the corresponding private key will be able to decrypt it.
 

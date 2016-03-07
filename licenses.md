@@ -32,7 +32,10 @@ What counts as a "derivative" is gray. Some well known cases that count as deriv
 
 Things which do not count as derivatives:
 
-- the Linux kernel explicitly says on their license that system calls do not count
+-   Linux kernel specifics, Kernels are atypical softwares, and the following rules apply to Linux:
+
+    - systems calls do not count as derivatives: <https://github.com/torvalds/linux/blob/v4.4/COPYING#L2>
+    - loadable modules do not count as derivatives: <http://unix.stackexchange.com/questions/13284/proprietary-or-closed-parts-of-the-kernel> <http://stackoverflow.com/questions/2721290/propietary-modules-within-gpl-and-bsd-kernels>
 
 Apple Store and GPL:
 
@@ -164,6 +167,8 @@ Creative commons public domain version. GPL compatible.
 
 ## Public domain
 
+Term that can be used to describe several licenses, and I think it has legal meaning in different countries. Those licenses include CC0.
+
 You relinquish your copyright. You are not the copyright owner anymore.
 
 Once released on the public domain, you relinquish any rights you have over the work: in particular you cannot change it to another license later on.
@@ -171,6 +176,12 @@ Once released on the public domain, you relinquish any rights you have over the 
 Anyone can do anything with the work without even mentioning you, except copyright it.
 
 There have been cases of removal from the public domain because of earlier international blunders: <http://www.themarysue.com/take-works-out-of-public-domain/>
+
+## WTFPL
+
+<http://programmers.stackexchange.com/questions/182137/whats-the-difference-between-wtfpl-cc0-and-public-domain>
+
+TODO. 
 
 ## Copyright ownership
 
@@ -211,3 +222,21 @@ Used by the FSF.
 <https://en.wikipedia.org/wiki/Freedom_of_panorama>
 
 <https://commons.wikimedia.org/wiki/Commons:Freedom_of_panorama>
+
+## MPL
+
+Mozilla Public License.
+
+<https://en.wikipedia.org/wiki/Mozilla_Public_License>
+
+Per-file GPL.
+
+Version 2 GPL compatible.
+
+## CDDL
+
+Common Development and Distribution License.
+
+<https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License>
+
+Similar to Mozilla, but not GPL compatible: <http://vschart.com/compare/mozilla-public-license/vs/common-development-and-distribution-license>

@@ -37,9 +37,8 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [Longest increasing subsequence](longest-increasing-subsequence.md)
     1. [Maximum subarray](maximum-subarray.md)
     1. [String search](string-search.md): [StringSearchNaive.java](src/java/StringSearchNaive.java), [KnuthMorrisPratt.java](src/java/KnuthMorrisPratt.java)
-1.  Cryptography
+1.  [Cryptography](cryptography.md)
     1. [base64](base64.md)
-    1. [Cryptography](cryptography)
     1. [ECDSA](ecdsa.md)
     1. [GPG](gpg.md)
     1. [md5sum](md5sum.md)
