@@ -43,7 +43,13 @@ XOR is useful because it is reversible and does not leak information: <http://st
 
 E.g., if we used AND, any 1 one the output would imply 1 on the input!
 
-What advanced algorithms try to do, is to try to encrypt non-random messages with repeated patterns and a single small key.
+What advanced algorithms try to do, is to try to encrypt non-random messages with repeated patterns and a single small key that humans can remember:
+
+- http://stackoverflow.com/questions/1984984/how-to-check-whether-decrypting-was-successful
+- http://security.stackexchange.com/questions/119887/how-to-know-if-a-file-is-decrypted-or-not
+- http://crypto.stackexchange.com/questions/15896/how-do-decryption-algorithms-determine-whether-your-attempted-passphrase-is-corr
+- http://crypto.stackexchange.com/questions/5921/how-and-why-can-a-decryption-program-tell-me-that-a-key-is-incorrect
+- http://crypto.stackexchange.com/questions/1468/how-does-gpg-verify-succesful-decryption
 
 ### AES
 
@@ -171,3 +177,9 @@ No throttling / server communication.
 Something you add to the input before hashing to avoid attacks.
 
 Can be publicly known.
+
+## Two factor authentication
+
+### SecurID
+
+<https://en.wikipedia.org/wiki/RSA_SecurID>

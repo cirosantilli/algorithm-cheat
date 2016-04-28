@@ -82,6 +82,10 @@ Ranking and search algorithms:
 
 -   <http://www.quora.com/Recommendation-Systems/How-do-ranking-algorithms-eg-Amazon-Tripadvisor-work>
 
+-   <https://en.wikipedia.org/wiki/Bag-of-words_model>
+
+-   <https://en.wikipedia.org/wiki/Okapi_BM25>
+
 Error correction:
 
 -   <https://en.wikipedia.org/wiki/Cyclic_redundancy_check> CRC

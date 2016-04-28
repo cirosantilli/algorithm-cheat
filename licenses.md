@@ -10,7 +10,9 @@ You can however allow multiple licences so that users may chose which one they w
 
 Some licenses are called dual X/Y (e.g.: dual BSD/GPL), meaning that users can chose between them.
 
-## MIT
+## Permissive
+
+### MIT
 
 - you can use, study, share (copy), and modify the software
 
@@ -19,6 +21,14 @@ Some licenses are called dual X/Y (e.g.: dual BSD/GPL), meaning that users can c
 - every substantial reproduction of the software must maintain the copyright note
 
 Basically like GPL except you *can* use in commercial projects, so you can basically do anything you want, except remove the license from sub products
+
+### BSD
+
+TODO vs MIT
+
+### ISC
+
+<https://en.wikipedia.org/wiki/ISC_license>
 
 ## GPL
 
@@ -80,9 +90,11 @@ It is therefore better to play it safe and assume that it is not possible.
 
 Lesser GPL: closed source projects can use it without opening their source, but they must allow end users to modify the LGPL component.
 
+Quintessential example: glibc. Every C program links to it. So if it were GPL, there could be no closed source C programs on Linux, which would be too restrictive.
+
 For this reason, this license is used in practice mostly for linked libraries where the separation between library and proprietary code is clear.
 
-TODO: vs GPL linking exception?
+LGPL 2.1 was standalone, with not relation to GPL. LGPL 3 refer to the GPL: <https://en.wikipedia.org/wiki/GPL_linking_exception>
 
 ### GNU Free Documentation License
 
@@ -240,3 +252,14 @@ Common Development and Distribution License.
 <https://en.wikipedia.org/wiki/Common_Development_and_Distribution_License>
 
 Similar to Mozilla, but not GPL compatible: <http://vschart.com/compare/mozilla-public-license/vs/common-development-and-distribution-license>
+
+## Proprietary
+
+- freeware: currently free to use
+- shareware: https://en.wikipedia.org/wiki/Shareware
+
+## Open font license
+
+<https://en.wikipedia.org/wiki/SIL_Open_Font_License>
+
+Most popular license at `fontlibrary.org`: <https://fontlibrary.org/en/search?license=OFL%20%28SIL%20Open%20Font%20License%29>

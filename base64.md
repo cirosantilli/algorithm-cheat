@@ -1,4 +1,4 @@
-#base64
+# base64
 
 Byte encoding method, and GNU Coreutils command line utility that implements it. Also possible with the POSIX 7 `uuencode` utility, which has a less convenient interface.
 
@@ -12,15 +12,15 @@ To understand see Wikipedia: <http://en.wikipedia.org/wiki/base64#examples>
 
 `-d` to decode:
 
-    assert [ "`echo abc | base64 | base64 -d`" = abc ]
+    assert [ "$(echo abc | base64 | base64 -d)" = 'abc' ]
 
-##Why 64?
+## Why 64?
 
 There are at least 64 printable chars, but not 128.
 
-##Why not use more than 64 character?
+## Why not use more than 64 character?
 
-##Base85
+## Base85
 
 There are more than 64 printable characters: 95 excluding space and line breaks, but 64 is a power of 2 which makes things easier.
 
@@ -28,7 +28,7 @@ Standards exist which drop the power of 2 requirement. Base85 encodes 4 bytes in
 
 Base85 implementations are slower than Base64 and less common. Data gets 25% bigger instead of 33% as for Base64.
 
-##Base58
+## Base58
 
 <http://en.wikipedia.org/wiki/Base58>
 
@@ -42,37 +42,13 @@ The actual order is not well specified, and more specific standards must be cons
 
 E.g., Bitcoin and Ripple use different orders.
 
-##Why not use hexadecimal?
+## Why not use hexadecimal?
 
 Even simpler for humans, but data gets much larger Ks the base is smaller.
 
-#uudecode
+## Implementations
 
-#uuencode
+POSIX:
 
-POSIX 7.
-
-Very inconvenient interfaces:
-
-- must take input and output files
-- the output contains MIME type lines
-- decode requires those lines to be present
-
-Example encode:
-
-    uuencode -m <(printf "a\n\0") /dev/stdout
-
-Output:
-
-    begin-base64 600 /dev/stdout
-    YQoA
-    ====
-
-Decode:
-
-    uudecode -o /dev/stdout <(uuencode -m <(printf "a\0\n") /dev/stdout) | od -tx1
-
-Output:
-
-    0000000 61 00 0a
-    0000003
+- `uudecode`
+- `uuencode`

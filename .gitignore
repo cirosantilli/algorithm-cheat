@@ -10,3 +10,6 @@ gmon.out
 # Eclipse
 .classpath
 .project
+
+tmp.*
+*.bak
