@@ -1,8 +1,7 @@
 #ifndef CPU_BOUND
 #define CPU_BOUND
 
-/* 16 GiB. */
-constexpr static uint64_t nIters = 0x1000000000;
+constexpr static uint64_t nIters = 0x10000000;
 
 /* Any funky operation that the compiler is unlikely to optimize away. */
 static void cpu_bound(uint64_t *io, uint64_t iterations) {

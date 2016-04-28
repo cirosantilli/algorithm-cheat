@@ -86,7 +86,7 @@ class SumArrayParallel : public SumArray<T> {
 int main() {
     std::size_t i;
     std::vector<std::chrono::duration<double>> dts;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
+    std::chrono::time_point<std::chrono::steady_clock> start, end;
     std::vector<dataType> input(SIZE);
     std::vector<Callable*> callables;
     dataType output;
@@ -124,9 +124,9 @@ int main() {
 
         // Run tests.
         for (std::vector<Callable*>::size_type i = 0; i < callables.size(); ++i) {
-            start = std::chrono::system_clock::now();
+            start = std::chrono::steady_clock::now();
             (*callables[i])();
-            end = std::chrono::system_clock::now();
+            end = std::chrono::steady_clock::now();
             dts[i] += end - start;
             repeatOutputs[i] += output;
         }
