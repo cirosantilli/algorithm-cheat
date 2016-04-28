@@ -4,6 +4,7 @@
 /* 16 GiB. */
 constexpr static uint64_t nIters = 0x1000000000;
 
+/* Any funky operation that the compiler is unlikely to optimize away. */
 static void cpu_bound(uint64_t *io, uint64_t iterations) {
     uint64_t out = *io;
     for (uint64_t i = 0; i < iterations; ++i)

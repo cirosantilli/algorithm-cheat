@@ -2,6 +2,8 @@
 Dummy operation that uses a lot of CPU, but very little memory.
 
 Used as a control for the parallel version, which should me scalably faster.
+
+TODO: find someothing that can be asserted.
 */
 
 #include "common.hpp"
