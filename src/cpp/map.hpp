@@ -28,9 +28,18 @@ class Map {
         }
 
         virtual bool add(const KEY& key, const VAL& val) = 0;
+
+        /**
+        Remove key value pair from map.
+
+        @param[in] key key to search
+        @return true iff the value was present
+        */
         virtual bool del(const KEY& key) = 0;
+
         // TODO Should be const, waiting for Bst find to become const.
         virtual bool find(const KEY& key, VAL& val) = 0;
+
         // TODO how to add those to the interface? Does not override because
         // derived class signature is different (Hash instead of Map).
         //virtual bool operator==(const Map<KEY,VAL>& other) const = 0;

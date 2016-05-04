@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 
+"""
+Run all programs of form: src/<lang>/<executable>
+
+For some chosen programs, language independent input / output
+data is supplied and verified checked.
+
+For the others, the program is simply run and stdout is checked.
+"""
+
 import os
 import subprocess
 import sys

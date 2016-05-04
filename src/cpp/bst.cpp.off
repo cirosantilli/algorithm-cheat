@@ -10,11 +10,10 @@
 /**
 TODO broken
 
-Current implementation is bad becuase it does not differentiate between the tree and its nodes:
-empty nodes are NULL.
+Current implementation is bad because it does not differentiate between
+the tree and its nodes: empty nodes are NULL.
 The problem is that this makes it harder to represent an empty map.
-TODO convert to two clases:
-one root, and other for nodes only.
+TODO convert to two clases: one root, and other for nodes only.
 
 Binary search tree node.
 
@@ -25,11 +24,11 @@ Implements a map.
 
 # Rationale
 
-Differentiaing tree objects may be a good thing since some methods such as `==` have different meanings
-for entire subtrees or for single nodes.
+Differentiaing tree objects may be a good thing since some methods such as `==`
+have different meanings for entire subtrees or for single nodes.
 
-A better possibility may be to make every operator operate nodewise, and give nodes an extra subtree function
-version of those operators.
+A better possibility may be to make every operator operate nodewise,
+and give nodes an extra subtree function version of those operators.
 */
 template<class KEY, class VAL>
 class Bst : public Map<KEY,VAL> {
@@ -114,10 +113,12 @@ class Bst : public Map<KEY,VAL> {
         bool hasLeft() const { return this->left != NULL; }
         bool hasRight() const { return this->right != NULL; }
 
-        /*
+        /**
         Add a key to the Bst below current node.
 
-        Retuns `true` if the key was inserted sucessfuly, `false` if it was already present.
+        If the key is already present, no insertion is done, and `false` is returned.
+
+        Otherwise, return `true`.
         */
         bool add(const KEY& key, const VAL& val) {
             Bst<KEY,VAL>* cur = this;
@@ -150,11 +151,8 @@ class Bst : public Map<KEY,VAL> {
         */
         /*
         bool add(const KEY& key, const VAL& val) {
-
             Bst<KEY,VAL> *parent, *node;
-            int lr;
-
-            lr = findNodeAndParent(key, parent, node);
+            int lr = findNodeAndParent(key, parent, node);
             if (node == NULL) {
                 if(lr < 0)
                     parent->left = new Bst<KEY,VAL>(key, val);
@@ -270,14 +268,9 @@ class Bst : public Map<KEY,VAL> {
             return false;
         }
 
-        /**
-        Remove key value pair from map.
-
-        @param[in] key key to search
-        @return true iff the value was present
-        */
         bool del(const KEY& key) {
-            Bst<KEY,VAL> *node, *parent, *nextNode, *nextNodeParent; // nextNode: first node that has a larger key than key
+            // nextNode: first node that has a larger key than key
+            Bst<KEY,VAL> *node, *parent, *nextNode, *nextNodeParent;
             bool hasLeft, hasRight;
             int nodeLr;
             //this->findNode(key, node);

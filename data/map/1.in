@@ -1,0 +1,5 @@
+find 1
+add 1 2
+find 1
+remove 1
+find 1

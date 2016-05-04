@@ -13,7 +13,8 @@ Algorithm tutorials and simple implementations with unit tests.
     1.  [Beauty](beauty.md)
         1. [Recursive algorithms](Recursive algorithms.md)
     1.  [Turing machine](turing-machine.md)
-        1. [Out of core algorithms](out-of-core.md)
+        1. [Busy beaver](busy-beaver.md)
+    1.  [Out of core algorithms](out-of-core.md)
     1.  [Undecidability](undecidability.md)
     1.  [P vs NP](p-vs-np.md)
 1.  Data structures
@@ -21,6 +22,7 @@ Algorithm tutorials and simple implementations with unit tests.
         1. [Tree](tree.md)
         1. [Dijkstra](dijkstra.md)
     1.  [Map](map.md): [map.cpp](src/cpp/map.cpp), [bst.cpp](src/cpp/bst.hpp)
+        1. [BST](bst.md)
         1. [Hash map](hash-map.md): [hash_map.cpp](src/cpp/hash_map.hpp)
     1. [Heap](heap.md): [Heap.java](src/java/Heap.java)
 1.  [Sorting algorithms](sort/)

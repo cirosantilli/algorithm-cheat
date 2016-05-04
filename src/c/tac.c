@@ -23,12 +23,9 @@ Gets printed as:
      cdab
 */
 
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "common.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     FILE* fp;
     /* Maximum accepted line length is buf_size including the newline. */
     enum Constexpr { buf_size = 8 };

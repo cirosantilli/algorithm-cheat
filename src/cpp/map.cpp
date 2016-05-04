@@ -18,7 +18,7 @@ int main() {
     // Choose the map type.
     typedef HashMap<int,int> map_t;
 
-    // TODO broken.
+    // TODO broken. When fixed, convert to polymorphism.
     //typedef Bst<int,int> map_t;
 
     map_t mapOrig{
@@ -35,7 +35,7 @@ int main() {
 
     for (int i = 0; i < 1; i++) {
 
-        //add
+        // add
 
             // BST test
 
@@ -51,13 +51,12 @@ int main() {
                 mapOrig.add( 4, 5);
                 mapOrig.add(-1, 0);
 
-        //<<
+        // <<
 
             // TODO test with stringstream
+            // std::cout << mapOrig << std::endl;
 
-            //std::cout << mapOrig << std::endl;
-
-        //find
+        // find
 
             map = mapOrig;
             assert(!map.find(-2, val));
@@ -74,7 +73,7 @@ int main() {
             assert(map.find(4, val));
             assert(val == 5);
 
-            //==
+            // ==
 
                 map = mapOrig;
                 assert(map == mapOrig);
@@ -82,25 +81,25 @@ int main() {
                 assert(map != mapOrig);
 
 
-            //del
+            // del
 
-                //two children
+                // Two children.
                 map.del(0);
                 assert(!map.find(0, val));
 
-                //leaf
+                // Leaf.
                 map = mapOrig;
                 map.del(1);
                 assert(!map.find(1, val));
 
-                //one child
+                // One child.
                 map = mapOrig;
                 map.del(3);
                 assert(!map.find(3, val));
 
         // Hash map tests.
 
-            // Add at powers of 2 the 0 hash so they clutter at hash 0
+            // Add at powers of 2 the 0 hash so they clutter at hash 0.
             map = map_t(0, 1);
             map.add( 1,  2);
             map.add( 2,  3);
@@ -108,11 +107,11 @@ int main() {
             map.add( 8,  9);
             map.add(16, 17);
 
-            //find
+            // find
             assert(map.find(8, val));
             assert(val == 9);
 
-            //del
+            // del
             map.del(0);
             assert(!map.find(0, val));
     }
