@@ -12,7 +12,7 @@ OUTS := $(addsuffix $(OUT_EXT), $(OUTS_NOEXT))
 all: $(OUTS)
 
 %$(OUT_EXT): %$(IN_EXT)
-	gcc -O0 -Wall -ggdb3 -pedantic-errors -o '$@' -std=c89 '$<'
+	gcc -O0 -Wall -ggdb3 -pedantic-errors -o '$@' -std=c99 '$<'
 
 clean:
 	rm *$(OUT_EXT)

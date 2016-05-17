@@ -22,4 +22,4 @@ Algorithm:
 
 ## Delete element
 
-Hard: https://en.wikipedia.org/wiki/Binary_search_tree#Deletion
+Hard: <https://en.wikipedia.org/wiki/Binary_search_tree#Deletion>

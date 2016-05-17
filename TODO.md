@@ -60,6 +60,8 @@ Some NP-complete ones:
 
 -   <http://en.wikipedia.org/wiki/Vertex_cover>
 
+-   <https://en.wikipedia.org/wiki/Partition_problem>: make teams of equal strength, use two piles of books to make a horizontal table
+
 Computer graphics:
 
 -  <https://en.wikipedia.org/wiki/Bresenham's_line_algorithm>
@@ -105,3 +107,7 @@ Error correction:
 -   <https://en.wikipedia.org/wiki/Erasure_code> Some error checking can also deal with erasure.
 
 -   <https://en.wikipedia.org/wiki/Cache_algorithms>, LRU with heap
+
+-   geometric algorithms
+
+    - <https://en.wikipedia.org/wiki/Closest_pair_of_points_problem>, 2D Euclidean can be done in O(n log n)

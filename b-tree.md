@@ -6,6 +6,11 @@ Like a binary tree with many values per node:
 
 ![btree](bree.png)
 
+Notable sub-cases:
+
+- 2-3 <https://en.wikipedia.org/wiki/2%E2%80%933_tree>. Equivalent to AA-trees, which are somewhat like RB-trees (TODO understand exactly how)
+- 2-3-4 <https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree>. Equivalent to RB-trees! TODO how.
+
 Same complexity as RB-tree, but with slower in theory by a constant factor.
 
 Default data structure for MySQL InnoDB `INDEX`.
