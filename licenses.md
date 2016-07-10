@@ -189,11 +189,13 @@ Anyone can do anything with the work without even mentioning you, except copyrig
 
 There have been cases of removal from the public domain because of earlier international blunders: <http://www.themarysue.com/take-works-out-of-public-domain/>
 
+There are some practical downsides of public domain licences: <http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html>
+
 ## WTFPL
 
 <http://programmers.stackexchange.com/questions/182137/whats-the-difference-between-wtfpl-cc0-and-public-domain>
 
-TODO. 
+TODO.
 
 ## Copyright ownership
 
@@ -263,3 +265,13 @@ Similar to Mozilla, but not GPL compatible: <http://vschart.com/compare/mozilla-
 <https://en.wikipedia.org/wiki/SIL_Open_Font_License>
 
 Most popular license at `fontlibrary.org`: <https://fontlibrary.org/en/search?license=OFL%20%28SIL%20Open%20Font%20License%29>
+
+## Fair usage
+
+This is what as decided on the Oracle v. Google case:
+
+- <http://law.stackexchange.com/questions/10945/would-the-oracle-v-google-lawsuit-imply-that-any-api-can-be-re-implemented-inc/10950#10950>
+- <http://law.stackexchange.com/questions/7683/in-the-us-when-is-fair-use-a-defense-to-copyright-infringement/7684#7684>
+- <http://law.stackexchange.com/questions/9510/in-oracle-america-v-google-what-was-the-district-court-jurys-rationale-behind>
+
+It basically give very little insight into future similar cases.

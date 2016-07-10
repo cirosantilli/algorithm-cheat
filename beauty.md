@@ -8,6 +8,8 @@ The beauty of computer science lies mainly on:
 - a few theoretical questions with deep implications
 - the endless race for *the* ultimate algorithm that solves each problem
 
+Things mentioned here might be repeated elsewhere in this repository: this is only a summary of the cream of the crop.
+
 ## Sources
 
 -   <https://en.wikipedia.org/wiki/List_of_algorithms>
@@ -60,6 +62,27 @@ A recursive definition of computable for integer functions: <https://en.wikipedi
 1/0 knapsack can be solved in polynomial time in $n$ and $\epsilon$ if solutions that are $1 - \epsion$ of the optimum are acceptable.
 
 <http://en.wikipedia.org/wiki/FPTAS>
+
+#### Universal Turing machine
+
+We can write an emulator of a Turing machine as another Turing machine.
+
+The simulator takes as initial tape:
+
+- a description of a Turing machine
+- the arguments for that Turing machine
+
+and runs the described Turing machine on it's arguments, without ever overwriting the given machine description.
+
+The question then becomes: what is the emulator with the fewest number of states possible: <https://en.wikipedia.org/wiki/Universal_Turing_machine#Smallest_machines>
+
+15 states for a 2-symbol machine. TODO proved?
+
+There are also 2-state 18 symbol universal machines with multiple symbols: <http://cstheory.stackexchange.com/questions/10207/whats-the-simplest-noncontroversial-2-state-universal-turing-machine>
+
+There is a controversial claim of a (2,3) complete machine: <https://en.wikipedia.org/wiki/Wolfram's_2-state_3-symbol_Turing_machine>
+
+So any further interesting result has to be for between 2 - 18 symbols and 2 - 15 states.
 
 ## Algorithms
 
@@ -484,10 +507,10 @@ First player forces win in at most 41 moves.
 
 <http://en.wikipedia.org/wiki/Convex_hull_algorithms>
 
-## Tier 2
+## Ramsey theory
 
-Not the most beautiful, but interting.
+Leads to huge finite existence bounds like: <https://en.wikipedia.org/wiki/Graham's_number>
 
-### Game theory
+## Game theory
 
 -   <https://en.wikipedia.org/wiki/15_puzzle>

@@ -111,3 +111,5 @@ Error correction:
 -   geometric algorithms
 
     - <https://en.wikipedia.org/wiki/Closest_pair_of_points_problem>, 2D Euclidean can be done in O(n log n)
+
+    - <https://en.wikipedia.org/wiki/Nearest_neighbor_search#Methods> Euclidean.

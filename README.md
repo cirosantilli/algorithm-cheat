@@ -34,6 +34,8 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [Context-free grammar](context-free-grammar.md)
     1. [Regular grammar](regular-grammar.md)
     1. [Regular language](regular-language.md)
+1.  [Programming languages](programming-languages.md)
+    1. [Type systems](type-systems.md)
 1.  String algorithms
     1. [Longest common subsequence](longest-common-subsequence.md)
     1. [Longest increasing subsequence](longest-increasing-subsequence.md)

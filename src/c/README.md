@@ -5,3 +5,4 @@
 1. [Version string](version_string.c)
 1. [Trie](trie.c)
 1. [Most frequent](most_frequent.c)
+1. [Sprite alpha blend](sprite_alpha_blend.c)

@@ -183,3 +183,13 @@ Can be publicly known.
 ### SecurID
 
 <https://en.wikipedia.org/wiki/RSA_SecurID>
+
+## Disk encryption methods
+
+- <http://askubuntu.com/questions/500981/how-to-encrypt-external-devices>
+
+Cross platform:
+
+- <http://askubuntu.com/questions/664088/encrypt-usb-that-is-compatible-with-windows>
+- <http://askubuntu.com/questions/604554/encrypted-filesystem-shared-with-mac-os-x>
+- <http://askubuntu.com/questions/18751/how-to-encrypt-external-devices-using-a-cross-platform-solution>
