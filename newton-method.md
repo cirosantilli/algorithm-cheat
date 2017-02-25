@@ -1,0 +1,3 @@
+# Newton method
+
+TODO: convergence.

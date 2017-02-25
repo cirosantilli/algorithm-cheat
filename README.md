@@ -91,3 +91,5 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [Insertion sort](insertion-sort.md)
 1.  Misc
     1. [Error detection](error-detection.md)
+1.  Numerical
+    [Newton's method](newton-method.md): [newton.py](src/python/newton.py)

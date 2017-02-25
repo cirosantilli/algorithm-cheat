@@ -84,6 +84,10 @@ It is therefore better to play it safe and assume that it is not possible.
 
 [libgit2](https://github.com/libgit2/libgit2) is a notable example of GPLv2 with a linking exception, explicitly allowing linking, since GitHub is behind the library.
 
+### GPL and NDA
+
+A company A cannot modify a GPL source, and license it to another company B, with a license that requires the other company B to not release the source it received.
+
 ### LGPL
 
 <http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License>
@@ -275,3 +279,28 @@ This is what as decided on the Oracle v. Google case:
 - <http://law.stackexchange.com/questions/9510/in-oracle-america-v-google-what-was-the-district-court-jurys-rationale-behind>
 
 It basically give very little insight into future similar cases.
+
+## EULA
+
+Can enforce anything that is not illegal. Some cool examples:
+
+-   you cannot disclose benchmarks of this product. So how can you compare between two vendors? You have to buy both!
+    - <http://law.stackexchange.com/questions/7272/is-the-benchmarking-clause-in-vmwares-eula-actually-valid>
+    - Cadence goes a step further and forbids internal benchmarks as well: <https://web.archive.org/web/20161008212948/https://www.sec.gov/Archives/edgar/data/1160958/000119312511056594/dex1014.htm>
+-   You cannot use this as legal evidence against us:
+    > Your access to the information in this ARM Architecture Reference Manual is conditional upon your acceptance that you will not use or permit others to use the information for the purposes of determining whether implementations of the ARM architecture infringe any third party patents.
+    Very practical. Just put that note on everything you make, and you can never be sued! How can this be enforceable.
+
+Enforceability:
+
+- <http://superuser.com/questions/30940/is-an-eula-enforceable>
+- <https://en.wikipedia.org/wiki/End-user_license_agreement#Enforceability_of_EULAs_in_the_United_States>
+- <https://www.eff.org/wp/dangerous-terms-users-guide-eulas> Mentions the non-benchmark EULA.
+
+## FAL
+
+## Free Art License
+
+<https://en.wikipedia.org/wiki/Free_Art_License>
+
+A copyleft for art.
