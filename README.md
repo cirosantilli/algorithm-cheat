@@ -55,6 +55,9 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [Hanoi tower](hanoi-tower.md)
     1. [Hash function](hash-function.md)
     1. [XOR-swap](xor-swap.md)
+1.  Numerical
+    1. [Matrix multiplication](matrix-multiplication.md)
+    1. [PDE](pde.md)
 1.  Misc
     1. [Bitcoin](bitcoin.md)
     1. [Decimal data type](decimal-data-type.md)
