@@ -11,7 +11,7 @@ Algorithm tutorials and simple implementations with unit tests.
     1. [test](test)
 1.  [Introduction](introduction.md)
     1.  [Beauty](beauty.md)
-        1. [Recursive algorithms](Recursive algorithms.md)
+        1. [Recursive algorithms](recursive-algorithms.md)
     1.  [Turing machine](turing-machine.md)
         1. [Busy beaver](busy-beaver.md)
     1.  [Out of core algorithms](out-of-core.md)
