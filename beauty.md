@@ -473,6 +473,8 @@ Humans tie.
 
 ### Solved
 
+<https://xkcd.com/1002/>
+
 #### Tic tac toe
 
 Draw.
@@ -491,13 +493,31 @@ Many win / lose results exist in function of m, n and k.
 
 #### Connect four
 
+- <https://en.wikipedia.org/wiki/Connect_Four>
+
 First player forces win in at most 41 moves.
 
-### Non perfect information
+Solved in 1988, without computer brute force.
 
-- TODO poker? other card games. Could not find.
+#### Checkers
 
-- Guess Who <http://arxiv.org/abs/1509.03327>
+Solved in 2007 with extensive number crunching.
+
+<https://www.newscientist.com/article/dn12296-checkers-solved-after-years-of-number-crunching/>
+
+<https://en.wikipedia.org/wiki/Chinook_(draughts_player)>
+
+### Non-perfect information
+
+-   TODO poker? other card games. Could not find.
+
+-   Guess Who <http://arxiv.org/abs/1509.03327>
+
+-   Randomness can be seen as incomplete information:
+
+    - Cards in other player's hands: incomplete information that one player does not have
+    - Cards left in deck: incomplete information that no player has
+    - Next dice rolls: incomplete information that no player has. Full description is an infinite sequence of rolls if the game does not have a turn limit.
 
 ## Computational geometry
 
