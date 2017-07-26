@@ -84,6 +84,17 @@ It is therefore better to play it safe and assume that it is not possible.
 
 [libgit2](https://github.com/libgit2/libgit2) is a notable example of GPLv2 with a linking exception, explicitly allowing linking, since GitHub is behind the library.
 
+### GPL and interpreted modules
+
+E.g. Python `import`:
+
+- https://softwareengineering.stackexchange.com/questions/87446/using-a-gplv3-python-module-will-my-entire-project-have-to-be-gplv3-licensed
+- https://opensource.stackexchange.com/questions/1487/how-does-the-gpls-linking-restriction-apply-when-using-a-proprietary-library-wi
+- https://opensource.stackexchange.com/questions/2139/can-i-license-python-project-under-3-clause-bsd-while-it-has-gpl-based-dependenc
+- https://stackoverflow.com/questions/999468/question-on-importing-a-gpled-python-library-in-commercial-code
+- https://softwareengineering.stackexchange.com/questions/167773/how-does-the-gpl-static-vs-dynamic-linking-rule-apply-to-interpreted-languages
+- https://en.wikipedia.org/wiki/Python_Software_Foundation_License
+
 ### GPL and NDA
 
 A company A cannot modify a GPL source, and license it to another company B, with a license that requires the other company B to not release the source it received.
