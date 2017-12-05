@@ -6,6 +6,8 @@
 
 ## Free
 
+- <https://github.com/OpenGenus/cosmos> similar to this with more algorithms, but where are the tests?
+
 - <http://algs4.cs.princeton.edu/home/>, which has lots GPL Java source. This kind soul has put the source up on GitHub: <https://github.com/aistrate/AlgorithmsSedgewick>
 
 - <http://www3.cs.stonybrook.edu/~algorith/>. Links to tons of open source algorithm implementations that solve many problems. Each algorithm has a rating, and algorithms are all classified.
