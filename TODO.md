@@ -1,5 +1,9 @@
 # TODO
 
+GPU / GPU benchmarks. Basically, they tell you which algorithms industry really cares about:
+
+-   SPEC2017: https://www.spec.org/cpu2017/Docs/index.html#benchmarks
+
 Algorithms that could be included:
 
 -   <http://stackoverflow.com/questions/2113795/quickest-way-to-find-missing-number-in-an-array-of-numbers>
