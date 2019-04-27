@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-'''
-https://stats.stackexchange.com/questions/376361/how-to-find-the-sample-points-that-have-statistically-meaningful-large-ratios-be
-'''
-
 from signal import signal, SIGPIPE, SIG_DFL
 import sys
 

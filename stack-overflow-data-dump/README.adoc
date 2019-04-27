@@ -1,0 +1,9 @@
+= Stack Overflow data dump
+
+== Find users with low reputation and high profile view count
+
+Helper scripts for: https://stats.stackexchange.com/questions/376361/how-to-find-the-sample-points-that-have-statistically-meaningful-large-ratios-be
+
+* link:users_rep_view_dat.gnuplot[]
+* link:users_rep_view_dat_to_html.py[]
+* link:users_xml_to_rep_view_dat.py[]
