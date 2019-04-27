@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
 
-"""
-Convert Users.xml to both:
-
-- a simple space separated text file
-- an HTML file with hyperlinks for interactive exploration
-
-Can only contain fields which don't contain spaces, but this basically equals all the interesting fields.
-"""
+'''
+https://stats.stackexchange.com/questions/376361/how-to-find-the-sample-points-that-have-statistically-meaningful-large-ratios-be
+'''
 
 from signal import signal, SIGPIPE, SIG_DFL
 import sys
