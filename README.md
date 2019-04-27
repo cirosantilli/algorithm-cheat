@@ -65,6 +65,7 @@ Algorithm tutorials and simple multi-language implementations with unit tests. T
     1. [Licenses](licenses.md)
     1. [Quantum computing](quantum-computing.md)
     1. [Security](security.md)
+    1. [Stack Overflow Data Dump](stack-overflow-data-dump/)
 1.  [Bibliography](bibliography.md)
 1.  [TODO](TODO.md)
 

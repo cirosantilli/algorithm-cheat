@@ -1,0 +1,49 @@
+= Stack Overflow data dump
+
+== Find users with low reputation and high profile view count
+
+Helper scripts for: https://stats.stackexchange.com/questions/376361/how-to-find-the-sample-points-that-have-statistically-meaningful-large-ratios-be
+
+For this problem, you can just use the small (75M) preprocessed file:
+
+....
+wget TODO users_rep_view.dat
+7z x users_rep_view.dat.7z
+....
+
+which produces the UTF-8 encoded file `users_rep_view.dat`.
+
+This initial data was obtained from the 2019-03 data dump as follows:
+
+....
+wget https://archive.org/download/stackexchange/stackoverflow.com-Users.7z
+
+# Produces Users.xml
+7z x stackoverflow.com-Users.7z
+
+# Preprocess data to minimize it.
+./users_xml_to_rep_view_dat.py Users.xml > users_rep_view.dat
+7z a users_rep_view.dat.7z users_rep_view.dat
+
+sha256sum stackoverflow.com-Users.7z users_rep_view.dat.7z > checksums
+....
+
+After selecting your outliers by reordering `users_rep_view.dat`, you can quickly view the top picks quickly with:
+
+....
+./users_rep_view_dat_to_html.py users_rep_view.dat | head -n 1000 > users_rep_view.html
+xdg-open users_rep_view.html
+....
+
+Bibliography:
+
+* https://stats.stackexchange.com/questions/376361/how-to-find-the-sample-points-that-have-statistically-meaningful-large-ratios-be
+* https://stats.stackexchange.com/questions/53227/test-for-bivariate-outliers
+* https://stackoverflow.com/questions/41462073/multivariate-outlier-detection-using-r-with-probability
+* https://stats.stackexchange.com/questions/37865/is-there-a-simple-way-of-detecting-outliers
+* https://stats.stackexchange.com/questions/175/how-should-outliers-be-dealt-with-in-linear-regression-analysis
+* https://math.meta.stackexchange.com/questions/26137/who-maximizes-the-ratio-of-people-reached-to-questions-answered
+
+Other sample applications:
+
+* which startups are meaningful unicorns? If you invest 1 dollar with tiny equity, you create one! https://www.linkedin.com/feed/update/urn:li:activity:6362648516858310656
