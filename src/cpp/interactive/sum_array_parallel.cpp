@@ -24,19 +24,6 @@ typename T::value_type sum_array(
     return sum;
 }
 
-template<class T>
-void sum_array_index_store(
-    const T& array,
-    typename T::size_type begin,
-    typename T::size_type end,
-    typename T::value_type& sum
-) {
-    while (begin < end) {
-        sum += array[begin];
-        begin++;
-    }
-}
-
 // Single threaded array sum, container version.
 template<class T>
 typename T::value_type sum_array(const T& array) {
@@ -44,18 +31,6 @@ typename T::value_type sum_array(const T& array) {
         array.cbegin(),
         array.cend()
     );
-}
-
-template<class T>
-void sum_array_store(
-    typename T::const_iterator begin,
-    typename T::const_iterator end,
-    typename T::value_type& sum
-) {
-    while (begin != end) {
-        sum += *begin;
-        begin++;
-    }
 }
 
 // Multi threaded array sum.
@@ -73,7 +48,6 @@ typename T::value_type sum_array_parallel(
     auto it = array.cbegin();
     typename T::value_type sum = 0;
 
-#if 1
     std::vector<std::future<DataType>> futures;
     for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
         futures.push_back(std::async(
@@ -94,68 +68,10 @@ typename T::value_type sum_array_parallel(
     for (auto& future : futures) {
         sum += future.get();
     }
-#endif
-
-#if 0
-    std::vector<std::future<DataType>> futures;
-    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
-        futures.push_back(std::async(
-            std::launch::async,
-            [i,delta]{
-                return sum_array<T>(i * delta, (i+1) * delta);
-            }
-        ));
-        it += delta;
-    }
-    for (auto& future : futures) {
-        sum += future.get();
-    }
-    for (auto& future : futures) {
-        sum += future.get();
-    }
-#endif
-
-#if 0
-    std::vector<std::thread> threads(actual_nthreads);
-    std::vector<typename T::value_type> outputs(actual_nthreads);
-    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
-        threads[i] = std::thread(
-            sum_array_store<T>,
-            it,
-            it + delta,
-            std::ref(outputs[i])
-        );
-        it += delta;
-    }
-    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
-        threads[i].join();
-        sum += outputs[i];
-    }
-#endif
-
-#if 0
-    std::vector<std::thread> threads(actual_nthreads);
-    std::vector<typename T::value_type> outputs(actual_nthreads);
-    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
-        threads[i] = std::thread(
-            sum_array_index_store<T>,
-            std::ref(array),
-            i * delta,
-            (i + 1) * delta,
-            std::ref(outputs[i])
-        );
-        it += delta;
-    }
-    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
-        threads[i].join();
-        sum += outputs[i];
-    }
-#endif
-
     return sum + sum_array<T>(it, array.cend());
 }
 
-void print_result(std::chrono::duration<double> dt, unsigned int nthreads) {
+void print_result(unsigned int nthreads, std::chrono::duration<double> dt) {
     std::cout
         << std::setprecision(4)
         << std::fixed
@@ -167,38 +83,37 @@ void print_result(std::chrono::duration<double> dt, unsigned int nthreads) {
 }
 
 int main(int argc, char **argv) {
-    unsigned long long nelems;
+    unsigned long long array_size;
     if (argc > 1) {
-        nelems = std::strtoll(argv[1], NULL, 10);
+        array_size = std::strtoll(argv[1], NULL, 10);
     } else {
-        nelems = 10;
+        array_size = 10;
     }
 
     // Initialize array with random numbers.
-    std::vector<DataType> elems(nelems);
+    std::vector<DataType> array(array_size);
     std::mt19937_64 rng(std::random_device{}());
     std::uniform_int_distribution<decltype(rng)::result_type> dist(
         0,
         std::numeric_limits<DataType>::max()
     );
-    for (auto& i : elems) {
+    for (auto& i : array) {
         i = dist(rng);
-        i = 1;
     }
 
     // Single threaded sanity check.
     auto start = std::chrono::steady_clock::now();
-    auto serial_result = sum_array(elems);
+    auto serial_result = sum_array(array);
     auto end = std::chrono::steady_clock::now();
-    print_result(end - start, 0);
+    print_result(0, end - start);
 
     // Use different number of threads.
     auto max_nthreads = std::thread::hardware_concurrency() * 2;
     for (decltype(max_nthreads) nthreads = 1; nthreads <= max_nthreads; ++nthreads) {
         auto start = std::chrono::steady_clock::now();
-        auto result = sum_array_parallel(elems, nthreads);
+        auto result = sum_array_parallel(array, nthreads);
         auto end = std::chrono::steady_clock::now();
-        print_result(end - start, nthreads);
+        print_result(nthreads, end - start);
         // Sanity check that our implementation is correct.
         assert(result == serial_result);
     }
