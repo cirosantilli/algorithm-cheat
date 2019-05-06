@@ -1,140 +1,205 @@
-/*
-Test parallel array sum vs sequential.
-Run multiple number of threads to see how it scales.
-Parallelization is only of limited use because we quickly become IO-bound:
-http://stackoverflow.com/questions/868568/what-do-the-terms-cpu-bound-and-i-o-bound-mean
-*/
-
-#include <algorithm>
+#include <array>
 #include <cassert>
-#include <cinttypes>
 #include <cstdlib>
-#include <ctime>
+#include <future>
+#include <iomanip>
 #include <iostream>
+#include <random>
 #include <thread>
 #include <vector>
 
-// Size of vectors to be added.
-constexpr size_t SIZE = 0x100000u;
-// How many vector additions will be done,
-// to get better averages for parallel processing.
-constexpr uintmax_t REPEAT = 0x10u;
-typedef uint64_t dataType;
+typedef uint64_t DataType;
 
-// TODO no stdlib for this?
-class Callable {
-    public:
-        virtual void operator()() const = 0;
-};
-
-template<typename T = int>
-class SumArray : public Callable {
-    public:
-        SumArray() {}
-        SumArray(const T *input, size_t size, T *output, size_t step = 1) :
-            input(input), size(size), output(output) {}
-        virtual void operator()() const {
-            size_t i;
-            T sum = 0;
-            for (i = 0; i < this->size; ++i)
-                sum += this->input[i];
-            *(this->output) = sum;
-        }
-    protected:
-        const T *input;
-        T *output;
-        size_t size;
-};
-
-template<typename T = int>
-class SumArrayParallel : public SumArray<T> {
-    public:
-        SumArrayParallel() {}
-        SumArrayParallel(const T *input, size_t size, T *output, unsigned int nThreads) :
-            SumArray<T>(input, size, output), nThreads(nThreads) {}
-        virtual void operator()() const {
-            size_t start, width, end;
-            std::vector<T> outputs;
-            uint64_t i, nThreads;
-            unsigned int actualNThreads;
-
-            actualNThreads = std::min(
-                    (unsigned int)this->size,
-                    this->nThreads);
-            std::vector<std::thread> threads(actualNThreads);
-            outputs = std::vector<T>(actualNThreads);
-            width = this->size / actualNThreads;
-
-            start = 0;
-            for (i = 0; i < actualNThreads - 1; ++i) {
-                threads[i] = std::thread(&SumArray<T>::operator(),
-                        SumArray<T>(&this->input[start], width, &outputs[i]));
-                start += width;
-            }
-            threads[actualNThreads - 1] = std::thread(&SumArray<T>::operator(),
-                    SumArray<T>(&this->input[start], this->size - start, &outputs[actualNThreads - 1]));
-            for (i = 0; i < actualNThreads; ++i) {
-                threads[i].join();
-            }
-
-            SumArray<T>(outputs.data(), actualNThreads, this->output)();
-        }
-    private:
-        unsigned int nThreads;
-};
-
-int main() {
-    std::size_t i;
-    std::vector<std::chrono::duration<double>> dts;
-    std::chrono::time_point<std::chrono::steady_clock> start, end;
-    std::vector<dataType> input(SIZE);
-    std::vector<Callable*> callables;
-    dataType output;
-    std::vector<dataType> repeatOutputs;
-    std::uintmax_t r;
-    unsigned int nCores, totalTests;
-
-    nCores = std::thread::hardware_concurrency();
-    // - 1 serial test
-    // - 1 test with nCores + 1 (no improvement expected)
-    totalTests = nCores + 2;
-    callables.resize(totalTests);
-    repeatOutputs.resize(totalTests);
-    for (auto& r : repeatOutputs)
-        r = 0;
-    dts.resize(totalTests);
-    for (auto& dt : dts)
-        dt = std::chrono::duration<double>::zero();
-    std::srand(std::time(NULL));
-    for (r = 0; r < REPEAT; ++r) {
-        // This data generation dominates the test run time...
-        for (i = 0; i < SIZE; ++i)
-            input[i] = std::rand();
-
-        // Setup serial test.
-        SumArray<dataType> sumArray(input.data(), SIZE, &output);
-        callables[0] = &sumArray;
-
-        // Setup parallal tests with different number of threads.
-        std::vector<SumArrayParallel<dataType>> sumArrayParallels(totalTests - 1);
-        for (std::vector<SumArrayParallel<dataType>>::size_type i = 0; i < sumArrayParallels.size(); ++i) {
-            sumArrayParallels[i] = SumArrayParallel<dataType>(input.data(), SIZE, &output, i + 1);
-            callables[i + 1] = &sumArrayParallels[i];
-        }
-
-        // Run tests.
-        for (std::vector<Callable*>::size_type i = 0; i < callables.size(); ++i) {
-            start = std::chrono::steady_clock::now();
-            (*callables[i])();
-            end = std::chrono::steady_clock::now();
-            dts[i] += end - start;
-            repeatOutputs[i] += output;
-        }
+// Single threaded array, iterator version.
+template<class T>
+typename T::value_type sum_array(
+    typename T::const_iterator begin,
+    typename T::const_iterator end
+) {
+    typename T::value_type sum = 0;
+    while (begin != end) {
+        sum += *begin;
+        begin++;
     }
-    std::cout << "n cores = " << nCores << std::endl;
-    std::cout << "result = " << repeatOutputs[0] << std::endl;
-    std::cout << "serial / parallel time (s)" << std::endl;
-    for (auto& dt : dts)
-        std::cout << dt.count() << std::endl;
-    assert(std::adjacent_find(repeatOutputs.begin(), repeatOutputs.end(), std::not_equal_to<int>()) == repeatOutputs.end());
+    return sum;
+}
+
+template<class T>
+void sum_array_index_store(
+    const T& array,
+    typename T::size_type begin,
+    typename T::size_type end,
+    typename T::value_type& sum
+) {
+    while (begin < end) {
+        sum += array[begin];
+        begin++;
+    }
+}
+
+// Single threaded array sum, container version.
+template<class T>
+typename T::value_type sum_array(const T& array) {
+    return sum_array<T>(
+        array.cbegin(),
+        array.cend()
+    );
+}
+
+template<class T>
+void sum_array_store(
+    typename T::const_iterator begin,
+    typename T::const_iterator end,
+    typename T::value_type& sum
+) {
+    while (begin != end) {
+        sum += *begin;
+        begin++;
+    }
+}
+
+// Multi threaded array sum.
+template<class T>
+typename T::value_type sum_array_parallel(
+    const T& array,
+    unsigned int nthreads
+) {
+    auto size = array.size();
+    auto actual_nthreads = std::min(
+        size,
+        (decltype(array.size()))nthreads
+    );
+    auto delta = size / actual_nthreads;
+    auto it = array.cbegin();
+    typename T::value_type sum = 0;
+
+#if 1
+    std::vector<std::future<DataType>> futures;
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        futures.push_back(std::async(
+            std::launch::async,
+            [it, delta]{return sum_array<T>(it, it + delta);}
+        ));
+#if 0
+        // TODO why this doesn't this syntax work? I can't be bothered right now.
+        futures.push_back(std::async(
+            std::launch::async,
+            sum_array<T>,
+            it,
+            it + delta
+        ));
+#endif
+        it += delta;
+    }
+    for (auto& future : futures) {
+        sum += future.get();
+    }
+#endif
+
+#if 0
+    std::vector<std::future<DataType>> futures;
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        futures.push_back(std::async(
+            std::launch::async,
+            [i,delta]{
+                return sum_array<T>(i * delta, (i+1) * delta);
+            }
+        ));
+        it += delta;
+    }
+    for (auto& future : futures) {
+        sum += future.get();
+    }
+    for (auto& future : futures) {
+        sum += future.get();
+    }
+#endif
+
+#if 0
+    std::vector<std::thread> threads(actual_nthreads);
+    std::vector<typename T::value_type> outputs(actual_nthreads);
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        threads[i] = std::thread(
+            sum_array_store<T>,
+            it,
+            it + delta,
+            std::ref(outputs[i])
+        );
+        it += delta;
+    }
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        threads[i].join();
+        sum += outputs[i];
+    }
+#endif
+
+#if 0
+    std::vector<std::thread> threads(actual_nthreads);
+    std::vector<typename T::value_type> outputs(actual_nthreads);
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        threads[i] = std::thread(
+            sum_array_index_store<T>,
+            std::ref(array),
+            i * delta,
+            (i + 1) * delta,
+            std::ref(outputs[i])
+        );
+        it += delta;
+    }
+    for (decltype(actual_nthreads) i = 0; i < actual_nthreads; ++i) {
+        threads[i].join();
+        sum += outputs[i];
+    }
+#endif
+
+    return sum + sum_array<T>(it, array.cend());
+}
+
+void print_result(std::chrono::duration<double> dt, unsigned int nthreads) {
+    std::cout
+        << std::setprecision(4)
+        << std::fixed
+        << nthreads
+        << " "
+        << std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1>>>(dt).count()
+        << std::endl
+    ;
+}
+
+int main(int argc, char **argv) {
+    unsigned long long nelems;
+    if (argc > 1) {
+        nelems = std::strtoll(argv[1], NULL, 10);
+    } else {
+        nelems = 10;
+    }
+
+    // Initialize array with random numbers.
+    std::vector<DataType> elems(nelems);
+    std::mt19937_64 rng(std::random_device{}());
+    std::uniform_int_distribution<decltype(rng)::result_type> dist(
+        0,
+        std::numeric_limits<DataType>::max()
+    );
+    for (auto& i : elems) {
+        i = dist(rng);
+        i = 1;
+    }
+
+    // Single threaded sanity check.
+    auto start = std::chrono::steady_clock::now();
+    auto serial_result = sum_array(elems);
+    auto end = std::chrono::steady_clock::now();
+    print_result(end - start, 0);
+
+    // Use different number of threads.
+    auto max_nthreads = std::thread::hardware_concurrency() * 2;
+    for (decltype(max_nthreads) nthreads = 1; nthreads <= max_nthreads; ++nthreads) {
+        auto start = std::chrono::steady_clock::now();
+        auto result = sum_array_parallel(elems, nthreads);
+        auto end = std::chrono::steady_clock::now();
+        print_result(end - start, nthreads);
+        // Sanity check that our implementation is correct.
+        assert(result == serial_result);
+    }
 }
