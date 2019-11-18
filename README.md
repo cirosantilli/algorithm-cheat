@@ -1,3 +1,10 @@
+MOVING to: https://cirosantilli.com/linux-kernel-module-cheat#algorithms
+
+It is early days, but this repo will be progressively split up and moved to either:
+
+* https://cirosantilli.com/linux-kernel-module-cheat#algorithms for runnable algorithms with input and output, because we can factor out some automation with that repo, notably being able to run on gem5 for reproducible timing experiments
+* https://github.com/cirosantilli/cirosantilli.github.io for the "theoretical stuff" that is less runnable
+
 # Algorithm cheat ![logo](logo.png)
 
 [![Build Status](https://travis-ci.org/cirosantilli/algorithm-cheat.svg?branch=master)](https://travis-ci.org/cirosantilli/algorithm-cheat)
